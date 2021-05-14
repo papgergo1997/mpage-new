@@ -1,1 +1,30 @@
-<p>paintings-list works!</p>
+<div class="container">
+    <div class="row">
+        <div>
+            <table class="table table-striped">
+                <thead class="bg-dark text-white">
+                    <th>Név</th>
+                    <th>Leírás</th>
+                    <th>Méret</th>
+                    <th>Típus</th>
+                    <th>Kép</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of list$ | async">
+                        <td>{{item.name}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.size}}</td>
+                        <td>{{item.type}}</td>
+                        <td>{{item.picture}}</td>
+                        <td>
+                            <button class="btn btn-danger">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
