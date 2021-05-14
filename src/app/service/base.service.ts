@@ -27,6 +27,12 @@ export class BaseService<T extends { id: string }> {
 
   create(doc: any): Promise<any> {
     return this.collection.add({ ...doc });
-  }
+  };
+
+  update(doc: any): Promise<any> {
+    const id = doc.id;
+    delete doc.id;
+    return this.collection.doc(id).update({ ...doc });
+  };
 
 }
