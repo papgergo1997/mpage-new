@@ -19,6 +19,10 @@ export class BaseService<T extends { id: string }> {
     });
   }
 
-
+  get(id: string): Observable<T> {
+    return this.collection.doc(id).valueChanges({
+      idField: 'id'
+    });
+  }
 
 }
