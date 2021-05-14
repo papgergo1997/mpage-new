@@ -35,4 +35,8 @@ export class BaseService<T extends { id: string }> {
     return this.collection.doc(id).update({ ...doc });
   };
 
+  remove(doc: any): Promise<any> {
+    return this.collection.doc(doc.id).delete();
+  };
+
 }
