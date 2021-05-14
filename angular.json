@@ -33,9 +33,17 @@
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/font-awesome/css/font-awesome.min.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "src/assets/css/material-dashboard.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/core/jquery.min.js",
+              "src/assets/js/core/popper.min.js",
+              "src/assets/js/core/bootstrap-material-design.min.js",
+              "src/assets/js/plugins/perfect-scrollbar.jquery.min.js",
+              "src/assets/js/plugins/chartist.min.js",
+              "src/assets/js/material-dashboard.min.js"
+            ]
           },
           "configurations": {
             "production": {
