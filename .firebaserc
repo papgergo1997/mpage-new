@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mpage-project": {
+      "hosting": {
+        "mpage-project": [
+          "mpage-project"
+        ]
+      }
+    }
+  }
+}
