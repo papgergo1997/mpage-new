@@ -17,12 +17,16 @@ export class BaseService<T extends { id: string }> {
     this.list$ = this.collection.valueChanges({
       idField: 'id'
     });
-  }
+  };
 
   get(id: string): Observable<T> {
     return this.collection.doc(id).valueChanges({
       idField: 'id'
     });
+  };
+
+  create(doc: any): Promise<any> {
+    return this.collection.add({ ...doc });
   }
 
 }
