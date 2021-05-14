@@ -11,7 +11,7 @@ export class BaseService<T extends { id: string }> {
   list$: Observable<any>;
   collection: AngularFirestoreCollection<any>;
 
-  constructor(private fireStore: AngularFirestore,
+  constructor(public fireStore: AngularFirestore,
     @Inject('entityName') entityName: string,) {
     this.collection = this.fireStore.collection(entityName);
     this.list$ = this.collection.valueChanges({
@@ -25,7 +25,7 @@ export class BaseService<T extends { id: string }> {
     });
   };
 
-  create(doc: any): Promise<any> {
+  create(doc: T): Promise<any> {
     return this.collection.add({ ...doc });
   };
 
@@ -35,7 +35,7 @@ export class BaseService<T extends { id: string }> {
     return this.collection.doc(id).update({ ...doc });
   };
 
-  remove(doc: any): Promise<any> {
+  remove(doc: T): Promise<any> {
     return this.collection.doc(doc.id).delete();
   };
 
