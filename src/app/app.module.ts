@@ -12,6 +12,9 @@ import { SideNavComponent } from './pageComponents/side-nav/side-nav.component';
 import { AdminNavComponent } from './pageComponents/admin-nav/admin-nav.component';
 import { AdminFooterComponent } from './pageComponents/admin-footer/admin-footer.component';
 import { PaintingsListComponent } from './list/paintings-list/paintings-list.component';
+import { PhotoUploadFormComponent } from './photo-upload-form/photo-upload-form.component';
+import { PhotoDetailsComponent } from './photo-details/photo-details.component';
+import { PhotoListComponent } from './photo-list/photo-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { PaintingsListComponent } from './list/paintings-list/paintings-list.com
     SideNavComponent,
     AdminNavComponent,
     AdminFooterComponent,
-    PaintingsListComponent
+    PaintingsListComponent,
+    PhotoUploadFormComponent,
+    PhotoDetailsComponent,
+    PhotoListComponent
   ],
   imports: [
     BrowserModule,
