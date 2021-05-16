@@ -16,7 +16,7 @@ export class PhotoDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deletePhoto(photo: Photo): void {
+  deletePhoto(photo): void {
     this.pUService.deleteFile(photo);
   }
 }

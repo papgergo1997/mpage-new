@@ -7,6 +7,7 @@ export const environment = {
   firebaseConfig: {
     apiKey: "AIzaSyBm9OkQYc7A0BMm2BCpD88aDZG4nLM8F8I",
     authDomain: "mpage-project.firebaseapp.com",
+    databaseURL: "https://mpage-project-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "mpage-project",
     storageBucket: "mpage-project.appspot.com",
     messagingSenderId: "444606152641",

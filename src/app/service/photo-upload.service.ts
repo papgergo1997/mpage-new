@@ -45,7 +45,7 @@ export class PhotoUploadService {
       .then(() => {
         this.deleteFileStorage(photo.name)
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log(error))
   };
 
   private deleteFileDatabase(key: string): Promise<void> {
