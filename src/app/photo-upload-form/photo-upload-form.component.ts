@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { error } from 'selenium-webdriver';
 import { Photo } from '../model/photo';
 import { PhotoUploadService } from '../service/photo-upload.service';
 
