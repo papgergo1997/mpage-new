@@ -17,6 +17,11 @@ export class PaintingEditComponent implements OnInit {
   }
 
   onUpdate(form: NgForm, painting: Painting): void {
-    this.pService.update(painting);
+    if (painting.id !== '0') {
+      this.pService.update(painting);
+    } else {
+      this.pService.create(painting);
+    }
+
   }
 }
