@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Config } from 'protractor';
+import { PaintingEditComponent } from './edit/painting-edit/painting-edit.component';
 import { PaintingsListComponent } from './list/paintings-list/paintings-list.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { PhotoDetailsComponent } from './photo-details/photo-details.component';
@@ -12,8 +13,12 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {
-        path: "pList",
+        path: "paintings",
         component: PaintingsListComponent
+      },
+      {
+        path: "paintings/:id",
+        component: PaintingEditComponent
       }
     ]
   },
