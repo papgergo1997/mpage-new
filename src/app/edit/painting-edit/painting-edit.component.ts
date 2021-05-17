@@ -19,7 +19,6 @@ export class PaintingEditComponent implements OnInit {
   selectedFiles: FileList;
   currentPhoto: Photo;
   percentage: number = 0;
-  url: string = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
