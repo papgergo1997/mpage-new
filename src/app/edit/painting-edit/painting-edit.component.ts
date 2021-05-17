@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 import { Painting } from 'src/app/model/painting';
 import { Photo } from 'src/app/model/photo';
 import { PaintingsService } from 'src/app/service/paintings.service';
@@ -18,9 +18,11 @@ export class PaintingEditComponent implements OnInit {
   paintings$: Observable<Painting> = this.activatedRoute.params.pipe(
     switchMap(params => this.pService.get(params.id))
   );
+  painting: Painting;
   selectedFiles: FileList;
   currentPhoto: Photo;
   percentage: number = 0;
+  url: string = '';
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -29,6 +31,7 @@ export class PaintingEditComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.paintings$.subscribe(painting => this.painting = painting)
   }
 
   onUpdate(form: NgForm, painting: Painting): void {
@@ -57,6 +60,10 @@ export class PaintingEditComponent implements OnInit {
     this.pUploadService.pushFileToStorage(this.currentPhoto).subscribe(
       percentage => {
         this.percentage = Math.round(percentage);
+        this.pUploadService.getFiles(1).snapshotChanges().pipe(
+          map(changes =>
+            changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+          )).subscribe(photo => this.painting.picture = photo.map(photo => photo.url).toString())
       },
       error => {
         console.log(error);
