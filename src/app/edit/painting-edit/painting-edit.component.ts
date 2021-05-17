@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { Painting } from 'src/app/model/painting';
 import { PaintingsService } from 'src/app/service/paintings.service';
 import { PhotoUploadService } from 'src/app/service/photo-upload.service';
@@ -11,7 +14,12 @@ import { PhotoUploadService } from 'src/app/service/photo-upload.service';
 })
 export class PaintingEditComponent implements OnInit {
 
-  constructor(private pService: PaintingsService, private pUploadService: PhotoUploadService) { }
+  paintings$: Observable<Painting> = this.activatedRoute.params.pipe(
+    switchMap(params => this.pService.get(params.id))
+  )
+
+  constructor(
+    private activatedRoute: ActivatedRoute, private pService: PaintingsService, private pUploadService: PhotoUploadService) { }
 
   ngOnInit(): void {
   }
