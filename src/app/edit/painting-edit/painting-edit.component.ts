@@ -15,9 +15,6 @@ import { PhotoUploadService } from 'src/app/service/photo-upload.service';
 })
 export class PaintingEditComponent implements OnInit {
 
-  paintings$: Observable<Painting> = this.activatedRoute.params.pipe(
-    switchMap(params => this.pService.get(params.id))
-  );
   painting: Painting;
   selectedFiles: FileList;
   currentPhoto: Photo;
@@ -31,7 +28,9 @@ export class PaintingEditComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.paintings$.subscribe(painting => this.painting = painting)
+    this.activatedRoute.params.pipe(
+      switchMap(params => this.pService.get(params.id))
+    ).subscribe(painting => this.painting = painting)
   }
 
   onUpdate(form: NgForm, painting: Painting): void {
