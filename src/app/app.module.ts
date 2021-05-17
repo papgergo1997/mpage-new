@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire';
@@ -17,6 +19,7 @@ import { PhotoUploadFormComponent } from './photo-upload-form/photo-upload-form.
 import { PhotoDetailsComponent } from './photo-details/photo-details.component';
 import { PhotoListComponent } from './photo-list/photo-list.component';
 import { PaintingEditComponent } from './edit/painting-edit/painting-edit.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -32,13 +35,16 @@ import { PaintingEditComponent } from './edit/painting-edit/painting-edit.compon
     PaintingEditComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

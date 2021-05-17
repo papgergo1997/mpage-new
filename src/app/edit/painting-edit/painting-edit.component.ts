@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { Painting } from 'src/app/model/painting';
@@ -24,7 +25,8 @@ export class PaintingEditComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private pService: PaintingsService,
     private pUploadService: PhotoUploadService,
-    private router: Router) { }
+    private router: Router,
+    private toaster: ToastrService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
@@ -36,12 +38,18 @@ export class PaintingEditComponent implements OnInit {
     if (painting.id == '') {
       this.pService.create(painting)
         .then(
-          () => this.router.navigate(['admin/paintings']))
+          () => {
+            this.router.navigate(['admin/paintings']);
+            this.toaster.success('Sikeres létrehozás!', 'Létrehozva', { timeOut: 3000 });
+          })
         .catch(error => console.log(error));
     } else {
       this.pService.update(painting)
         .then(
-          () => this.router.navigate(['admin/paintings']))
+          () => {
+            this.router.navigate(['admin/paintings']);
+            this.toaster.info('Sikeres frissítés!', 'Frissítve', { timeOut: 3000 });
+          })
         .catch(error => console.log(error));
     }
 

@@ -1,5 +1,11 @@
 <div class="container">
     <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a [routerLink]="['/admin/'+ 'paintings']">Festmények</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Szerkesztő</li>
+            </ol>
+        </nav>
         <div *ngIf="painting" class="col-6 offset-3">
             <form #paintingForm="ngForm" (ngSubmit)="onUpdate(paintingForm, painting)">
                 <div class="form-group">
