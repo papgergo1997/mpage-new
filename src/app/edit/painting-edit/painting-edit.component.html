@@ -20,7 +20,8 @@
                 </div>
                 <div class="form-group">
                     <label for="picture">Kép</label>
-                    <input name="picture" type="text" [(ngModel)]="painting.picture" class="form-control">
+                    <img src="{{painting.picture}}" alt="" style="width: 200px;">
+                    <input name="picture" type="text" [(ngModel)]="painting.picture" class="form-control" readonly>
                 </div>
                 <div>
                     <label>
