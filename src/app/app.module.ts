@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { PaintingsListComponent } from './list/paintings-list/paintings-list.com
 import { PhotoUploadFormComponent } from './photo-upload-form/photo-upload-form.component';
 import { PhotoDetailsComponent } from './photo-details/photo-details.component';
 import { PhotoListComponent } from './photo-list/photo-list.component';
+import { PaintingEditComponent } from './edit/painting-edit/painting-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,12 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
     PaintingsListComponent,
     PhotoUploadFormComponent,
     PhotoDetailsComponent,
-    PhotoListComponent
+    PhotoListComponent,
+    PaintingEditComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,

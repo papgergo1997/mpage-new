@@ -12,9 +12,13 @@ export class PhotoUploadService {
 
   private basePath: string = '/uploads';
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) { }
+  photos: AngularFireList<Photo>;
 
-  pushFileToStorage(photo: Photo): Observable<number | undefined> {
+  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {
+    this.photos = this.getFiles(100);
+  }
+
+  pushFileToStorage(photo: Photo): Observable<number> {
     const filePath: string = `${this.basePath}/${photo.file.name}`;
     const storageRef = this.storage.ref(filePath);
     const uploadTask = this.storage.upload(filePath, photo.file);
@@ -22,6 +26,7 @@ export class PhotoUploadService {
     uploadTask.snapshotChanges().pipe(
       finalize(() => {
         storageRef.getDownloadURL().subscribe(downloadURL => {
+          // photo.key = (Math.random() * 10000).toPrecision(4).toString();
           photo.url = downloadURL;
           photo.name = photo.file.name;
           this.saveFileData(photo);
@@ -49,7 +54,8 @@ export class PhotoUploadService {
   };
 
   private deleteFileDatabase(key: string): Promise<void> {
-    return this.db.list(this.basePath).remove(key);
+    console.log(key)
+    return this.db.list(this.basePath).remove(key)
   };
 
   private deleteFileStorage(name: string): void {

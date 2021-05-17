@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { snapshotChanges } from '@angular/fire/database';
 import { Photo } from '../model/photo';
 import { PhotoUploadService } from '../service/photo-upload.service';
 
