@@ -1,11 +1,30 @@
 <div class="container">
     <div class="row">
-        <div class="col-6 offset-3">
-            <form action="">
-                <div *ngIf="(paintings$ | async) as painting" class="form-group">
-                    <label for="">Cím</label>
-                    <input name="name" type="text" [ngModel]="painting.name" class="form-control">
+        <div *ngIf="(paintings$ | async) as painting" class="col-6 offset-3">
+            <form #paintingForm="ngForm" (ngSubmit)="onUpdate(paintingForm, painting)">
+                <div class="form-group">
+                    <label for="name">Cím</label>
+                    <input name="name" type="text" [(ngModel)]="painting.name" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label for="description">Leírás</label>
+                    <input name="description" type="text" [(ngModel)]="painting.description" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="size">Méret</label>
+                    <input name="size" type="text" [(ngModel)]="painting.size" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="type">Típus</label>
+                    <input name="type" type="text" [(ngModel)]="painting.type" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="picture">Kép</label>
+                    <input name="picture" type="text" [(ngModel)]="painting.picture" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-info col">
+                    <i class="fa fa-save"></i>
+                </button>
             </form>
         </div>
     </div>

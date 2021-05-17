@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Painting } from 'src/app/model/painting';
@@ -19,16 +19,23 @@ export class PaintingEditComponent implements OnInit {
   )
 
   constructor(
-    private activatedRoute: ActivatedRoute, private pService: PaintingsService, private pUploadService: PhotoUploadService) { }
+    private activatedRoute: ActivatedRoute,
+    private pService: PaintingsService,
+    private pUploadService: PhotoUploadService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onUpdate(form: NgForm, painting: Painting): void {
-    if (painting.id !== '0') {
-      this.pService.update(painting);
+    if (painting.id != '0') {
+      this.pService.update(painting)
+      this.router.navigate(['paintings'])
+
     } else {
-      this.pService.create(painting);
+      this.pService.create(painting).then(
+        ev => this.router.navigate(['paintings'])
+      ).catch(error => console.log(error));
     }
 
   }

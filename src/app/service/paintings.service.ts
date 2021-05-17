@@ -10,7 +10,7 @@ import { BaseService } from './base.service';
 export class PaintingsService extends BaseService<Painting> {
 
   constructor(
-    public fireStore: AngularFirestore
+    public fireStore: AngularFirestore,
   ) {
     super(fireStore, 'paintings')
   }
