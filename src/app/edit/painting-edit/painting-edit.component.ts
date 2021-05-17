@@ -28,14 +28,11 @@ export class PaintingEditComponent implements OnInit {
   }
 
   onUpdate(form: NgForm, painting: Painting): void {
-    if (painting.id != '0') {
+    if (painting.id == '') {
+      this.pService.create(painting);
+    } else {
       this.pService.update(painting)
       this.router.navigate(['paintings'])
-
-    } else {
-      this.pService.create(painting).then(
-        ev => this.router.navigate(['paintings'])
-      ).catch(error => console.log(error));
     }
 
   }
