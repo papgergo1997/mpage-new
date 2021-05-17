@@ -18,4 +18,8 @@ export class PaintingsListComponent implements OnInit {
     this.list$ = this.pService.list$;
   }
 
+  onDelete(painting: Painting): void {
+    this.pService.remove(painting);
+  }
+
 }

@@ -23,7 +23,7 @@
                                 <button [routerLink]="[painting.id]" class="btn btn-info" type="submit">
                                     <i class="fa fa-pencil"></i>
                                 </button>
-                                <button class="btn btn-danger">
+                                <button (click)="onDelete(painting)" class="btn btn-danger">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>
