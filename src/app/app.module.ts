@@ -20,6 +20,7 @@ import { PhotoDetailsComponent } from './photo-details/photo-details.component';
 import { PhotoListComponent } from './photo-list/photo-list.component';
 import { PaintingEditComponent } from './edit/painting-edit/painting-edit.component';
 import { ToastrModule } from 'ngx-toastr';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ToastrModule } from 'ngx-toastr';
     PhotoUploadFormComponent,
     PhotoDetailsComponent,
     PhotoListComponent,
-    PaintingEditComponent
+    PaintingEditComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
