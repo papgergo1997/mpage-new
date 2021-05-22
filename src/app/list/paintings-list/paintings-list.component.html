@@ -1,6 +1,12 @@
 <div class="container">
     <div class="row">
         <div>
+            <div class="row">
+                <div class="col-1 text-center mr-0">Keresés</div>
+                <div class="col-3 mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="filterKey">
+                </div>
+            </div>
             <button [routerLink]="[0]" class="btn btn-success col"><i class="fa fa-plus"></i></button>
             <table class="table table-striped">
                 <thead class="bg-dark text-white">
@@ -12,7 +18,7 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let painting of list$ | async">
+                    <tr *ngFor="let painting of list$ | async | filter:filterKey">
                         <td>{{painting.name}}</td>
                         <td>{{painting.description}}</td>
                         <td>{{painting.size}}</td>

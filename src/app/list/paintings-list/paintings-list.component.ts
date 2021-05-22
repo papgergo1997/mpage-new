@@ -12,6 +12,7 @@ import { PaintingsService } from 'src/app/service/paintings.service';
 export class PaintingsListComponent implements OnInit {
 
   list$: Observable<Painting[]> = new Observable<Painting[]>();
+  filterKey: string = '';
 
   constructor(private pService: PaintingsService,
     private toaster: ToastrService) { }
