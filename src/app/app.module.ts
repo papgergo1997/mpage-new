@@ -21,6 +21,9 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
 import { PaintingEditComponent } from './edit/painting-edit/painting-edit.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './pipe/filter.pipe';
+import { HomeComponent } from './pages/home/home.component';
+import { ItemCardContainerComponent } from './pageComponents/item-card-container/item-card-container.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import { FilterPipe } from './pipe/filter.pipe';
     PhotoDetailsComponent,
     PhotoListComponent,
     PaintingEditComponent,
-    FilterPipe
+    FilterPipe,
+    HomeComponent,
+    ItemCardContainerComponent,
+
   ],
   imports: [
     CommonModule,
