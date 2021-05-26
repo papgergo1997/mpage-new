@@ -24,6 +24,7 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { HomeComponent } from './pages/home/home.component';
 import { ItemCardContainerComponent } from './pageComponents/item-card-container/item-card-container.component';
 import { SliderComponent } from './pageComponents/slider/slider.component';
+import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 
 
 @NgModule({
@@ -46,6 +47,8 @@ import { SliderComponent } from './pageComponents/slider/slider.component';
   imports: [
     CommonModule,
     BrowserModule,
+    CarouselModule,
+    WavesModule,
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
