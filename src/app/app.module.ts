@@ -25,6 +25,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ItemCardContainerComponent } from './pageComponents/item-card-container/item-card-container.component';
 import { SliderComponent } from './pageComponents/slider/slider.component';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
+import { ItemCardComponent } from './pageComponents/item-card/item-card.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
     HomeComponent,
     ItemCardContainerComponent,
     SliderComponent,
+    ItemCardComponent,
   ],
   imports: [
     CommonModule,

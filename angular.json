@@ -43,13 +43,7 @@
               "src/assets/js/core/bootstrap-material-design.min.js",
               "src/assets/js/plugins/perfect-scrollbar.jquery.min.js",
               "src/assets/js/plugins/chartist.min.js",
-              "src/assets/js/material-dashboard.min.js",
-              "node_modules/angular-bootstrap-md/schematics/ng-add/mdb-setup.js",
-              "node_modules/@angular-devkit/schematics/tools/export-ref.js",
-              "node_modules/@angular-devkit/schematics/tools/index.js",
-              "node_modules/@angular/cli/utilities/json-schema.js",
-              "node_modules/@angular/cli/models/command-runner.js",
-              "node_modules/@angular/cli/lib/cli/index.js"
+              "src/assets/js/material-dashboard.min.js"
             ]
           },
           "configurations": {

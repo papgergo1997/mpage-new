@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Painting } from 'src/app/model/painting';
+import { PaintingsService } from 'src/app/service/paintings.service';
 
 @Component({
   selector: 'app-item-card-container',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemCardContainerComponent implements OnInit {
 
-  constructor() { }
+  @Output() paintings$: Observable<Painting[]>;
+
+  constructor(private pService: PaintingsService) { }
 
   ngOnInit(): void {
+    this.paintings$ = this.pService.list$;
   }
 
 }
