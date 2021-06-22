@@ -7,3 +7,34 @@
 .navbar {
     box-shadow: 0 0 9px black ;
 }
+.header{
+    height: 400px;
+    width: 100%;
+    background-image: url(/assets/img/őzbak.jpg);
+    background-size: 100%;
+    background-position: center; 
+    box-shadow: 0 0 40px black;
+}
+
+.h-logo{
+    width: 50%;
+    position: absolute;          
+}
+
+.logo-container{
+    position: absolute;
+    background-color: rgb(50, 50, 50);
+    top: 370px;
+    right: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    box-shadow: 0 0 40px black;
+    
+}
+
+.main{
+    background-image: url(/assets/img/tűzfa.jpg);
+    background-size: 100%;
+    background-attachment: fixed;
+}
