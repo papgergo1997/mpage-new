@@ -3,6 +3,12 @@ img{
     box-shadow: 0 0 20px black;
 }
 
-.card{
-    box-shadow: 0 0 20px black;
+.cards{
+    border: none;    
+    background-color: transparent;
+    color: white;
+}
+.card-header {
+    background-color: transparent;
+    border: none;
 }
