@@ -23,7 +23,7 @@
 
 .logo-container{
     position: absolute;
-    background-color: rgb(50, 50, 50);
+    background-color: rgb(33, 33, 33);
     top: 370px;
     right: 50px;
     width: 200px;
@@ -37,4 +37,14 @@
     background-image: url(/assets/img/tűzfa.jpg);
     background-size: 100%;
     background-attachment: fixed;
+}
+
+.about{
+    background-color: rgb(50, 50, 50);
+    box-shadow: 0 0 9px black;
+    height: 500px;
+}
+
+.myself{
+    width: 300px;
 }
