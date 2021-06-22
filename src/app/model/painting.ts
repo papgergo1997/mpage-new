@@ -4,5 +4,6 @@ export class Painting {
     description: string = '';
     size: string = '';
     picture: string = '';
+    fullPicture: string = '';
     type: string = '';
 }

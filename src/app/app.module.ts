@@ -26,6 +26,7 @@ import { ItemCardContainerComponent } from './pageComponents/item-card-container
 import { SliderComponent } from './pageComponents/slider/slider.component';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { ItemCardComponent } from './pageComponents/item-card/item-card.component';
+import { SliderPipe } from './pipe/slider.pipe';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { ItemCardComponent } from './pageComponents/item-card/item-card.componen
     ItemCardContainerComponent,
     SliderComponent,
     ItemCardComponent,
+    SliderPipe,
   ],
   imports: [
     CommonModule,

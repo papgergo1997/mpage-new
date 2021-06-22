@@ -20,6 +20,9 @@ export class PaintingEditComponent implements OnInit {
   selectedFiles: FileList;
   currentPhoto: Photo;
   percentage: number = 0;
+  fullPercentage: number = 0;
+  selectedFullFiles: FileList;
+  currentFullPhoto: Photo;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -58,11 +61,15 @@ export class PaintingEditComponent implements OnInit {
   selectFile(event): void {
     this.selectedFiles = event.target.files;
   }
+  selectFullFile(event): void {
+    this.selectedFullFiles = event.target.files;
+  }
 
   upload(): void {
     const file = this.selectedFiles.item(0);
     this.selectedFiles = undefined;
     this.currentPhoto = new Photo(file);
+
     this.pUploadService.pushFileToStorage(this.currentPhoto).subscribe(
       percentage => {
         this.percentage = Math.round(percentage);
@@ -75,5 +82,27 @@ export class PaintingEditComponent implements OnInit {
         console.log(error);
       }
     );
+
+
   };
+
+  uploadFull(): void {
+    const fullFile = this.selectedFullFiles.item(0);
+    this.selectedFullFiles = undefined;
+    this.currentFullPhoto = new Photo(fullFile);
+
+    this.pUploadService.pushFileToStorage(this.currentFullPhoto).subscribe(
+      percentage => {
+        this.fullPercentage = Math.round(percentage);
+        this.pUploadService.getFiles(1).snapshotChanges().pipe(
+          map(changes =>
+            changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+          )).subscribe(photo => this.painting.fullPicture = photo.map(photo => photo.url).toString())
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
 }

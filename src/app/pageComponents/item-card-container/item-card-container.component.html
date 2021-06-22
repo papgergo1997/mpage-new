@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row col-10 offset-1  d-flex item-card--container">
-        <h2 class="text-center mt-4">Galéria</h2>
+        <h2 class="text-center mt-4">Gallery</h2>
         <app-item-card class="col-4" *ngFor="let painting of paintings$ | async" [painting]="painting">
         </app-item-card>
     </div>

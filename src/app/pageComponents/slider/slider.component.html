@@ -1,9 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <mdb-carousel class="slider" [animation]="'slide'" [interval]="'6000'" [noPause]="false">
-                <mdb-carousel-item class="slider-item" *ngFor="let painting of images">
-                    <img class="d-block w-100 slider-image" src="{{painting.picture}}" alt="{{painting.name}} slide">
+            <mdb-carousel class="slider" [isControls]="false" [animation]="'slide'" [interval]="'6000'"
+                [noPause]="false">
+                <mdb-carousel-item class="slider-item" *ngFor="let painting of images | slider">
+                    <img class="d-block w-100 slider-image" src="{{painting.fullPicture}}"
+                        alt="{{painting.name}} slide">
                 </mdb-carousel-item>
             </mdb-carousel>
         </div>
