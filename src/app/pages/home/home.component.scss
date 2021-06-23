@@ -13,7 +13,9 @@
     background-image: url(/assets/img/őzbak.jpg);
     background-size: 100%;
     background-position: center; 
+    // background-attachment: fixed;
     box-shadow: 0 0 40px black;
+    z-index: 1;
 }
 
 .h-logo{
@@ -22,12 +24,13 @@
 }
 
 .logo-container{
-    position: absolute;
+    position: absolute;    
+    z-index: 1;
     background-color: rgb(33, 33, 33);
-    top: 370px;
-    right: 50px;
-    width: 200px;
-    height: 200px;
+    top: 348px;
+    width: 100px;
+    height: 100px;    
+    right: 50px;    
     border-radius: 100px;
     box-shadow: 0 0 40px black;
     
@@ -39,9 +42,14 @@
     background-attachment: fixed;
 }
 
+.card-container{
+    position: relative;
+    z-index: -1 !important;
+}
+
 .about{
     background-color: rgb(50, 50, 50);
-    box-shadow: 0 0 9px black;
+    box-shadow: 0 0 40px black;
     height: 340px;
 }
 
@@ -50,7 +58,7 @@
 }
 
 .myself{
-    width: 250px;
+    display: none;    
     position: absolute;
     top: -30px;   
     right: 30px;
@@ -60,7 +68,29 @@
 .blog {
     background-image: url(/assets/img/tűzfa.jpg);
     background-size: 100%;
-    box-shadow: 0 0 9px /*40px if attachment is fixed*/ black;
-    // background-attachment: fixed;
+    box-shadow: 0 0  40px  black;
+     background-attachment: fixed;
     height: 500px;
+}
+
+@media screen and (min-width: 768px) {
+    .logo-container {
+        top: 325px;
+        width: 150px;
+        height: 150px;
+    }
+    .myself {
+        display: initial;
+        width: 130px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .logo-container {
+        top: 300px;
+        width: 200px;
+        height: 200px;
+    }
+    .myself {
+        width: 250px;
+    }
 }
