@@ -23,7 +23,7 @@ export class PaintingsListComponent implements OnInit {
 
   onDelete(painting: Painting): void {
     this.pService.remove(painting);
-    this.toaster.warning('Sikeres törlés!', 'Törölve', { timeOut: 3000 });
+    this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
   }
 
 }

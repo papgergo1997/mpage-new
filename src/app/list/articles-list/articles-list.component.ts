@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
+import { Article } from 'src/app/model/article';
+import { ArticleService } from 'src/app/service/article.service';
 
 @Component({
   selector: 'app-articles-list',
@@ -8,16 +11,20 @@ import { Observable } from 'rxjs';
 })
 export class ArticlesListComponent implements OnInit {
 
-  list$: Observable<void>;
+  list$: Observable<Article[]> = new Observable<Article[]>();
   filterKey: string = '';
 
-  constructor() { }
+  constructor(
+    private articleService: ArticleService,
+    private toaster: ToastrService) { }
 
   ngOnInit(): void {
+    this.list$ = this.articleService.list$;
   }
 
-  onDelete(): void {
-
+  onDelete(article: Article): void {
+    this.articleService.remove(article);
+    this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
   }
 
 }
