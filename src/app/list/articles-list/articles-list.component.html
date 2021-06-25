@@ -11,19 +11,17 @@
             <table class="table table-striped">
                 <thead class="bg-dark text-white">
                     <th>Title</th>
-                    <th>Description</th>
-                    <th>Size</th>
-                    <th>Type</th>
+                    <th>Abstract</th>
                     <th>Photo</th>
+                    <th>Link</th>
                     <th></th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let article of list$ | async | filter:filterKey">
-                        <td>{{article.name}}</td>
-                        <td>{{article.description}}</td>
-                        <td>{{article.size}}</td>
-                        <td>{{article.type}}</td>
-                        <td><img src="{{article.picture}}" alt="" style="width: 140px;"></td>
+                        <td>{{article.title}}</td>
+                        <td>{{article.abstract}}</td>
+                        <td><img src="{{article.photo}}" alt="article" style="width: 140px;"></td>
+                        <td>{{article.link}}</td>
                         <td>
                             <div class="btn-group">
                                 <button [routerLink]="[article.id]" class="btn btn-info" type="submit">

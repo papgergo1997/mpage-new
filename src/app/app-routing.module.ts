@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Config } from 'protractor';
 import { PaintingEditComponent } from './edit/painting-edit/painting-edit.component';
+import { ArticlesListComponent } from './list/articles-list/articles-list.component';
 import { PaintingsListComponent } from './list/paintings-list/paintings-list.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: "paintings/:id",
         component: PaintingEditComponent
+      },
+      {
+        path: "articles",
+        component: ArticlesListComponent
       }
     ]
   },
