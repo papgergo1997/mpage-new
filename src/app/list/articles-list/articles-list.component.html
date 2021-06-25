@@ -18,18 +18,18 @@
                     <th></th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let painting of list$ | async | filter:filterKey">
-                        <td>{{painting.name}}</td>
-                        <td>{{painting.description}}</td>
-                        <td>{{painting.size}}</td>
-                        <td>{{painting.type}}</td>
-                        <td><img src="{{painting.picture}}" alt="" style="width: 140px;"></td>
+                    <tr *ngFor="let article of list$ | async | filter:filterKey">
+                        <td>{{article.name}}</td>
+                        <td>{{article.description}}</td>
+                        <td>{{article.size}}</td>
+                        <td>{{article.type}}</td>
+                        <td><img src="{{article.picture}}" alt="" style="width: 140px;"></td>
                         <td>
                             <div class="btn-group">
-                                <button [routerLink]="[painting.id]" class="btn btn-info" type="submit">
+                                <button [routerLink]="[article.id]" class="btn btn-info" type="submit">
                                     <i class="fa fa-pencil"></i>
                                 </button>
-                                <button (click)="onDelete(painting)" class="btn btn-danger">
+                                <button (click)="onDelete(article)" class="btn btn-danger">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>

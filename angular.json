@@ -33,7 +33,6 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.min.css",
-              "src/assets/css/material-dashboard.min.css",
               "node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
@@ -43,9 +42,7 @@
               "src/assets/js/core/bootstrap-material-design.min.js",
               "src/assets/js/plugins/perfect-scrollbar.jquery.min.js",
               "src/assets/js/plugins/chartist.min.js",
-              "src/assets/js/material-dashboard.min.js",
-              "node_modules/bootstrap/js/dist/carousel.js",
-              "node_modules/bootstrap/js/dist/dropdown.js"
+              "src/assets/js/material-dashboard.min.js"
             ]
           },
           "configurations": {

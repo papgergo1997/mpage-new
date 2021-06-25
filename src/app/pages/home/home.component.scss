@@ -1,18 +1,24 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
 .historian {     
     position:absolute;
-    top: 10px;
-    left: 0px;
-    width: 100%;
+    top: 15px;
+    left: 15px;
+    width: 90px;
 }
 .navbar {
     box-shadow: 0 0 20px black ;
 }
+
 .header{
     height: 400px;
     width: 100%;
     background-image: url(/assets/img/őzbak.jpg);
-    background-size: 100%;
-    background-position: center; 
+    background-size: 150%;
+    background-position: center;    
     // background-attachment: fixed;
     box-shadow: 0 0 40px black;
     z-index: 1;
@@ -30,7 +36,7 @@
     top: 348px;
     width: 100px;
     height: 100px;    
-    right: 50px;    
+    right: 20px;    
     border-radius: 100px;
     box-shadow: 0 0 40px black;
     
@@ -50,12 +56,26 @@
 .about{
     background-color: rgb(50, 50, 50);
     box-shadow: 0 0 40px black;
-    height: 340px;
+    height: 370px;
     z-index: 1;
+    position: relative;
 }
 
 .about-title{
     text-shadow:0 0 20px black;
+}
+
+.ring{
+    position: absolute;
+    top: -60px;
+    left: 400px;
+    width: 120px;
+}
+.ring2{
+    position: absolute;
+    top: -60px;
+    left: 350px;
+    width: 120px;
 }
 
 .myself{
@@ -77,10 +97,17 @@
 }
 
 @media screen and (min-width: 768px) {
+    .header{
+        background-size: 100%;
+    }
     .logo-container {
         top: 325px;
         width: 150px;
         height: 150px;
+        right: 50px;
+    }
+    .about{
+        height: 340px;
     }
     .myself {
         display: initial;
@@ -88,13 +115,20 @@
     }
 }
 @media screen and (min-width: 1200px) {
+    .header{
+        background-position-y: 710px; 
+    }
+    .historian{
+        width: 80px;
+    }
     .logo-container {
         top: 300px;
         width: 200px;
         height: 200px;
+        right: 70px;
     }
     .myself {
-        width: 250px;
+        width: 230px;
         
     }
 }
