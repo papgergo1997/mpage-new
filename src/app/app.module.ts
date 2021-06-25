@@ -28,6 +28,7 @@ import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { ItemCardComponent } from './pageComponents/item-card/item-card.component';
 import { SliderPipe } from './pipe/slider.pipe';
 import { ArticlesListComponent } from './list/articles-list/articles-list.component';
+import { ArticleEditComponent } from './edit/article-edit/article-edit.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { ArticlesListComponent } from './list/articles-list/articles-list.compon
     ItemCardComponent,
     SliderPipe,
     ArticlesListComponent,
+    ArticleEditComponent,
   ],
   imports: [
     CommonModule,
