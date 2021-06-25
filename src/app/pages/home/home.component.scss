@@ -5,7 +5,7 @@
     width: 100%;
 }
 .navbar {
-    box-shadow: 0 0 9px black ;
+    box-shadow: 0 0 20px black ;
 }
 .header{
     height: 400px;
@@ -44,13 +44,14 @@
 
 .card-container{
     position: relative;
-    z-index: -1 !important;
+    z-index: 0 !important;
 }
 
 .about{
     background-color: rgb(50, 50, 50);
     box-shadow: 0 0 40px black;
     height: 340px;
+    z-index: 1;
 }
 
 .about-title{
@@ -60,6 +61,7 @@
 .myself{
     display: none;    
     position: absolute;
+    border-radius: 150px;
     top: -30px;   
     right: 30px;
     box-shadow: 0 0 20px black;
@@ -71,6 +73,7 @@
     box-shadow: 0 0  40px  black;
      background-attachment: fixed;
     height: 500px;
+    z-index: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -92,5 +95,6 @@
     }
     .myself {
         width: 250px;
+        
     }
 }
