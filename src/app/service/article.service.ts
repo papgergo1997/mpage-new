@@ -9,7 +9,9 @@ import { BaseService } from './base.service';
 })
 export class ArticleService extends BaseService<Article>{
 
-  constructor(public fireStore: AngularFirestore,) {
+  constructor(
+    public fireStore: AngularFirestore,
+  ) {
     super(fireStore, 'articles')
   }
   get(id: string): Observable<Article> {

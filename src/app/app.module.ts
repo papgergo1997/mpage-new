@@ -29,6 +29,7 @@ import { ItemCardComponent } from './pageComponents/item-card/item-card.componen
 import { SliderPipe } from './pipe/slider.pipe';
 import { ArticlesListComponent } from './list/articles-list/articles-list.component';
 import { ArticleEditComponent } from './edit/article-edit/article-edit.component';
+import { ArticleFilterPipe } from './pipe/article-filter.pipe';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { ArticleEditComponent } from './edit/article-edit/article-edit.component
     SliderPipe,
     ArticlesListComponent,
     ArticleEditComponent,
+    ArticleFilterPipe,
   ],
   imports: [
     CommonModule,

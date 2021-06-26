@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Config } from 'protractor';
+import { ArticleEditComponent } from './edit/article-edit/article-edit.component';
 import { PaintingEditComponent } from './edit/painting-edit/painting-edit.component';
 import { ArticlesListComponent } from './list/articles-list/articles-list.component';
 import { PaintingsListComponent } from './list/paintings-list/paintings-list.component';
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: "articles",
         component: ArticlesListComponent
+      },
+      {
+        path: "articles/:id",
+        component: ArticleEditComponent
       }
     ]
   },
