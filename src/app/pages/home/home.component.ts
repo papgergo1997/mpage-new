@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   @Output() paintings$: Observable<Painting[]> = new Observable<Painting[]>();
 
+
   constructor(private pService: PaintingsService) { }
 
   ngOnInit(): void {
