@@ -95,10 +95,54 @@ html {
 .contact{
     background-color: rgb(50, 50, 50);
     box-shadow: 0 0 40px black;
-    height: 370px;
-    z-index: 1;
+    height: 290px;
+    z-index: 0;
     position: relative;
 }
+.linkedin-con {
+    background-color: rgb(29, 161, 243);
+    width: 80px;
+    height: 80px;
+    opacity: 90%;
+    vertical-align: middle;    
+    font-size: 50px;
+    line-height: 80px;    
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(10, 10, 10);
+}
+
+.facebook-con{
+    background-color: rgb(59, 89, 153);
+    width: 80px;
+    height: 80px;
+    opacity: 90%;
+    vertical-align: middle;
+    font-size: 50px;
+    line-height: 80px;    
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(10, 10, 10);
+}
+.instagram-con{
+    background-image: linear-gradient(rgb(182, 0, 0),rgb(169, 93, 172));
+    width: 80px;
+    height: 80px;
+    opacity: 90%;
+    vertical-align: middle;
+    font-size: 50px;
+    line-height: 80px;    
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(10, 10, 10);
+}
+
+
+.footer{
+    background-color: rgb(50, 50, 50);
+    color: whitesmoke;
+    z-index: 1;
+    box-shadow: 0 0 20px black ;
+}
+
+
 
 @media screen and (min-width: 768px) {
     .header{
@@ -117,6 +161,21 @@ html {
         display: initial;
         width: 130px;
     }
+    .linkedin-con{
+        width: 90px;
+        height: 90px;
+        line-height: 90px;  
+    }
+    .facebook-con{
+        width: 90px;
+        height: 90px;
+        line-height: 90px;  
+    }
+    .instagram-con{
+        width: 90px;
+        height: 90px;
+        line-height: 90px;  
+    }
 }
 @media screen and (min-width: 1200px) {
     .header{
@@ -134,5 +193,20 @@ html {
     .myself {
         width: 230px;
         
+    }
+    .linkedin-con{
+        width: 100px;
+        height: 100px;
+        line-height: 100px;  
+    }
+    .facebook-con{
+        width: 100px;
+        height: 100px;
+        line-height: 100px;  
+    }
+    .instagram-con{
+        width: 100px;
+        height: 100px;
+        line-height: 100px;  
     }
 }
