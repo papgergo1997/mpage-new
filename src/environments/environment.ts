@@ -3,15 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   firebaseConfig: {
-    apiKey: "AIzaSyBm9OkQYc7A0BMm2BCpD88aDZG4nLM8F8I",
-    authDomain: "mpage-project.firebaseapp.com",
-    projectId: "mpage-project",
-    storageBucket: "mpage-project.appspot.com",
-    messagingSenderId: "444606152641",
-    appId: "1:444606152641:web:3a8b632c1097dae7d0b940",
-    measurementId: "G-NM2MQ520NJ"
+    apiKey: "AIzaSyCY1p2jRtN6YboyfNDY-U3JMGNsQhHwKFQ",
+    authDomain: "moms-page-45979.firebaseapp.com",
+    databaseURL: "https://moms-page-45979-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "moms-page-45979",
+    storageBucket: "moms-page-45979.appspot.com",
+    messagingSenderId: "585678334856",
+    appId: "1:585678334856:web:9beaca01e32afc07efa83d",
+    measurementId: "G-V88N93WCCJ"
   }
 };
 

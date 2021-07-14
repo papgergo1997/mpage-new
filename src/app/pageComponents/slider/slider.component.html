@@ -1,0 +1,16 @@
+<div class="100 vw">
+    <div class="row">
+        <div class="col">
+            <mdb-carousel class="slider" [isControls]="false" [animation]="'slide'" [interval]="'6000'"
+                [noPause]="false">
+                <mdb-carousel-item class="slider-item" *ngFor="let painting of images | slider">
+                    <img class="d-block w-100 slider-image" src="{{painting.fullPicture}}"
+                        alt="{{painting.name}} slide">
+                </mdb-carousel-item>
+                <!-- <div class="d-flex justify-content-center">
+                    <img class="h-logo" src="/assets/img/logos/h narancssárga.png" alt="h" srcset="">
+                </div> -->
+            </mdb-carousel>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a [routerLink]="['/admin/'+ 'paintings']">Photos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Editor</li>
+            </ol>
+        </nav>
+        <div *ngIf="painting" class="col-6 offset-3">
+            <form #paintingForm="ngForm" (ngSubmit)="onUpdate(paintingForm, painting)">
+                <div class="form-group">
+                    <label for="name">Cím</label>
+                    <input name="name" type="text" [(ngModel)]="painting.name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="description">Leírás</label>
+                    <input name="description" type="text" [(ngModel)]="painting.description" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="size">Méret</label>
+                    <input name="size" type="text" [(ngModel)]="painting.size" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="type">Technika</label>
+                    <input name="type" type="text" [(ngModel)]="painting.type" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="mr-5" for="picture">Előnézeti Kép</label>
+                    <img src="{{painting.picture}}" alt="{{painting.picture}}" style="width: 200px;">
+                    <input [hidden]="painting" name="picture" type="text" [(ngModel)]="painting.picture"
+                        class="form-control" readonly>
+                </div>
+                <div>
+                    <label>
+                        <input type="file" class="text-nowrap text-truncate" (change)="selectFile($event)" />
+                    </label>
+
+                    <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
+                        Upload
+                    </button>
+
+                    <div *ngIf="currentPhoto" class="progress mt-2">
+                        <div class="progress-bar progress-bar-info" role="progressbar"
+                            attr.aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100"
+                            [ngStyle]="{ width: percentage + '%' }">
+                            {{ percentage }}%
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="mr-5" for="fullPicture">Eredeti Kép</label>
+                    <img src="{{painting.fullPicture}}" alt="{{painting.fullPicture}}" style="width: 200px;">
+                    <input [hidden]="painting" name="fullPicture" type="text" [(ngModel)]="painting.fullPicture"
+                        class="form-control" readonly>
+                </div>
+                <div>
+                    <label>
+                        <input type="file" class="text-nowrap text-truncate" (change)="selectFullFile($event)" />
+                    </label>
+
+                    <button class="btn btn-success btn-sm" [disabled]="!selectedFullFiles" (click)="uploadFull()">
+                        Upload
+                    </button>
+
+                    <div *ngIf="currentFullPhoto" class="progress mt-2">
+                        <div class="progress-bar progress-bar-info" role="progressbar"
+                            attr.aria-valuenow="{{ fullPercentage }}" aria-valuemin="0" aria-valuemax="100"
+                            [ngStyle]="{ width: fullPercentage + '%' }">
+                            {{ fullPercentage }}%
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-info col">
+                    <i class="fa fa-save"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="container mx-0 px-0 mx-sm-auto px-sm-auto">
+    <div class="row col col-lg-8 item-card--container mx-0 px-0 mx-sm-auto">
+        <h2 class="text-center my-4 text-white">Gallery</h2>
+        <app-item-card class="col-12 col-md-6 col-lg-4" *ngFor="let painting of paintings$ | async"
+            [painting]="painting">
+        </app-item-card>
+    </div>
+</div>
