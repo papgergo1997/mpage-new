@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { Painting } from 'src/app/model/painting';
 import { Photo } from 'src/app/model/photo';
