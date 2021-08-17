@@ -1,8 +1,0 @@
-<div class="card">
-    <div class="card-header">List of Photos</div>
-    <ul *ngFor="let photo of photos$ | async" class="list-group list-group-flush">
-        <li class="list-group-item">
-            <app-photo-details [photo]="photo"></app-photo-details>
-        </li>
-    </ul>
-</div>

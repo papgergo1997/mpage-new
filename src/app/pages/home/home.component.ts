@@ -1,7 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Painting } from 'src/app/model/painting';
-import { PaintingsService } from 'src/app/service/paintings.service';
+import { Image } from 'src/app/model/image';
+import { ImageService } from 'src/app/service/image.service';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +10,13 @@ import { PaintingsService } from 'src/app/service/paintings.service';
 })
 export class HomeComponent implements OnInit {
 
-  @Output() paintings$: Observable<Painting[]> = new Observable<Painting[]>();
+  @Output() images$: Observable<Image[]> = new Observable<Image[]>();
 
 
-  constructor(private pService: PaintingsService) { }
+  constructor(private iService: ImageService) { }
 
   ngOnInit(): void {
-    this.paintings$ = this.pService.list$;
+    this.images$ = this.iService.list$;
   }
 
 }

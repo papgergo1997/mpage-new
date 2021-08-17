@@ -2,21 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
-import { Painting } from 'src/app/model/painting';
 import { Photo } from 'src/app/model/photo';
-import { PaintingsService } from 'src/app/service/paintings.service';
 import { PhotoUploadService } from 'src/app/service/photo-upload.service';
+import { Image } from 'src/app/model/image';
+import { ImageService } from 'src/app/service/image.service';
 
 @Component({
-  selector: 'app-painting-edit',
-  templateUrl: './painting-edit.component.html',
-  styleUrls: ['./painting-edit.component.scss']
+  selector: 'app-image-edit',
+  templateUrl: './image-edit.component.html',
+  styleUrls: ['./image-edit.component.scss']
 })
-export class PaintingEditComponent implements OnInit {
+export class ImageEditComponent implements OnInit {
 
-  painting: Painting;
+  image: Image;
   selectedFiles: FileList;
   currentPhoto: Photo;
   percentage: number = 0;
@@ -26,31 +25,32 @@ export class PaintingEditComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private pService: PaintingsService,
+    private iService: ImageService,
     private pUploadService: PhotoUploadService,
     private router: Router,
-    private toaster: ToastrService) { }
+    private toaster: ToastrService
+  ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
-      switchMap(params => this.pService.get(params.id))
-    ).subscribe(painting => this.painting = painting)
+      switchMap(params => this.iService.get(params.id))
+    ).subscribe(image => this.image = image)
   }
 
-  onUpdate(form: NgForm, painting: Painting): void {
-    if (painting.id == '') {
-      this.pService.create(painting)
+  onUpdate(form: NgForm, image: Image): void {
+    if (image.id == '') {
+      this.iService.create(image)
         .then(
           () => {
-            this.router.navigate(['admin/paintings']);
+            this.router.navigate(['admin/images']);
             this.toaster.success('Sikeres létrehozás!', 'Létrehozva', { timeOut: 3000 });
           })
         .catch(error => console.log(error));
     } else {
-      this.pService.update(painting)
+      this.iService.update(image)
         .then(
           () => {
-            this.router.navigate(['admin/paintings']);
+            this.router.navigate(['admin/images']);
             this.toaster.info('Sikeres frissítés!', 'Frissítve', { timeOut: 3000 });
           })
         .catch(error => console.log(error));
@@ -76,7 +76,7 @@ export class PaintingEditComponent implements OnInit {
         this.pUploadService.getFiles(1).snapshotChanges().pipe(
           map(changes =>
             changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-          )).subscribe(photo => this.painting.picture = photo.map(photo => photo.url).toString())
+          )).subscribe(photo => this.image.picture = photo.map(photo => photo.url).toString())
       },
       error => {
         console.log(error);
@@ -97,7 +97,7 @@ export class PaintingEditComponent implements OnInit {
         this.pUploadService.getFiles(1).snapshotChanges().pipe(
           map(changes =>
             changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-          )).subscribe(photo => this.painting.fullPicture = photo.map(photo => photo.url).toString())
+          )).subscribe(photo => this.image.fullPicture = photo.map(photo => photo.url).toString())
       },
       error => {
         console.log(error);

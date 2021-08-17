@@ -1,4 +1,4 @@
-export class Painting {
+export class Image {
     id: string = '';
     name: string = '';
     description: string = '';

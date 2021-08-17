@@ -13,6 +13,10 @@ html {
     box-shadow: 0 0 20px black ;
 }
 
+.admin-link {
+    display: none;
+}
+
 .header{
     height: 400px;
     width: 100%;
@@ -178,6 +182,12 @@ html {
     }
 }
 @media screen and (min-width: 1200px) {
+    .admin-link {
+        display: block;
+        position: absolute;
+        right: 10px;
+    }
+
     .header{
         background-position-y: 710px; 
     }
