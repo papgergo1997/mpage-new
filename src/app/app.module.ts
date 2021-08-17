@@ -14,8 +14,6 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { SideNavComponent } from './pageComponents/side-nav/side-nav.component';
 import { AdminNavComponent } from './pageComponents/admin-nav/admin-nav.component';
 import { AdminFooterComponent } from './pageComponents/admin-footer/admin-footer.component';
-import { PaintingsListComponent } from './list/paintings-list/paintings-list.component';
-import { PaintingEditComponent } from './edit/photo-edit/painting-edit.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './pipe/filter.pipe';
 import { HomeComponent } from './pages/home/home.component';
@@ -40,8 +38,6 @@ import { ImageEditComponent } from './edit/image-edit/image-edit.component';
     SideNavComponent,
     AdminNavComponent,
     AdminFooterComponent,
-    PaintingsListComponent,
-    PaintingEditComponent,
     FilterPipe,
     HomeComponent,
     ItemCardContainerComponent,

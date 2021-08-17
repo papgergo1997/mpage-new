@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Painting } from 'src/app/model/painting';
+import { Image } from 'src/app/model/image';
 
 @Component({
   selector: 'app-slider',
@@ -8,7 +8,7 @@ import { Painting } from 'src/app/model/painting';
 })
 export class SliderComponent implements OnInit {
 
-  @Input() images: Painting[];
+  @Input() images: Image[];
 
   constructor() { }
 
