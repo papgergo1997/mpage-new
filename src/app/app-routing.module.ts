@@ -7,9 +7,6 @@ import { ArticlesListComponent } from './list/articles-list/articles-list.compon
 import { PaintingsListComponent } from './list/paintings-list/paintings-list.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
-import { PhotoDetailsComponent } from './photo-details/photo-details.component';
-import { PhotoUploadFormComponent } from './photo-upload-form/photo-upload-form.component';
-
 const routes: Routes = [
   {
     path: "admin",
@@ -36,10 +33,6 @@ const routes: Routes = [
   {
     path: "",
     component: HomeComponent
-  },
-  {
-    path: "phdetails",
-    component: PhotoDetailsComponent
   }
 ];
 
