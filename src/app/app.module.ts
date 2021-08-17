@@ -30,6 +30,7 @@ import { ArticleFilterPipe } from './pipe/article-filter.pipe';
 import { ArticleCardComponent } from './pageComponents/article-card/article-card.component';
 import { ArticleCardContainerComponent } from './pageComponents/article-card-container/article-card-container.component';
 import { ImageListComponent } from './list/image-list/image-list.component';
+import { ImageEditComponent } from './edit/image-edit/image-edit.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { ImageListComponent } from './list/image-list/image-list.component';
     ArticleCardComponent,
     ArticleCardContainerComponent,
     ImageListComponent,
+    ImageEditComponent,
   ],
   imports: [
     CommonModule,

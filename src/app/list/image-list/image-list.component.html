@@ -1,1 +1,42 @@
-<p>image-list works!</p>
+<div class="container">
+    <div class="row">
+        <div>
+            <div class="row">
+                <div class="col-1 text-center mr-0">Search</div>
+                <div class="col-3 mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="filterKey">
+                </div>
+            </div>
+            <button [routerLink]="[0]" class="btn btn-success col"><i class="fa fa-plus"></i></button>
+            <table class="table table-striped">
+                <thead class="bg-dark text-white">
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Size</th>
+                    <th>Type</th>
+                    <th>Photo</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let image of list$ | async | filter:filterKey">
+                        <td>{{image.name}}</td>
+                        <td>{{image.description}}</td>
+                        <td>{{image.size}}</td>
+                        <td>{{image.type}}</td>
+                        <td><img src="{{image.picture}}" alt="" style="width: 140px;"></td>
+                        <td>
+                            <div class="btn-group">
+                                <button [routerLink]="[image.id]" class="btn btn-info" type="submit">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button (click)="onDelete(image)" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
