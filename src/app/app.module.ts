@@ -14,11 +14,6 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { SideNavComponent } from './pageComponents/side-nav/side-nav.component';
 import { AdminNavComponent } from './pageComponents/admin-nav/admin-nav.component';
 import { AdminFooterComponent } from './pageComponents/admin-footer/admin-footer.component';
-import { PaintingsListComponent } from './list/paintings-list/paintings-list.component';
-import { PhotoUploadFormComponent } from './photo-upload-form/photo-upload-form.component';
-import { PhotoDetailsComponent } from './photo-details/photo-details.component';
-import { PhotoListComponent } from './photo-list/photo-list.component';
-import { PaintingEditComponent } from './edit/photo-edit/painting-edit.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './pipe/filter.pipe';
 import { HomeComponent } from './pages/home/home.component';
@@ -32,6 +27,8 @@ import { ArticleEditComponent } from './edit/article-edit/article-edit.component
 import { ArticleFilterPipe } from './pipe/article-filter.pipe';
 import { ArticleCardComponent } from './pageComponents/article-card/article-card.component';
 import { ArticleCardContainerComponent } from './pageComponents/article-card-container/article-card-container.component';
+import { ImageListComponent } from './list/image-list/image-list.component';
+import { ImageEditComponent } from './edit/image-edit/image-edit.component';
 
 
 @NgModule({
@@ -41,11 +38,6 @@ import { ArticleCardContainerComponent } from './pageComponents/article-card-con
     SideNavComponent,
     AdminNavComponent,
     AdminFooterComponent,
-    PaintingsListComponent,
-    PhotoUploadFormComponent,
-    PhotoDetailsComponent,
-    PhotoListComponent,
-    PaintingEditComponent,
     FilterPipe,
     HomeComponent,
     ItemCardContainerComponent,
@@ -57,6 +49,8 @@ import { ArticleCardContainerComponent } from './pageComponents/article-card-con
     ArticleFilterPipe,
     ArticleCardComponent,
     ArticleCardContainerComponent,
+    ImageListComponent,
+    ImageEditComponent,
   ],
   imports: [
     CommonModule,

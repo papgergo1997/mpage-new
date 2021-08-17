@@ -2,33 +2,33 @@
     <div class="row">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a [routerLink]="['/admin/'+ 'paintings']">Photos</a></li>
+                <li class="breadcrumb-item"><a [routerLink]="['/admin/'+ 'images']">Photos</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Editor</li>
             </ol>
         </nav>
-        <div *ngIf="painting" class="col-6 offset-3">
-            <form #paintingForm="ngForm" (ngSubmit)="onUpdate(paintingForm, painting)">
+        <div *ngIf="image" class="col-6 offset-3">
+            <form #imageForm="ngForm" (ngSubmit)="onUpdate(imageForm, image)">
                 <div class="form-group">
                     <label for="name">Cím</label>
-                    <input name="name" type="text" [(ngModel)]="painting.name" class="form-control">
+                    <input name="name" type="text" [(ngModel)]="image.name" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="description">Leírás</label>
-                    <input name="description" type="text" [(ngModel)]="painting.description" class="form-control">
+                    <input name="description" type="text" [(ngModel)]="image.description" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="size">Méret</label>
-                    <input name="size" type="text" [(ngModel)]="painting.size" class="form-control">
+                    <input name="size" type="text" [(ngModel)]="image.size" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="type">Technika</label>
-                    <input name="type" type="text" [(ngModel)]="painting.type" class="form-control">
+                    <input name="type" type="text" [(ngModel)]="image.type" class="form-control">
                 </div>
                 <div class="form-group">
                     <label class="mr-5" for="picture">Előnézeti Kép</label>
-                    <img src="{{painting.picture}}" alt="{{painting.picture}}" style="width: 200px;">
-                    <input [hidden]="painting" name="picture" type="text" [(ngModel)]="painting.picture"
-                        class="form-control" readonly>
+                    <img src="{{image.picture}}" alt="{{image.picture}}" style="width: 200px;">
+                    <input [hidden]="image" name="picture" type="text" [(ngModel)]="image.picture" class="form-control"
+                        readonly>
                 </div>
                 <div>
                     <label>
@@ -49,8 +49,8 @@
                 </div>
                 <div class="form-group">
                     <label class="mr-5" for="fullPicture">Eredeti Kép</label>
-                    <img src="{{painting.fullPicture}}" alt="{{painting.fullPicture}}" style="width: 200px;">
-                    <input [hidden]="painting" name="fullPicture" type="text" [(ngModel)]="painting.fullPicture"
+                    <img src="{{image.fullPicture}}" alt="{{image.fullPicture}}" style="width: 200px;">
+                    <input [hidden]="image" name="fullPicture" type="text" [(ngModel)]="image.fullPicture"
                         class="form-control" readonly>
                 </div>
                 <div>
