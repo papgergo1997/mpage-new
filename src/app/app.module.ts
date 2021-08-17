@@ -18,7 +18,7 @@ import { PaintingsListComponent } from './list/paintings-list/paintings-list.com
 import { PhotoUploadFormComponent } from './photo-upload-form/photo-upload-form.component';
 import { PhotoDetailsComponent } from './photo-details/photo-details.component';
 import { PhotoListComponent } from './photo-list/photo-list.component';
-import { PaintingEditComponent } from './edit/painting-edit/painting-edit.component';
+import { PaintingEditComponent } from './edit/photo-edit/painting-edit.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './pipe/filter.pipe';
 import { HomeComponent } from './pages/home/home.component';
