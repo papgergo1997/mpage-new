@@ -13,11 +13,11 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {
-        path: "paintings",
+        path: "images",
         component: PaintingsListComponent
       },
       {
-        path: "paintings/:id",
+        path: "images/:id",
         component: PaintingEditComponent
       },
       {

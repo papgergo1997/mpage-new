@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Painting } from 'src/app/model/painting';
+import { Image } from 'src/app/model/image';
 
 @Component({
   selector: 'app-item-card',
@@ -8,7 +8,7 @@ import { Painting } from 'src/app/model/painting';
 })
 export class ItemCardComponent implements OnInit {
 
-  @Input() painting: Painting;
+  @Input() image: Image;
 
   constructor() { }
 
