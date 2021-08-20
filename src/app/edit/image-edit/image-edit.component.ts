@@ -104,23 +104,23 @@ export class ImageEditComponent implements OnInit {
 
   };
 
-   uploadFull(): void {
-     const fullFile = this.selectedFullFiles.item(0);
-     this.selectedFullFiles = undefined;
-     this.currentFullPhoto = new Photo(fullFile);
+  //  uploadFull(): void {
+  //    const fullFile = this.selectedFullFiles.item(0);
+  //    this.selectedFullFiles = undefined;
+  //    this.currentFullPhoto = new Photo(fullFile);
 
-     this.pUploadService.pushFileToStorage(this.currentFullPhoto).subscribe(
-       percentage => {
-         this.fullPercentage = Math.round(percentage);
-         this.pUploadService.getFiles(1).snapshotChanges().pipe(
-           map(changes =>
-             changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-           )).subscribe(photo => this.image.fullPicture = photo.map(photo => photo.url).toString())
-       },
-       error => {
-         console.log(error);
-       }
-     );
-   }
+  //    this.pUploadService.pushFileToStorage(this.currentFullPhoto).subscribe(
+  //      percentage => {
+  //        this.fullPercentage = Math.round(percentage);
+  //        this.pUploadService.getFiles(1).snapshotChanges().pipe(
+  //          map(changes =>
+  //            changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+  //          )).subscribe(photo => this.image.fullPicture = photo.map(photo => photo.url).toString())
+  //      },
+  //      error => {
+  //        console.log(error);
+  //      }
+  //    );
+  //  }
 
 }
