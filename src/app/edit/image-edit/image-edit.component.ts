@@ -43,7 +43,7 @@ export class ImageEditComponent implements OnInit {
         .then(
           () => {
             this.router.navigate(['admin/images']);
-            this.toaster.success('Sikeres létrehozás!', 'Létrehozva', { timeOut: 3000 });
+            this.toaster.success('Successfully created!', 'Created', { timeOut: 3000 });
           })
         .catch(error => console.log(error));
     } else {
@@ -51,7 +51,7 @@ export class ImageEditComponent implements OnInit {
         .then(
           () => {
             this.router.navigate(['admin/images']);
-            this.toaster.info('Sikeres frissítés!', 'Frissítve', { timeOut: 3000 });
+            this.toaster.info('Successfully updated!', 'Updated', { timeOut: 3000 });
           })
         .catch(error => console.log(error));
     }
@@ -70,10 +70,14 @@ export class ImageEditComponent implements OnInit {
     this.selectedFiles = undefined;
     this.currentPhoto = new Photo(file);
 
+    const fullFile = this.selectedFullFiles.item(0);
+    this.selectedFullFiles = undefined;
+    this.currentFullPhoto = new Photo(fullFile);
+
     this.pUploadService.pushFileToStorage(this.currentPhoto).subscribe(
       percentage => {
         this.percentage = Math.round(percentage);
-        this.pUploadService.getFiles(1).snapshotChanges().pipe(
+        this.pUploadService.getFiles(2).snapshotChanges().pipe(
           map(changes =>
             changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
           )).subscribe(photo => this.image.picture = photo.map(photo => photo.url).toString())
@@ -81,15 +85,8 @@ export class ImageEditComponent implements OnInit {
       error => {
         console.log(error);
       }
-    );
-
-
-  };
-
-  uploadFull(): void {
-    const fullFile = this.selectedFullFiles.item(0);
-    this.selectedFullFiles = undefined;
-    this.currentFullPhoto = new Photo(fullFile);
+      
+    );    
 
     this.pUploadService.pushFileToStorage(this.currentFullPhoto).subscribe(
       percentage => {
@@ -103,6 +100,27 @@ export class ImageEditComponent implements OnInit {
         console.log(error);
       }
     );
-  }
+
+
+  };
+
+   uploadFull(): void {
+     const fullFile = this.selectedFullFiles.item(0);
+     this.selectedFullFiles = undefined;
+     this.currentFullPhoto = new Photo(fullFile);
+
+     this.pUploadService.pushFileToStorage(this.currentFullPhoto).subscribe(
+       percentage => {
+         this.fullPercentage = Math.round(percentage);
+         this.pUploadService.getFiles(1).snapshotChanges().pipe(
+           map(changes =>
+             changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+           )).subscribe(photo => this.image.fullPicture = photo.map(photo => photo.url).toString())
+       },
+       error => {
+         console.log(error);
+       }
+     );
+   }
 
 }
