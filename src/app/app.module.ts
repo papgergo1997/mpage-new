@@ -29,6 +29,7 @@ import { ArticleCardComponent } from './pageComponents/article-card/article-card
 import { ArticleCardContainerComponent } from './pageComponents/article-card-container/article-card-container.component';
 import { ImageListComponent } from './list/image-list/image-list.component';
 import { ImageEditComponent } from './edit/image-edit/image-edit.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { ImageEditComponent } from './edit/image-edit/image-edit.component';
     ArticleCardContainerComponent,
     ImageListComponent,
     ImageEditComponent,
+    GalleryComponent,
   ],
   imports: [
     CommonModule,
