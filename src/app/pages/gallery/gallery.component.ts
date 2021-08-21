@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Image } from 'src/app/model/image';
 import { switchMap} from 'rxjs/operators';
 import { ImageService } from 'src/app/service/image.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gallery',
@@ -12,10 +13,12 @@ import { ImageService } from 'src/app/service/image.service';
 export class GalleryComponent implements OnInit {
 
   image: Image;
-  @Input() images: Image[];
+  images$: Observable<Image[]>;
 
   constructor(private activatedRoute: ActivatedRoute, 
-    private iService: ImageService) { }
+    private iService: ImageService) {
+      this.images$ = this.iService.list$;
+     }
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
