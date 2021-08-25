@@ -1,8 +1,10 @@
 html{
     margin: 0;
-    padding: 0;
+    padding: 0;   
 }
-
+.gallery{    
+    height: 97vh;
+}
 
 .slider-item{
      height: 700px;
@@ -10,4 +12,8 @@ html{
 
 .slider-image{
     height: 100%;    
+}
+
+.btn {
+    color: rgba(245,156,56,255);
 }

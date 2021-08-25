@@ -1,6 +1,6 @@
 <div *ngIf="image" class="d-flex flex-column cards">
-    <div class="card-header my-2"><a [routerLink]="[image.id]" target="_blank"><img src="{{image.picture}}"
-                alt="{{image.name}}"></a></div>
+    <div class="card-header my-2"><a [routerLink]="[image.id]"><img src="{{image.picture}}" alt="{{image.name}}"></a>
+    </div>
     <div class="card-body text-center">
         <h5>{{image.name}}</h5>
     </div>
