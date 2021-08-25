@@ -1,15 +1,15 @@
-<div class="">
+<div class="gallery bg-dark">
     <div class="row">
-        <div class="col-10 offset-1">
+        <div class="col-10 offset-1 mt-4">
             <mdb-carousel *ngIf="image" class="slider" [isControls]="true" [animation]="'slide'" [interval]="'false'"
                 [noPause]="false">
                 
-               <mdb-carousel-item class="slider-item" *ngFor="let item of swappedImages$ | async">                    
-                    <img class="d-block w-100 slider-image" src="{{item.fullPicture}}" alt="{{item.name}} slide">
+               <mdb-carousel-item class="slider-item justify-content-center" *ngFor="let item of swappedImages$ | async">                    
+                    <img class="slider-image " src="{{item.fullPicture}}" alt="{{item.name}} slide">
                 </mdb-carousel-item>                 
                 <!-- <div class="d-flex justify-content-center">
                     <img class="h-logo" src="/assets/img/logos/h narancssárga.png" alt="h" srcset="">
-                </div> -->
+                </div>  -->
             </mdb-carousel>
         </div>
     </div>
