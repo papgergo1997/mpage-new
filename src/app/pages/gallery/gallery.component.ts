@@ -26,14 +26,17 @@ export class GalleryComponent implements OnInit {
       this.image = image;
     });
     this.images$ = this.iService.list$;
-      this.images$.subscribe(images => {        
-        console.log(images)
+      this.images$.subscribe(images => {      
         for(let i = 0; i < images.length; i ++){
           if(images[i].id == this.image.id){
-            let swapper = images[0];
-            images[0] = images[i];
-            images[i] = swapper;
-            this.swappedImages$ = of(images); 
+            let sortedImages = [];
+            images.slice(images.indexOf(images[i]),images.length).forEach(item=>sortedImages.push(item));
+            images.slice(images.indexOf(images[0]),images.indexOf(images[i])).forEach(item=>sortedImages.push(item));
+            this.swappedImages$ = of(sortedImages);
+            // let swapper = images[0];
+            // images[0] = images[i];
+            // images[i] = swapper;
+            // this.swappedImages$ = of(images); 
           }
         }
         
