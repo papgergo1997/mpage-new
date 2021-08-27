@@ -7,6 +7,9 @@ import { Photo } from 'src/app/model/photo';
 import { PhotoUploadService } from 'src/app/service/photo-upload.service';
 import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
+//for cropper
+import { CroppedEvent } from 'ngx-photo-editor';
+//
 
 @Component({
   selector: 'app-image-edit',
@@ -14,9 +17,12 @@ import { ImageService } from 'src/app/service/image.service';
   styleUrls: ['./image-edit.component.scss']
 })
 export class ImageEditComponent implements OnInit {
-
+  //for cropper
+  imageChangedEvent: any;
+  base64: any;
+  //
   image: Image;
-  selectedFiles: FileList;
+  selectedFiles: any;
   currentPhoto: Photo;
   percentage: number = 0;
   fullPercentage: number = 0;
@@ -58,15 +64,15 @@ export class ImageEditComponent implements OnInit {
 
   }
 
-  selectFile(event): void {
-    this.selectedFiles = event.target.files;
-  }
+  // selectFile(event): void {
+  //   this.selectedFiles = event.target.files;
+  // }
   selectFullFile(event): void {
     this.selectedFullFiles = event.target.files;
   }
 
   upload(): void {
-    const file = this.selectedFiles.item(0);
+    const file = this.selectedFiles;
     this.selectedFiles = undefined;
     this.currentPhoto = new Photo(file);
 
@@ -85,8 +91,8 @@ export class ImageEditComponent implements OnInit {
       error => {
         console.log(error);
       }
-      
-    );    
+
+    );
 
     this.pUploadService.pushFileToStorage(this.currentFullPhoto).subscribe(
       percentage => {
@@ -122,5 +128,15 @@ export class ImageEditComponent implements OnInit {
   //      }
   //    );
   //  }
+
+  //for cropper
+  fileChangeEvent(event: any) {
+    this.imageChangedEvent = event;
+  };
+
+  imageCropped(event: CroppedEvent) {
+    this.selectedFiles = event.file;
+  };
+  //
 
 }

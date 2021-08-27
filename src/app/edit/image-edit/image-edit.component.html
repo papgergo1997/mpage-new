@@ -31,10 +31,19 @@
                         readonly>
                 </div>
                 <div>
-                    <label>
+                    <!-- <label>
                         <input type="file" class="text-nowrap text-truncate" (change)="selectFile($event)" />
+
+                    </label> -->
+                    <!-- for cropper -->
+                    <label>
+                        <input type="file" (change)="fileChangeEvent($event)" />
                     </label>
 
+                    <ngx-photo-editor [imageChanedEvent]="imageChangedEvent" (imageCropped)="imageCropped($event)"
+                        [aspectRatio]="4/4" [viewMode]="3" [resizeToWidth]="500" [imageQuality]="20"></ngx-photo-editor>
+
+                    <img [src]="base64" alt="">
                     <!-- <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
                         Upload
                     </button> -->
@@ -58,7 +67,8 @@
                         <input type="file" class="text-nowrap text-truncate" (change)="selectFullFile($event)" />
                     </label>
 
-                    <button class="btn btn-success btn-sm" [disabled]="!selectedFullFiles && !selectedFiles" (click)="upload()">
+                    <button class="btn btn-success btn-sm" [disabled]="!selectedFullFiles && !selectedFiles"
+                        (click)="upload()">
                         Upload
                     </button>
 
