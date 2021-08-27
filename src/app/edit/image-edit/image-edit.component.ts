@@ -28,7 +28,6 @@ export class ImageEditComponent implements OnInit {
   fullPercentage: number = 0;
   selectedFullFiles: FileList;
   currentFullPhoto: Photo;
-  gIN: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -72,14 +71,22 @@ export class ImageEditComponent implements OnInit {
     this.selectedFullFiles = event.target.files;
   }
 
-  uploadFunction(num: number, photo: Photo) {
+  uploadFunction(num: number, photo: Photo, full: boolean) {
     this.pUploadService.pushFileToStorage(photo).subscribe(
       percentage => {
-        this.percentage = Math.round(percentage);
-        this.pUploadService.getFiles(num).snapshotChanges().pipe(
-          map(changes =>
-            changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-          )).subscribe(photo => this.image.picture = photo.map(photo => photo.url).toString())
+        if (full == true) {
+          this.percentage = Math.round(percentage);
+          this.pUploadService.getFiles(num).snapshotChanges().pipe(
+            map(changes =>
+              changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+            )).subscribe(photo => this.image.fullPicture = photo.map(photo => photo.url).toString())
+        } else if (full == false) {
+          this.percentage = Math.round(percentage);
+          this.pUploadService.getFiles(num).snapshotChanges().pipe(
+            map(changes =>
+              changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+            )).subscribe(photo => this.image.picture = photo.map(photo => photo.url).toString())
+        }
       },
       error => {
         console.log(error);
@@ -93,39 +100,57 @@ export class ImageEditComponent implements OnInit {
       const file = this.selectedFiles;
       this.selectedFiles = undefined;
       this.currentPhoto = new Photo(file);
-      this.gIN = 1;
 
-      this.pUploadService.pushFileToStorage(this.currentPhoto).subscribe(
-        percentage => {
-          this.percentage = Math.round(percentage);
-          this.pUploadService.getFiles(this.gIN).snapshotChanges().pipe(
-            map(changes =>
-              changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-            )).subscribe(photo => this.image.picture = photo.map(photo => photo.url).toString())
-        },
-        error => {
-          console.log(error);
-        }
+      this.uploadFunction(1, this.currentPhoto, false);
 
-      );
-    }
-    if (this.selectedFullFiles != undefined) {
+      // this.pUploadService.pushFileToStorage(this.currentPhoto).subscribe(
+      //   percentage => {
+      //     this.percentage = Math.round(percentage);
+      //     this.pUploadService.getFiles(this.gIN).snapshotChanges().pipe(
+      //       map(changes =>
+      //         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      //       )).subscribe(photo => this.image.picture = photo.map(photo => photo.url).toString())
+      //   },
+      //   error => {
+      //     console.log(error);
+      //   }
+
+      // );
+    } else if (this.selectedFullFiles != undefined && this.selectedFiles == undefined) {
       const fullFile = this.selectedFullFiles.item(0);
       this.selectedFullFiles = undefined;
       this.currentFullPhoto = new Photo(fullFile);
-      this.pUploadService.pushFileToStorage(this.currentFullPhoto).subscribe(
-        percentage => {
-          this.fullPercentage = Math.round(percentage);
-          this.pUploadService.getFiles(1).snapshotChanges().pipe(
-            map(changes =>
-              changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-            )).subscribe(photo => this.image.fullPicture = photo.map(photo => photo.url).toString())
-        },
-        error => {
-          console.log(error);
-        }
-      );
+
+      this.uploadFunction(1, this.currentFullPhoto, true);
+    } else {
+      const file = this.selectedFiles;
+      this.selectedFiles = undefined;
+      this.currentPhoto = new Photo(file);
+
+      const fullFile = this.selectedFullFiles.item(0);
+      this.selectedFullFiles = undefined;
+      this.currentFullPhoto = new Photo(fullFile);
+
+      this.uploadFunction(2, this.currentPhoto, false);
+      this.uploadFunction(1, this.currentFullPhoto, true);
     }
+    // if (this.selectedFullFiles != undefined) {
+    //   const fullFile = this.selectedFullFiles.item(0);
+    //   this.selectedFullFiles = undefined;
+    //   this.currentFullPhoto = new Photo(fullFile);
+    //   this.pUploadService.pushFileToStorage(this.currentFullPhoto).subscribe(
+    //     percentage => {
+    //       this.fullPercentage = Math.round(percentage);
+    //       this.pUploadService.getFiles(1).snapshotChanges().pipe(
+    //         map(changes =>
+    //           changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+    //         )).subscribe(photo => this.image.fullPicture = photo.map(photo => photo.url).toString())
+    //     },
+    //     error => {
+    //       console.log(error);
+    //     }
+    //   );
+    // }
   };
 
   //  uploadFull(): void {
