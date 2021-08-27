@@ -75,7 +75,7 @@ export class ImageEditComponent implements OnInit {
     this.pUploadService.pushFileToStorage(photo).subscribe(
       percentage => {
         if (full == true) {
-          this.percentage = Math.round(percentage);
+          this.fullPercentage = Math.round(percentage);
           this.pUploadService.getFiles(num).snapshotChanges().pipe(
             map(changes =>
               changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
