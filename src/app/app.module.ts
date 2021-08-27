@@ -30,6 +30,8 @@ import { ArticleCardContainerComponent } from './pageComponents/article-card-con
 import { ImageListComponent } from './list/image-list/image-list.component';
 import { ImageEditComponent } from './edit/image-edit/image-edit.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 
 
 @NgModule({
@@ -67,6 +69,8 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgbModule,
+    NgxPhotoEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
