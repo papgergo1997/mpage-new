@@ -1,15 +1,16 @@
-<div class="gallery bg-dark ">
-    <div class="row justify-content-center">
-        <div class="col-10  mt-1">
-            <a class="btn btn-dark" routerLink="/">Back home</a>
-            <div class="slider">
-                <div class="slider-item">
+<div class="container-fluid gallery bg-dark my-0 py-0">
+    <div class="row">
+        <div class="col-10 offset-1">
+            <a class="btn btn-dark my-2" routerLink="/">Back home</a>
+            <div class="slider d-flex flex-column">
+                <div class="slider-item justify-content-center">
                     <img class="slider-image" src="{{(swappedImages$ | async)[num].fullPicture}}" alt="{{image.name}}">
+                    <div class="control-group ">
+                        <i class="fa fa-chevron-right control-right" (click)="right()"></i>
+                        <i class="fa fa-chevron-left control-left" (click)="left()"></i>
+                    </div>
                 </div>
-                <div class="control-group">
-                    <i class="fa fa-chevron-right control-right" (click)="right()"></i>
-                    <i class="fa fa-chevron-left control-left" (click)="left()"></i>
-                </div>
+
             </div>
             <!-- <mdb-carousel *ngIf="image" class="slider" [isControls]="true" [animation]="'slide'" [interval]="'false'"
                 [noPause]="false">
