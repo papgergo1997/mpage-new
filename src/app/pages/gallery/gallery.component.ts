@@ -42,8 +42,24 @@ export class GalleryComponent implements OnInit {
   }
 
   right() {
-    this.num++;
-    console.log(this.num)
+    this.swappedImages$.subscribe(images => {
+      if (this.num < images.length - 1) {
+        this.num++;
+      } else {
+        this.num = 0;
+      }
+      console.log(this.num)
+    })
+  }
+  left() {
+    this.swappedImages$.subscribe(images => {
+      if (this.num != 0) {
+        this.num--;
+      } else {
+        this.num = images.length - 1;
+      }
+      console.log(this.num)
+    })
   }
 
 }
