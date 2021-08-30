@@ -12,6 +12,7 @@ import { Observable, of } from 'rxjs';
 })
 export class GalleryComponent implements OnInit {
 
+  num: number = 0;
   image: Image;
   images$: Observable<Image[]>;
   swappedImages$: Observable<Image[]>;
@@ -38,6 +39,11 @@ export class GalleryComponent implements OnInit {
 
     })
 
+  }
+
+  right() {
+    this.num++;
+    console.log(this.num)
   }
 
 }

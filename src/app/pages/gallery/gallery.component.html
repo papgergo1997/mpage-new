@@ -3,11 +3,11 @@
         <div class="col-10  mt-1">
             <a class="btn btn-dark" routerLink="/">Back home</a>
             <div class="slider">
-                <div class="slider-item" *ngFor="let image of swappedImages$ | async">
-                    <img class="slider-image" src="{{image.fullPicture}}" alt="{{image.name}}">
+                <div class="slider-item">
+                    <img class="slider-image" src="{{(swappedImages$ | async)[num].fullPicture}}" alt="{{image.name}}">
                 </div>
                 <div class="control-group">
-                    <i class="fa fa-chevron-right control-right"></i>
+                    <i class="fa fa-chevron-right control-right" (click)="right()"></i>
                     <i class="fa fa-chevron-left control-left"></i>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                 <mdb-carousel-item class="slider-item justify-content-center"
                     *ngFor="let item of swappedImages$ | async">
                     <img class="slider-image " src="{{item.fullPicture}}" alt="{{item.name}} slide">
-                </mdb-carousel-item>                 
+                </mdb-carousel-item>
             </mdb-carousel> -->
         </div>
     </div>
