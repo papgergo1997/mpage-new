@@ -17,3 +17,13 @@ html{
 .btn {
     color: rgba(245,156,56,255);
 }
+
+.control-group{
+    position: relative;
+    height: 50vh;
+    .control-right{
+        color: black;
+        position: absolute;
+        right: 50px;
+    }
+}
