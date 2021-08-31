@@ -18,30 +18,10 @@ html{
 .slider-image{
     height: 100%;
     border-radius: 5px;
-    box-shadow: 0 0 20px rgb(10, 10, 10);    
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
+    box-shadow: 0 0 20px rgb(10, 10, 10);        
 }
 
-@-webkit-keyframes fade {
-    from {
-        opacity: .4
-    }
-    to {
-        opacity: 1
-    }
-}
 
-@keyframes fade {
-    from {
-        opacity: .4
-    }
-    to{
-        opacity: 1
-    }
-}
 
 .btn {
     color: rgba(245,156,56,255);
