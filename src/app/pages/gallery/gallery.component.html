@@ -4,8 +4,9 @@
             <a class="btn btn-dark my-2" routerLink="/">Back home</a>
             <div class="slider d-flex flex-column">
                 <div class="slider-item justify-content-center">
-                    <img [@slide]="slide1Or2 ? 'slide1' : 'slide2'" class="slider-image" id="slide"
-                        src="{{(swappedImages$ | async)[num].fullPicture}}" alt="{{image.name}}">
+                    <img [@slide]="slide1Or2 ? 'slide1' : 'slide2'" [@fade]="slide1Or2 ? 'slide1' : 'slide2'"
+                        class="slider-image" id="slide" src="{{(swappedImages$ | async)[num].fullPicture}}"
+                        alt="{{image.name}}">
                     <div class="control-group ">
                         <i class="fa fa-chevron-right control-right" (click)="right()"></i>
                         <i class="fa fa-chevron-left control-left" (click)="left()"></i>

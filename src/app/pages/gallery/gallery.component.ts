@@ -10,7 +10,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   animations: [
-    trigger('slide', [
+    trigger('fade', [
       state('slide1', style({
         opacity: 1,
       })),
@@ -18,11 +18,27 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
         opacity: 0,
       })),
       transition('slide1 => slide2', [
-        animate('0.25s')
+        animate('0.2s')
       ]),
       transition('slide2 => slide1', [
-        animate('0.25s')
+        animate('0.5s')
       ]),
+    ]),
+    trigger('slide', [
+      state('slide1', style({
+        opacity: 1,
+        transform: 'translateX(0%)'
+      })),
+      state('slide2', style({
+        opacity: 0,
+        transform: 'translateX(100%)'
+      })),
+      transition('slide1 => slide2', [
+        animate('0.2s ease-in', style({ transform: 'translateX(-100%)' }))
+      ]),
+      transition('slide2 => slide1', [
+        animate('0.5s ease-in', style({ transform: 'translateX(0%)' }))
+      ])
     ])
   ],
   styleUrls: ['./gallery.component.scss'],
