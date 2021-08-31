@@ -1,14 +1,31 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Image } from 'src/app/model/image';
 import { switchMap } from 'rxjs/operators';
 import { ImageService } from 'src/app/service/image.service';
 import { Observable, of } from 'rxjs';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss']
+  animations: [
+    'slide', [
+      state('slide1', style({
+
+      })),
+      state('slide2', style({
+
+      })),
+      transition('slide1 => slide2', [
+
+      ]),
+      transition('slide2 => slide1', [
+
+      ]),
+    ]
+  ],
+  styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
 
@@ -39,7 +56,7 @@ export class GalleryComponent implements OnInit {
 
     })
 
-  }
+  };
 
   right() {
     this.swappedImages$.subscribe(images => {
@@ -50,7 +67,8 @@ export class GalleryComponent implements OnInit {
       }
       console.log(this.num)
     })
-  }
+  };
+
   left() {
     this.swappedImages$.subscribe(images => {
       if (this.num != 0) {
@@ -60,6 +78,10 @@ export class GalleryComponent implements OnInit {
       }
       console.log(this.num)
     })
-  }
+  };
+
+  toogle() {
+
+  };
 
 }
