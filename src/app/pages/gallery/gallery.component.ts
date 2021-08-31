@@ -10,25 +10,26 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   animations: [
-    'slide', [
+    trigger('slide', [
       state('slide1', style({
-
+        opacity: 1,
       })),
       state('slide2', style({
-
+        opacity: 0,
       })),
       transition('slide1 => slide2', [
-
+        animate('0.25s')
       ]),
       transition('slide2 => slide1', [
-
+        animate('0.25s')
       ]),
-    ]
+    ])
   ],
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
 
+  slide1Or2: boolean = true;
   num: number = 0;
   image: Image;
   images$: Observable<Image[]>;
@@ -58,6 +59,15 @@ export class GalleryComponent implements OnInit {
 
   };
 
+  animation() {
+    this.slide1Or2 = false
+    console.log(this.slide1Or2)
+    setTimeout(() => {
+      this.slide1Or2 = true
+      console.log(this.slide1Or2)
+    }, 500);
+  }
+
   right() {
     this.swappedImages$.subscribe(images => {
       if (this.num < images.length - 1) {
@@ -65,7 +75,7 @@ export class GalleryComponent implements OnInit {
       } else {
         this.num = 0;
       }
-      console.log(this.num)
+      this.animation();
     })
   };
 
@@ -76,7 +86,7 @@ export class GalleryComponent implements OnInit {
       } else {
         this.num = images.length - 1;
       }
-      console.log(this.num)
+      this.animation();
     })
   };
 
