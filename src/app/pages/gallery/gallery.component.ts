@@ -52,7 +52,12 @@ export class GalleryComponent implements OnInit {
   swappedImages$: Observable<Image[]>;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private iService: ImageService) { }
+    private iService: ImageService) {
+    //Probe slider START
+    this.transform = 100;
+    this.selectedIndex = 0;
+    //Probe slider END
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
@@ -84,16 +89,16 @@ export class GalleryComponent implements OnInit {
     }, 500);
   }
 
-  right() {
-    this.swappedImages$.subscribe(images => {
-      if (this.num < images.length - 1) {
-        this.num++;
-      } else {
-        this.num = 0;
-      }
-      this.animation();
-    })
-  };
+  // right() {
+  //   this.swappedImages$.subscribe(images => {
+  //     if (this.num < images.length - 1) {
+  //       this.num++;
+  //     } else {
+  //       this.num = 0;
+  //     }
+  //     this.animation();
+  //   })
+  // };
 
   left() {
     this.swappedImages$.subscribe(images => {
@@ -106,8 +111,38 @@ export class GalleryComponent implements OnInit {
     })
   };
 
-  toogle() {
+  //Probe slider START
 
-  };
+  transform: number;
+  selectedIndex = 0;
+
+  selected(x) {
+    this.downSelected(x);
+    this.selectedIndex = x;
+  }
+
+  keySelected(x) {
+    this.downSelected(x);
+    this.selectedIndex = x;
+  }
+
+  downSelected(i) {
+    this.transform = 100 - (i) * 50;
+    this.selectedIndex = this.selectedIndex + 1;
+    if (this.selectedIndex > 4) {
+      this.selectedIndex = 0;
+    }
+  }
+
+  right() {
+    this.swappedImages$.subscribe(images => {
+      if (this.num < images.length - 1) {
+        this.selectedIndex++;
+      } else {
+        this.selectedIndex = 0;
+      }
+    })
+  }
+  //Probe slider END
 
 }
