@@ -16,15 +16,16 @@
 <!-- Probe slider START-->
 <div class="container-fluid gallery bg-dark my-0 py-0">
     <div class="row">
-        <div class="col-10 offset-1">
+        <div class="col-2 d-flex justify-content-center">
             <a class="btn btn-dark my-2" routerLink="/">Back home</a>
-
+        </div>
+        <div class="col-10 offset-1 d-flex justify-content-center">
             <div class="img-container" *ngFor="let i of swappedImages$ | async; let select = index;"
                 [ngClass]="{'selected': select == selectedIndex}">
                 <img src="{{i.fullPicture}}" alt="{{i.name}}">
 
             </div>
-            <div class="control-group ">
+            <div class="control-group">
                 <i class="fa fa-chevron-right control-right" (click)="right()"></i>
                 <i class="fa fa-chevron-left control-left" (click)="left()"></i>
             </div>
