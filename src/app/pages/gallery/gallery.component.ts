@@ -102,12 +102,13 @@ export class GalleryComponent implements OnInit {
 
   left() {
     this.swappedImages$.subscribe(images => {
-      if (this.num != 0) {
-        this.num--;
+      if (this.selectedIndex != 0) {
+        this.selectedIndex--;
+        console.log(this.selectedIndex)
       } else {
-        this.num = images.length - 1;
+        this.selectedIndex = images.length - 1;
+        console.log(this.selectedIndex)
       }
-      this.animation();
     })
   };
 
@@ -116,30 +117,14 @@ export class GalleryComponent implements OnInit {
   transform: number;
   selectedIndex = 0;
 
-  selected(x) {
-    this.downSelected(x);
-    this.selectedIndex = x;
-  }
-
-  keySelected(x) {
-    this.downSelected(x);
-    this.selectedIndex = x;
-  }
-
-  downSelected(i) {
-    this.transform = 100 - (i) * 50;
-    this.selectedIndex = this.selectedIndex + 1;
-    if (this.selectedIndex > 4) {
-      this.selectedIndex = 0;
-    }
-  }
-
   right() {
     this.swappedImages$.subscribe(images => {
-      if (this.num < images.length - 1) {
+      if (this.selectedIndex < images.length - 1) {
         this.selectedIndex++;
+        console.log(this.selectedIndex)
       } else {
         this.selectedIndex = 0;
+        console.log(this.selectedIndex)
       }
     })
   }
