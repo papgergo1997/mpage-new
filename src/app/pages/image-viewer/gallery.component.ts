@@ -9,42 +9,44 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  animations: [
-    trigger('fade', [
-      state('slide1', style({
-        opacity: 1,
-      })),
-      state('slide2', style({
-        opacity: 0,
-      })),
-      transition('slide1 => slide2', [
-        animate('0.2s')
-      ]),
-      transition('slide2 => slide1', [
-        animate('0.5s')
-      ]),
-    ]),
-    trigger('slide', [
-      state('slide1', style({
-        opacity: 1,
-        transform: 'translateX(0%)'
-      })),
-      state('slide2', style({
-        opacity: 0,
-        transform: 'translateX(100%)'
-      })),
-      transition('slide1 => slide2', [
-        animate('0.2s ease-in', style({ transform: 'translateX(-100%)' }))
-      ]),
-      transition('slide2 => slide1', [
-        animate('0.5s ease-in', style({ transform: 'translateX(0%)' }))
-      ])
-    ])
-  ],
+  // animations: [
+  //   trigger('fade', [
+  //     state('slide1', style({
+  //       opacity: 1,
+  //     })),
+  //     state('slide2', style({
+  //       opacity: 0,
+  //     })),
+  //     transition('slide1 => slide2', [
+  //       animate('0.2s')
+  //     ]),
+  //     transition('slide2 => slide1', [
+  //       animate('0.5s')
+  //     ]),
+  //   ]),
+  //   trigger('slide', [
+  //     state('slide1', style({
+  //       opacity: 1,
+  //       transform: 'translateX(0%)'
+  //     })),
+  //     state('slide2', style({
+  //       opacity: 0,
+  //       transform: 'translateX(100%)'
+  //     })),
+  //     transition('slide1 => slide2', [
+  //       animate('0.2s ease-in', style({ transform: 'translateX(-100%)' }))
+  //     ]),
+  //     transition('slide2 => slide1', [
+  //       animate('0.5s ease-in', style({ transform: 'translateX(0%)' }))
+  //     ])
+  //   ])
+  // ],
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit {
 
+  transform: number;
+  selectedIndex = 0;
   slide1Or2: boolean = true;
   num: number = 0;
   image: Image;
@@ -53,10 +55,8 @@ export class GalleryComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
     private iService: ImageService) {
-    //Probe slider START
     this.transform = 100;
     this.selectedIndex = 0;
-    //Probe slider END
   }
 
   ngOnInit(): void {
@@ -80,54 +80,34 @@ export class GalleryComponent implements OnInit {
 
   };
 
-  animation() {
-    this.slide1Or2 = false
-    console.log(this.slide1Or2)
-    setTimeout(() => {
-      this.slide1Or2 = true
-      console.log(this.slide1Or2)
-    }, 500);
-  }
-
-  // right() {
-  //   this.swappedImages$.subscribe(images => {
-  //     if (this.num < images.length - 1) {
-  //       this.num++;
-  //     } else {
-  //       this.num = 0;
-  //     }
-  //     this.animation();
-  //   })
-  // };
+  // animation() {
+  //   this.slide1Or2 = false
+  //   console.log(this.slide1Or2)
+  //   setTimeout(() => {
+  //     this.slide1Or2 = true
+  //     console.log(this.slide1Or2)
+  //   }, 500);
+  // }
 
   left() {
     this.swappedImages$.subscribe(images => {
       if (this.selectedIndex != 0) {
         this.selectedIndex--;
-        console.log(this.selectedIndex)
       } else {
         this.selectedIndex = images.length - 1;
-        console.log(this.selectedIndex)
       }
     })
   };
 
-  //Probe slider START
-
-  transform: number;
-  selectedIndex = 0;
 
   right() {
     this.swappedImages$.subscribe(images => {
       if (this.selectedIndex < images.length - 1) {
         this.selectedIndex++;
-        console.log(this.selectedIndex)
       } else {
         this.selectedIndex = 0;
-        console.log(this.selectedIndex)
       }
     })
   }
-  //Probe slider END
 
 }
