@@ -11,7 +11,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { AdminComponent } from './pages/admin/admin.component';
-import { SideNavComponent } from './pageComponents/side-nav/side-nav.component';
+import { SideNavComponent } from './pages/admin/side-nav/side-nav.component';
 import { AdminNavComponent } from './pages/admin/admin-nav/admin-nav.component';
 import { AdminFooterComponent } from './pages/admin/admin-footer/admin-footer.component';
 import { ToastrModule } from 'ngx-toastr';
