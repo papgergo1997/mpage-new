@@ -4,7 +4,7 @@ import { Config } from 'protractor';
 import { ArticleEditComponent } from './pages/admin/article-edit/article-edit.component';
 import { ArticlesListComponent } from './pages/admin/articles-list/articles-list.component';
 import { ImageListComponent } from './pages/admin/image-list/image-list.component';
-import { ImageEditComponent } from './edit/image-edit/image-edit.component';
+import { ImageEditComponent } from './pages/admin/image-edit/image-edit.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
