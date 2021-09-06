@@ -20,9 +20,9 @@
             <a class="btn btn-dark my-2" routerLink="/">Back home</a>
         </div>
         <div class="col-10 offset-1 d-flex justify-content-center">
-            <div class="img-container" *ngFor="let i of swappedImages$ | async; let select = index;"
+            <div class="img-container" *ngFor="let image of swappedImages$ | async; let select = index;"
                 [ngClass]="{'selected': select == selectedIndex}">
-                <img src="{{i.fullPicture}}" alt="{{i.name}}">
+                <img src="{{image.fullPicture}}" alt="{{image.name}}">
 
             </div>
             <div class="control-group">
