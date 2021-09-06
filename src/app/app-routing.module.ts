@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Config } from 'protractor';
-import { ArticleEditComponent } from './edit/article-edit/article-edit.component';
+import { ArticleEditComponent } from './pages/admin/article-edit/article-edit.component';
 import { ArticlesListComponent } from './pages/admin/articles-list/articles-list.component';
 import { ImageListComponent } from './pages/admin/image-list/image-list.component';
 import { ImageEditComponent } from './edit/image-edit/image-edit.component';
