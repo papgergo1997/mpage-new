@@ -18,7 +18,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './pipe/filter.pipe';
 import { HomeComponent } from './pages/home/home.component';
 import { ItemCardContainerComponent } from './pageComponents/item-card-container/item-card-container.component';
-import { SliderComponent } from './pageComponents/slider/slider.component';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { ItemCardComponent } from './pageComponents/item-card/item-card.component';
 import { SliderPipe } from './pipe/slider.pipe';
@@ -44,7 +43,6 @@ import { NgxPhotoEditorModule } from 'ngx-photo-editor';
     FilterPipe,
     HomeComponent,
     ItemCardContainerComponent,
-    SliderComponent,
     ItemCardComponent,
     SliderPipe,
     ArticlesListComponent,
