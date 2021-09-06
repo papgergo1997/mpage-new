@@ -19,7 +19,7 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { HomeComponent } from './pages/home/home.component';
 import { ItemCardContainerComponent } from './pageComponents/item-card-container/item-card-container.component';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
-import { ItemCardComponent } from './pageComponents/item-card/item-card.component';
+import { ItemCardComponent } from './pages/home/item-card/item-card.component';
 import { SliderPipe } from './pipe/slider.pipe';
 import { ArticlesListComponent } from './pages/admin/articles-list/articles-list.component';
 import { ArticleEditComponent } from './pages/admin/article-edit/article-edit.component';
