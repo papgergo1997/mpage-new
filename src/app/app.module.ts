@@ -17,7 +17,7 @@ import { AdminFooterComponent } from './pages/admin/admin-footer/admin-footer.co
 import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './pipe/filter.pipe';
 import { HomeComponent } from './pages/home/home.component';
-import { ItemCardContainerComponent } from './pageComponents/item-card-container/item-card-container.component';
+import { ItemCardContainerComponent } from './pages/home/item-card-container/item-card-container.component';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { ItemCardComponent } from './pages/home/item-card/item-card.component';
 import { SliderPipe } from './pipe/slider.pipe';
