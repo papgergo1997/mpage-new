@@ -24,7 +24,7 @@ import { SliderPipe } from './pipe/slider.pipe';
 import { ArticlesListComponent } from './pages/admin/articles-list/articles-list.component';
 import { ArticleEditComponent } from './pages/admin/article-edit/article-edit.component';
 import { ArticleFilterPipe } from './pipe/article-filter.pipe';
-import { ArticleCardComponent } from './pageComponents/article-card/article-card.component';
+import { ArticleCardComponent } from './pages/home/article-card/article-card.component';
 import { ArticleCardContainerComponent } from './pageComponents/article-card-container/article-card-container.component';
 import { ImageListComponent } from './pages/admin/image-list/image-list.component';
 import { ImageEditComponent } from './pages/admin/image-edit/image-edit.component';
