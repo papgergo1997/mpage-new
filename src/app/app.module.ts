@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 import { AdminComponent } from './pages/admin/admin.component';
 import { SideNavComponent } from './pageComponents/side-nav/side-nav.component';
 import { AdminNavComponent } from './pageComponents/admin-nav/admin-nav.component';
-import { AdminFooterComponent } from './pageComponents/admin-footer/admin-footer.component';
+import { AdminFooterComponent } from './pages/admin/admin-footer/admin-footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './pipe/filter.pipe';
 import { HomeComponent } from './pages/home/home.component';
