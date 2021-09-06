@@ -7,7 +7,7 @@ import { ImageListComponent } from './pages/admin/image-list/image-list.componen
 import { ImageEditComponent } from './pages/admin/image-edit/image-edit.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
+import { GalleryComponent } from './pages/image-viewer/gallery.component';
 const routes: Routes = [
   {
     path: "admin",

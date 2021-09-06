@@ -28,7 +28,7 @@ import { ArticleCardComponent } from './pages/home/article-card/article-card.com
 import { ArticleCardContainerComponent } from './pages/home/article-card-container/article-card-container.component';
 import { ImageListComponent } from './pages/admin/image-list/image-list.component';
 import { ImageEditComponent } from './pages/admin/image-edit/image-edit.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
+import { GalleryComponent } from './pages/image-viewer/gallery.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 
