@@ -7,6 +7,7 @@ import { ImageListComponent } from './list/image-list/image-list.component';
 import { ImageEditComponent } from './edit/image-edit/image-edit.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 const routes: Routes = [
   {
     path: "admin",
@@ -33,7 +34,13 @@ const routes: Routes = [
   {
     path: "",
     component: HomeComponent
+  },
+  {
+    path: ":id",
+    component: GalleryComponent
   }
+    
+  
 ];
 
 const config: Config = [

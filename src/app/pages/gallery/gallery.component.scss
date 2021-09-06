@@ -1,0 +1,89 @@
+html{
+    margin: 0;
+    padding: 0;      
+}
+
+
+.gallery {
+    height:100vh;
+    width: 100vw;
+    overflow: hidden ;   
+  } 
+
+ .btn {
+     color: rgba(245,156,56,255);
+ }
+
+ 
+ .control-group{
+
+    display: flex; 
+    position: relative;
+    margin-top: 240px;
+    align-items: center;    
+    height: 100%;
+    width: 100%; 
+    top: 0;
+    z-index: 1;
+   
+     .control-right{
+         font-size: 25px;
+         color: rgba(245,156,56,255);
+         position: absolute;    
+         right: 0px;
+         opacity: 50%;  
+     }
+
+     .control-left{
+         font-size: 25px;
+        
+         color: rgba(245,156,56,255);
+         position: absolute;    
+         opacity: 50%; 
+     }
+    
+ }
+ .control-right:hover {
+     cursor: pointer;
+     opacity: 100% !important;
+ }
+
+ .control-left:hover {
+     cursor: pointer;
+     opacity: 100% !important;
+ }
+
+
+//Probe slider START
+
+  
+  
+  
+  .img-container {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    height: 700px !important;
+    background-color: transparent;
+    will-change: opacity;
+    transition: opacity .3s;  
+    z-index: 0; 
+    
+    img {
+    height: 100%;
+    border-radius: 7px;
+    box-shadow: 0 0 20px rgb(15, 15, 15);
+    } 
+  }
+    
+  .selected {
+    opacity: 1;
+    transition: 1s;
+  }
+  
+  
+
+
+//Probe slider END
