@@ -22,7 +22,7 @@ import { SliderComponent } from './pageComponents/slider/slider.component';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { ItemCardComponent } from './pageComponents/item-card/item-card.component';
 import { SliderPipe } from './pipe/slider.pipe';
-import { ArticlesListComponent } from './list/articles-list/articles-list.component';
+import { ArticlesListComponent } from './pages/admin/articles-list/articles-list.component';
 import { ArticleEditComponent } from './edit/article-edit/article-edit.component';
 import { ArticleFilterPipe } from './pipe/article-filter.pipe';
 import { ArticleCardComponent } from './pageComponents/article-card/article-card.component';
