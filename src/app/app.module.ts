@@ -31,6 +31,7 @@ import { ImageEditComponent } from './pages/admin/image-edit/image-edit.componen
 import { GalleryComponent } from './pages/image-viewer/gallery.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { NgxPhotoEditorModule } from 'ngx-photo-editor';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgbModule,
-    NgxPhotoEditorModule
+    NgxPhotoEditorModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
