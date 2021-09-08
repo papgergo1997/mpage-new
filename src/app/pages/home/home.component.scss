@@ -3,7 +3,7 @@ html {
     padding: 0;
 }
 
-.historian {     
+.historian {
     position:absolute;
     top: 15px;
     left: 15px;
@@ -22,7 +22,7 @@ html {
     width: 100%;
     background-image: url(/assets/img/őzbak.jpg);
     background-size: 150%;
-    background-position: center;    
+    background-position: center;
     // background-attachment: fixed;
     box-shadow: 0 0 40px black;
     z-index: 1;
@@ -30,20 +30,22 @@ html {
 
 .h-logo{
     width: 50%;
-    position: absolute;          
+    position: absolute;
 }
 
 .logo-container{
-    position: absolute;    
+  display: flex;
+  justify-content: center;
+    position: absolute;
     z-index: 1;
     background-color: rgb(33, 33, 33);
     top: 348px;
     width: 100px;
-    height: 100px;    
-    right: 20px;    
+    height: 100px;
+    right: 20px;
     border-radius: 100px;
     box-shadow: 0 0 40px black;
-    
+
 }
 
 .main{
@@ -61,12 +63,21 @@ html {
     background-color: rgb(50, 50, 50);
     box-shadow: 0 0 40px black;
     height: 370px;
+    width: 100%;
     z-index: 1;
     position: relative;
+    color: whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-title{
     text-shadow:0 0 20px black;
+    margin: 20px 0 20px 12px;
+}
+
+.about-desc{
+  margin-left: 12px;
 }
 
 .ring{
@@ -83,10 +94,10 @@ html {
 }
 
 .myself{
-    display: none;    
+    display: none;
     position: absolute;
     border-radius: 150px;
-    top: -30px;   
+    top: -30px;
     right: 30px;
     box-shadow: 0 0 20px black;
 }
@@ -108,9 +119,9 @@ html {
     width: 80px;
     height: 80px;
     opacity: 90%;
-    vertical-align: middle;    
+    vertical-align: middle;
     font-size: 50px;
-    line-height: 80px;    
+    line-height: 80px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgb(10, 10, 10);
 }
@@ -122,7 +133,7 @@ html {
     opacity: 90%;
     vertical-align: middle;
     font-size: 50px;
-    line-height: 80px;    
+    line-height: 80px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgb(10, 10, 10);
 }
@@ -133,7 +144,7 @@ html {
     opacity: 90%;
     vertical-align: middle;
     font-size: 50px;
-    line-height: 80px;    
+    line-height: 80px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgb(10, 10, 10);
 }
@@ -148,7 +159,7 @@ html {
 
 
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 600px) {
     .header{
         background-size: 100%;
     }
@@ -160,6 +171,7 @@ html {
     }
     .about{
         height: 340px;
+        width: 710px;
     }
     .myself {
         display: initial;
@@ -168,29 +180,27 @@ html {
     .linkedin-con{
         width: 90px;
         height: 90px;
-        line-height: 90px;  
+        line-height: 90px;
     }
     .facebook-con{
         width: 90px;
         height: 90px;
-        line-height: 90px;  
+        line-height: 90px;
     }
     .instagram-con{
         width: 90px;
         height: 90px;
-        line-height: 90px;  
+        line-height: 90px;
     }
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 960px) {
     .admin-link {
         display: block;
         position: absolute;
         right: 10px;
     }
 
-    .header{
-        background-position-y: 710px; 
-    }
+
     .historian{
         width: 80px;
     }
@@ -200,23 +210,39 @@ html {
         height: 200px;
         right: 70px;
     }
-    .myself {
-        width: 230px;
-        
+
+    .about{
+      width: 800px;
+      .myself{
+        width: 190px;
+      }
     }
     .linkedin-con{
         width: 100px;
         height: 100px;
-        line-height: 100px;  
+        line-height: 100px;
     }
     .facebook-con{
         width: 100px;
         height: 100px;
-        line-height: 100px;  
+        line-height: 100px;
     }
     .instagram-con{
         width: 100px;
         height: 100px;
-        line-height: 100px;  
+        line-height: 100px;
     }
+}
+
+@media screen and(min-width: 1200px){
+    .header{
+      background-position-y: 710px;
+  }
+  .about{
+    width: 880px;
+    .myself {
+      width: 230px;
+
+  }
+  }
 }

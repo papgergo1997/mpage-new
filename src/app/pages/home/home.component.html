@@ -33,7 +33,7 @@
 <main class="main">
 
     <section id="gallery" class="header">
-        <div class="d-flex justify-content-center logo-container">
+        <div class="logo-container">
             <img class="h-logo" src="/assets/img/logos/h narancssárga.png" alt="h" srcset="">
         </div>
     </section>
@@ -41,7 +41,28 @@
         <app-item-card-container class="card-container"></app-item-card-container>
     </section>
     <section>
-        <div class="container mx-0 px-0 mx-sm-auto px-sm-auto">
+        <div fxLayout="column">
+            <div class="about">
+                <div id="about">
+                    <h1 class="about-title">About me</h1>
+                    <p class="about-desc">My name is Gergő Pap. <br>I am a hungarian amateur nature photographer and
+                        Frontend
+                        webdeveloper. <br>What makes me happy is to help other people realize what
+                        they and their work worth.<br><br>I
+                        won't
+                        use
+                        big words about how great things I can do, <br>cause that just woludn't be me. <br>So I just let
+                        my
+                        Photos
+                        and my site to talk for themselfs. <br> If you like what you see, just enjoy it!</p>
+                    <img class="myself " src="/assets/img/rólam.jpg" alt="myself">
+                    <!-- <img class="ring" src="/assets/img/patterns/félgyűrű.png" alt="félgyrűrű">
+                    <img class="ring2" src="/assets/img/patterns/félgyűrű.png" alt="félgyrűrű">  -->
+                </div>
+
+            </div>
+        </div>
+        <!-- <div class="container mx-0 px-0 mx-sm-auto px-sm-auto">
             <div class="row about col-12 col-lg-8 mx-0 mx-sm-auto d-flex ">
                 <div id="about" class="about-header text-white">
                     <h1 class="h2 mx-auto mt-3 about-title">About me</h1>
@@ -56,12 +77,12 @@
                         Photos
                         and my site to talk for themselfs. <br> If you like what you see, just enjoy it!</p>
                     <img class="myself p-0" src="/assets/img/rólam.jpg" alt="myself">
-                    <!-- <img class="ring" src="/assets/img/patterns/félgyűrű.png" alt="félgyrűrű">
-                    <img class="ring2" src="/assets/img/patterns/félgyűrű.png" alt="félgyrűrű">  -->
+                    <img class="ring" src="/assets/img/patterns/félgyűrű.png" alt="félgyrűrű">
+                    <img class="ring2" src="/assets/img/patterns/félgyűrű.png" alt="félgyrűrű">
                 </div>
 
             </div>
-        </div>
+        </div> -->
     </section>
     <section id="articles">
         <app-article-card-container class="article-container"></app-article-card-container>
