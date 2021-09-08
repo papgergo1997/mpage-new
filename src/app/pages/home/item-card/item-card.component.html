@@ -1,4 +1,14 @@
-<div *ngIf="image" class="d-flex flex-column cards">
+<div fxLayout="column" fxLayoutAlign="center center" *ngIf="image" class=" cards">
+    <div class="image">
+      <a [routerLink]="[image.id]"><img src="{{image.picture}}" alt="{{image.name}}"></a>
+    </div>
+    <div class="image-title">
+        <h5>{{image.name}}</h5>
+    </div>
+
+
+</div>
+<!-- <div *ngIf="image" class="d-flex flex-column cards">
     <div class="card-header my-2"><a [routerLink]="[image.id]"><img src="{{image.picture}}" alt="{{image.name}}"></a>
     </div>
     <div class="card-body text-center">
@@ -6,4 +16,4 @@
     </div>
 
 
-</div>
+</div> -->
