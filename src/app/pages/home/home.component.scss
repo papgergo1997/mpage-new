@@ -135,9 +135,7 @@ html {
 }
 .linkedin-con {
     background-color: rgb(29, 161, 243);
-    a{
-      color: whitesmoke;
-    }
+    color: whitesmoke;
     width: 80px;
     height: 80px;
     opacity: 90%;
@@ -151,9 +149,7 @@ html {
 
 .facebook-con{
     background-color: rgb(59, 89, 153);
-    a{
-      color: whitesmoke;
-    }
+    color: whitesmoke;
     width: 80px;
     height: 80px;
     opacity: 90%;
@@ -166,9 +162,7 @@ html {
 }
 .instagram-con{
     background-image: linear-gradient(rgb(182, 0, 0),rgb(169, 93, 172));
-    a{
-      color: whitesmoke;
-    }
+    color: whitesmoke;
     width: 80px;
     height: 80px;
     opacity: 90%;
@@ -178,6 +172,9 @@ html {
     line-height: 80px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgb(10, 10, 10);
+}
+[class$="-con"]:hover{
+  opacity: 100%;
 }
 
 
