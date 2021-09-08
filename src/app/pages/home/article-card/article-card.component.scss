@@ -1,19 +1,38 @@
-.cards{
-    
-    color: whitesmoke;
-    height: 500px;
-    
-}
-
-.img-container{
+.article-card{
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgb(30, 30, 30);
+  color: whitesmoke;
+  height: 500px;
+  align-items: center;
+  padding: 10px 0 10px 0;
+  .img-container{
     background-color: transparent;
+    height: 200px;
     width: 90%;
-}
-img{
-    width: 100%;    
-    box-shadow: 0 0 20px black;
+    img{
+      width: 100%;
+      box-shadow: 0 0 20px black;
+    }
+  }
+  .article-title{
+    text-align: center;
+    font-size: 1px;
+    margin: 10px 0px;
+  }
+  .article-abstract{
+    height: 200px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .btn{
+    margin-top: auto;
+  }
+
 }
 
 
-    
+
+
+
 
