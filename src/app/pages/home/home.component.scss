@@ -111,15 +111,38 @@ html {
     background-color: rgb(50, 50, 50);
     box-shadow: 0 0 40px black;
     height: 290px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     z-index: 0;
     position: relative;
+    .contact-title{
+     color: whitesmoke;
+     text-align: center;
+     padding-top: 20px;
+    }
+    .contact-icon-container{
+      margin-top: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .contact-icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
 }
 .linkedin-con {
     background-color: rgb(29, 161, 243);
+    a{
+      color: whitesmoke;
+    }
     width: 80px;
     height: 80px;
     opacity: 90%;
     vertical-align: middle;
+    text-align: center;
     font-size: 50px;
     line-height: 80px;
     border-radius: 10px;
@@ -128,10 +151,14 @@ html {
 
 .facebook-con{
     background-color: rgb(59, 89, 153);
+    a{
+      color: whitesmoke;
+    }
     width: 80px;
     height: 80px;
     opacity: 90%;
     vertical-align: middle;
+    text-align: center;
     font-size: 50px;
     line-height: 80px;
     border-radius: 10px;
@@ -139,10 +166,14 @@ html {
 }
 .instagram-con{
     background-image: linear-gradient(rgb(182, 0, 0),rgb(169, 93, 172));
+    a{
+      color: whitesmoke;
+    }
     width: 80px;
     height: 80px;
     opacity: 90%;
     vertical-align: middle;
+    text-align: center;
     font-size: 50px;
     line-height: 80px;
     border-radius: 10px;
@@ -176,6 +207,12 @@ html {
     .myself {
         display: initial;
         width: 130px;
+    }
+    .contact{
+      width: 710px;
+      .contact-icon-container{
+        margin-top: 40px;
+      }
     }
     .linkedin-con{
         width: 90px;
@@ -217,6 +254,9 @@ html {
         width: 190px;
       }
     }
+    .contact{
+      width: 800px;
+    }
     .linkedin-con{
         width: 100px;
         height: 100px;
@@ -242,7 +282,9 @@ html {
     width: 880px;
     .myself {
       width: 230px;
-
+    }
   }
+  .contact{
+    width: 880px;
   }
 }
