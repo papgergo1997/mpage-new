@@ -45,19 +45,20 @@ html{
     z-index: 1;
 
      .control-right{
-         font-size: 25px;
-         color: rgba(245,156,56,255);
-         position: absolute;
-         right: 0px;
-         opacity: 50%;
+        font-size: 25px;
+        color: rgba(245,156,56,255);
+        padding: 400px 20px 400px 100px;
+        position: absolute;
+        right: 0px;
+        opacity: 50%;
      }
 
      .control-left{
-         font-size: 25px;
-
-         color: rgba(245,156,56,255);
-         position: absolute;
-         opacity: 50%;
+        font-size: 25px;
+        padding: 400px 100px 400px 20px;
+        color: rgba(245,156,56,255);
+        position: absolute;
+        opacity: 50%;
      }
 
  }
