@@ -70,7 +70,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ToastrModule.forRoot(),
     NgbModule,
     NgxPhotoEditorModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
