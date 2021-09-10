@@ -7,27 +7,27 @@
             </ol>
         </nav>
         <div *ngIf="image" class="col-6 offset-3">
-            <form #imageForm="ngForm" (ngSubmit)="onUpdate(imageForm, image)">
+            <form [formGroup]="imageForm" (ngSubmit)="onUpdate()">
                 <div class="form-group">
                     <label for="name">Title</label>
-                    <input name="name" type="text" [(ngModel)]="image.name" class="form-control">
+                    <input id="name" type="text" formControlName="name" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <input name="description" type="text" [(ngModel)]="image.description" class="form-control">
+                    <input id="description" type="text" formControlName="description" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="size">Size</label>
-                    <input name="size" type="text" [(ngModel)]="image.size" class="form-control">
+                    <input id="size" type="text" formControlName="size" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="type">Technique</label>
-                    <input name="type" type="text" [(ngModel)]="image.type" class="form-control">
+                    <input id="type" type="text" formControlName="type" class="form-control">
                 </div>
                 <div class="form-group">
                     <label class="mr-5" for="picture">Preview Image</label>
                     <img src="{{image.picture}}" alt="{{image.picture}}" style="width: 200px;">
-                    <input [hidden]="image" name="picture" type="text" [(ngModel)]="image.picture" class="form-control"
+                    <input [hidden]="image" id="picture" type="text" formControlName="picture" class="form-control"
                         readonly>
                 </div>
                 <div>
@@ -51,7 +51,7 @@
                 <div class="form-group">
                     <label class="mr-5" for="fullPicture">Full Image</label>
                     <img src="{{image.fullPicture}}" alt="{{image.fullPicture}}" style="width: 200px;">
-                    <input [hidden]="image" name="fullPicture" type="text" [(ngModel)]="image.fullPicture"
+                    <input [hidden]="image" id="fullPicture" type="text" formControlName="fullPicture"
                         class="form-control" readonly>
                 </div>
                 <div>
