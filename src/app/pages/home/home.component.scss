@@ -26,7 +26,6 @@ html {
 
 .example-sidenav-content {
   height: 100%;
-  background-color: rgb(50, 50, 50);
   .top-nav{
     position: fixed;
     width: 100%;
@@ -34,7 +33,7 @@ html {
     .top-nav-navbar{
       display: none;
       align-items: center;
-      background-color: rgb(50, 50, 50);
+      background-color: rgba(30, 30, 30, 0.8);
       box-shadow: 0 0 20px black;
       height: 57px;
       z-index: 1;
@@ -49,6 +48,7 @@ html {
     }
     .nav-toggle{
     padding: 10px 0;
+    // background-color: rgba(30, 30, 30, 0.8);
     color: rgba(245,156,56,255);
     position: fixed;
     right: 0;
