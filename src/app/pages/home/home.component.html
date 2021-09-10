@@ -31,12 +31,27 @@
     </div>
 </nav> -->
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
+  <mat-drawer #drawer class="sidenav-drawer" mode="side">
+    <img class="sidenav-bg" src="/assets/img/tűzfa.jpg" alt="tűzfa" />
+    <img
+      class="historian mx-auto"
+      src="/assets/img/logos/historian .png"
+      alt="historian"
+    />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <ul class="side-nav">
+      <li class="side-item">
+        <a class="side-link" mat-button href="#gallery">Gallery</a>
+      </li>
+      <li class="side-item">
+        <a class="side-link" mat-button href="#about">About</a>
+      </li>
+      <li class="side-item">
+        <a class="side-link" mat-button href="#articles">Articles</a>
+      </li>
+      <li class="side-item">
+        <a class="side-link" mat-button href="#contact">Contact</a>
+      </li>
+    </ul>
   </mat-drawer>
 
   <div class="example-sidenav-content">
