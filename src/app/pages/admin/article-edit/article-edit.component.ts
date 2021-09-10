@@ -56,7 +56,6 @@ export class ArticleEditComponent implements OnInit {
           })
         .catch(error => console.log(error));
     } else {
-      this.articleForm.value
       this.articleService.update(this.articleForm.value)
         .then(
           () => {
@@ -82,7 +81,10 @@ export class ArticleEditComponent implements OnInit {
         this.pUploadService.getFiles(1).snapshotChanges().pipe(
           map(changes =>
             changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-          )).subscribe(photo => this.articleForm.patchValue({photo: photo.map(photo => photo.url).toString()}))
+          )).subscribe(photo => {
+            this.articleForm.patchValue({photo: photo.map(photo => photo.url).toString()})
+            this.article.photo = photo.map(photo => photo.url).toString()
+        })
       },
       error => {
         console.log(error);
