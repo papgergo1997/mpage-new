@@ -30,8 +30,8 @@
         </ul>
     </div>
 </nav> -->
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="sidenav-drawer" mode="side">
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer #drawer class="sidenav-drawer" mode="over">
     <img class="sidenav-bg" src="/assets/img/tűzfa.jpg" alt="tűzfa" />
     <img
       class="historian mx-auto"
@@ -54,7 +54,7 @@
     </ul>
   </mat-drawer>
 
-  <div class="example-sidenav-content">
+  <mat-drawer-content class="example-sidenav-content">
     <nav class="top-nav">
       <ul class="top-nav-navbar">
         <div class="d-flex align-items-center justify-content-center">
@@ -186,5 +186,5 @@
         </div>
       </footer>
     </main>
-  </div>
+  </mat-drawer-content>
 </mat-drawer-container>

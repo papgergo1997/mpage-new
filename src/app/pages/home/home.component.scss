@@ -56,24 +56,19 @@ html {
 
 .sidenav-drawer {
   position: fixed;
-  border: none;
-  text-align: center;
-  height: 100%;
   width: 180px;
   padding: 20px;
   overflow: hidden;
-  z-index: 1;
   .sidenav-bg{
     position: absolute;
     top: 0;
     left: 0;
-    height: 110%;
-    opacity: 0.7;
+    height: 125%;
+    opacity: 0.9;
   }
   .side-nav{
     display: flex;
     flex-direction: column;
-    text-align: center;
     .side-item{
       list-style: none;
       .side-link{
@@ -368,7 +363,7 @@ html {
   .nav-toggle{
     display: none;
   }
-  .example-sidenav{
+  .sidenav-drawer{
     display: none;
   }
 }
