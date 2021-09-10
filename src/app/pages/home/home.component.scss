@@ -3,14 +3,19 @@ html {
     padding: 0;
 }
 
-.historian {
-    position:absolute;
-    top: 15px;
-    left: 15px;
-    width: 90px;
+[class^="historian"]{
+  position:absolute;
+  top: 15px;
+  left: 15px;
+  width: 90px;
 }
+
+.historian-side {
+  left: 42px;
+}
+
 .navbar {
-    box-shadow: 0 0 20px black ;
+  box-shadow: 0 0 20px black ;
 }
 
 //probe material sidebar
@@ -59,7 +64,10 @@ html {
   width: 180px;
   padding: 20px;
   overflow: hidden;
+  background-color: rgba(30, 30, 30, 0.8);
+  box-shadow: 0 0 20px rgb(10, 10, 10);
   .sidenav-bg{
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -70,10 +78,12 @@ html {
     display: flex;
     flex-direction: column;
     .side-item{
+      margin-top: 30px;
       list-style: none;
       .side-link{
         text-decoration: none;
-        color: rgb(50, 50, 50);
+        // color: rgb(50, 50, 50);
+        color: rgba(245,156,56,255);
       }
     }
   }
