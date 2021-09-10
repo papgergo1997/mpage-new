@@ -22,7 +22,8 @@ export class ArticleEditComponent implements OnInit {
   percentage: number = 0;
   //Reactive Forms START
   articleForm = new FormGroup({
-    tile: new FormControl(''),
+    id: new FormControl(''),
+    title: new FormControl(''),
     abstract: new FormControl(''),
     link: new FormControl(''),
     photo: new FormControl('')
@@ -39,12 +40,15 @@ export class ArticleEditComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
       switchMap(params => this.articleService.get(params.id))
-    ).subscribe(article => this.article = article)
+    ).subscribe(article => {
+      this.article = article
+      this.articleForm.patchValue(this.article)
+    })
   }
 
-  onUpdate(form: NgForm, article: Article): void {
-    if (article.id == '') {
-      this.articleService.create(article)
+  onUpdate(): void {
+    if (this.article.id == '') {
+      this.articleService.create(this.articleForm.value)
         .then(
           () => {
             this.router.navigate(['admin/articles']);
@@ -52,7 +56,8 @@ export class ArticleEditComponent implements OnInit {
           })
         .catch(error => console.log(error));
     } else {
-      this.articleService.update(article)
+      this.articleForm.value
+      this.articleService.update(this.articleForm.value)
         .then(
           () => {
             this.router.navigate(['admin/articles']);
@@ -77,7 +82,7 @@ export class ArticleEditComponent implements OnInit {
         this.pUploadService.getFiles(1).snapshotChanges().pipe(
           map(changes =>
             changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-          )).subscribe(photo => this.article.photo = photo.map(photo => photo.url).toString())
+          )).subscribe(photo => this.articleForm.patchValue({photo: photo.map(photo => photo.url).toString()}))
       },
       error => {
         console.log(error);
