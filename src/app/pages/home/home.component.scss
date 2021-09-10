@@ -13,6 +13,54 @@ html {
     box-shadow: 0 0 20px black ;
 }
 
+//probe material sidebar
+.example-container {
+  width: 100%;
+  height: 100%;
+}
+
+.example-sidenav-content {
+  height: 100%;
+  background-color: rgb(50, 50, 50);
+  .top-nav{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    .top-nav-navbar{
+      display: none;
+      align-items: center;
+      background-color: rgb(50, 50, 50);
+      height: 57px;
+      z-index: 1;
+      .item-nav{
+        text-decoration: none;
+        list-style: none;
+        .link-nav{
+          text-decoration: none;
+          color: rgba(245,156,56,255);
+        }
+      }
+    }
+    .nav-toggle{
+    padding: 10px 0;
+    color: rgba(245,156,56,255);
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+  }
+
+}
+
+.example-sidenav {
+  position: absolute;
+  height: 400px;
+  padding: 20px;
+  z-index: 1;
+}
+//
+
 .admin-link {
     display: none;
 }
@@ -21,7 +69,7 @@ html {
     height: 400px;
     width: 100%;
     background-image: url(/assets/img/őzbak.jpg);
-    background-size: 150%;
+    background-size: 700px;
     background-position: center;
     // background-attachment: fixed;
     box-shadow: 0 0 40px black;
@@ -64,7 +112,7 @@ html {
     box-shadow: 0 0 40px black;
     height: 370px;
     width: 100%;
-    z-index: 1;
+    z-index: 0;
     position: relative;
     color: whitesmoke;
     margin-left: auto;
@@ -287,5 +335,12 @@ html {
   }
   .contact{
     width: 880px;
+  }
+  .top-nav-navbar{
+    display: flex !important;
+    flex-direction: row;
+  }
+  .nav-toggle{
+    display: none;
   }
 }

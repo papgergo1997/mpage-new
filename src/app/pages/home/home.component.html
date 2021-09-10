@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-0 fixed-top">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-0 fixed-top">
 
     <a class="navbar-brand" href="#">
         <div class="d-flex align-items-center justify-content-center"> <img class="historian mx-auto"
@@ -29,72 +29,147 @@
             </li>
         </ul>
     </div>
-</nav>
-<main class="main">
+</nav> -->
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>Auto-resizing sidenav</p>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
 
-    <section id="gallery" class="header">
+  <div class="example-sidenav-content">
+    <nav class="top-nav">
+      <ul class="top-nav-navbar">
+        <div class="d-flex align-items-center justify-content-center">
+          <img
+            class="historian mx-auto"
+            src="/assets/img/logos/historian-narancssárga.png"
+            alt="historian"
+          />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <li class="item-nav">
+          <a class="link-nav" mat-button href="#gallery"> Gallery </a>
+        </li>
+        <li class="item-nav">
+          <a class="link-nav" mat-button href="#about"> About </a>
+        </li>
+        <li class="item-nav">
+          <a class="link-nav" mat-button href="#articles"> Articles </a>
+        </li>
+        <li class="item-nav">
+          <a class="link-nav" mat-button href="#contact"> Contact </a>
+        </li>
+      </ul>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        mat-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>reorder</mat-icon>
+      </button>
+    </nav>
+
+    <main class="main">
+      <section id="gallery" class="header">
         <div class="logo-container">
-            <img class="h-logo" src="/assets/img/logos/h narancssárga.png" alt="h" srcset="">
+          <img
+            class="h-logo"
+            src="/assets/img/logos/h narancssárga.png"
+            alt="h"
+            srcset=""
+          />
         </div>
-    </section>
-    <section>
-        <app-item-card-container class="card-container"></app-item-card-container>
-    </section>
-    <section>
+      </section>
+      <section>
+        <app-item-card-container
+          class="card-container"
+        ></app-item-card-container>
+      </section>
+      <section>
         <div fxLayout="column">
-            <div class="about">
-                <div id="about">
-                    <h2 class="about-title">About me</h2>
-                    <p class="about-desc">My name is Gergő Pap. <br>I am a hungarian amateur nature photographer and
-                        Frontend
-                        webdeveloper. <br>What makes me happy is to help other people realize what
-                        they and their work worth.<br><br>I
-                        won't
-                        use
-                        big words about how great things I can do, <br>cause that just woludn't be me. <br>So I just let
-                        my
-                        Photos
-                        and my site to talk for themselfs. <br> If you like what you see, just enjoy it!</p>
-                    <img class="myself " src="/assets/img/rólam.jpg" alt="myself">
-                </div>
+          <div class="about">
+            <div id="about">
+              <h2 class="about-title">About me</h2>
+              <p class="about-desc">
+                My name is Gergő Pap. <br />I am a hungarian amateur nature
+                photographer and Frontend webdeveloper. <br />What makes me
+                happy is to help other people realize what they and their work
+                worth.<br /><br />I won't use big words about how great things I
+                can do, <br />cause that just woludn't be me. <br />So I just
+                let my Photos and my site to talk for themselfs. <br />
+                If you like what you see, just enjoy it!
+              </p>
+              <img class="myself" src="/assets/img/rólam.jpg" alt="myself" />
             </div>
+          </div>
         </div>
-    </section>
-    <section id="articles">
-        <app-article-card-container class="article-container"></app-article-card-container>
-    </section>
-    <section id="contact">
+      </section>
+      <section id="articles">
+        <app-article-card-container
+          class="article-container"
+        ></app-article-card-container>
+      </section>
+      <section id="contact">
         <div class="contact">
-            <h3 class="contact-title">Contact me</h3>
-                <div fxLayout="row" class="contact-icon-container">
-                      <div fxFlex="33.33" class="contact-icon">
-                            <a href="https://www.linkedin.com/in/gerg%C5%91-pap-73105820a/" target="_blank"
-                            class="linkedin-con" data-toggle="tooltip" data-placement="top" title="LinkedIn">
-                                <i class="linkedin-icon  fa fa-linkedin" aria-hidden="true"></i>
-                                <span class="sr-only">Link to my linkedIn page</span>
-                            </a>
-                      </div>
-                      <div fxFlex="33.33" class="contact-icon">
-                            <a href="https://www.facebook.com/gergo.pap.90/" target="_blank" class="facebook-con"
-                                data-toggle="tooltip" data-placement="top" title="Facebook">
-                                <i class="facebook-icon fa fa-facebook-f" aria-hidden="true"></i>
-                                <span class="sr-only">Link to my facebook page</span>
-                            </a>
-                      </div>
-                      <div fxFlex="33.33" class="contact-icon">
-                            <a href="https://www.instagram.com/historianphotography/" target="_blank"
-                            class="instagram-con" data-toggle="tooltip" data-placement="top" title="Facebook">
-                                <i class="instagram-icon fa fa-instagram" aria-hidden="true"></i>
-                                <span class="sr-only">Link to my instagram page</span>
-                            </a>
-                      </div>
-                </div>
+          <h3 class="contact-title">Contact me</h3>
+          <div fxLayout="row" class="contact-icon-container">
+            <div fxFlex="33.33" class="contact-icon">
+              <a
+                href="https://www.linkedin.com/in/gerg%C5%91-pap-73105820a/"
+                target="_blank"
+                class="linkedin-con"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="LinkedIn"
+              >
+                <i class="linkedin-icon fa fa-linkedin" aria-hidden="true"></i>
+                <span class="sr-only">Link to my linkedIn page</span>
+              </a>
+            </div>
+            <div fxFlex="33.33" class="contact-icon">
+              <a
+                href="https://www.facebook.com/gergo.pap.90/"
+                target="_blank"
+                class="facebook-con"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Facebook"
+              >
+                <i
+                  class="facebook-icon fa fa-facebook-f"
+                  aria-hidden="true"
+                ></i>
+                <span class="sr-only">Link to my facebook page</span>
+              </a>
+            </div>
+            <div fxFlex="33.33" class="contact-icon">
+              <a
+                href="https://www.instagram.com/historianphotography/"
+                target="_blank"
+                class="instagram-con"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Facebook"
+              >
+                <i
+                  class="instagram-icon fa fa-instagram"
+                  aria-hidden="true"
+                ></i>
+                <span class="sr-only">Link to my instagram page</span>
+              </a>
+            </div>
+          </div>
         </div>
-    </section>
-    <footer>
+      </section>
+      <footer>
         <div class="footer">
-          <h6 class="copyright">&copy; Historian 2021. All Rights
-          Reserved</h6>
+          <h6 class="copyright">&copy; Historian 2021. All Rights Reserved</h6>
         </div>
-    </footer>
-</main>
+      </footer>
+    </main>
+  </div>
+</mat-drawer-container>
