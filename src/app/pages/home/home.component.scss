@@ -54,8 +54,11 @@ html {
 }
 
 .example-sidenav {
-  position: absolute;
-  height: 400px;
+  position: fixed;
+  background-image: url(/assets/img/tűzfa.jpg);
+  background-size: 300%;
+  filter: opacity(60%);
+  height: 100%;
   padding: 20px;
   z-index: 1;
 }
@@ -341,6 +344,9 @@ html {
     flex-direction: row;
   }
   .nav-toggle{
+    display: none;
+  }
+  .example-sidenav{
     display: none;
   }
 }
