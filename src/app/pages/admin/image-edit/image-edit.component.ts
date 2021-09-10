@@ -30,13 +30,13 @@ export class ImageEditComponent implements OnInit {
   selectedFullFiles: FileList;
   currentFullPhoto: Photo;
   imageForm = new FormGroup({
-    id: new FormControl(),
-    name: new FormControl(),
-    description: new FormControl(),
-    size: new FormControl(),
-    type: new FormControl(),
-    picture: new FormControl(),
-    fullPicture: new FormControl()
+    id: new FormControl(''),
+    name: new FormControl(''),
+    description: new FormControl(''),
+    size: new FormControl(''),
+    type: new FormControl(''),
+    picture: new FormControl(''),
+    fullPicture: new FormControl('')
   })
 
   constructor(
@@ -50,12 +50,15 @@ export class ImageEditComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
       switchMap(params => this.iService.get(params.id))
-    ).subscribe(image => this.image = image)
+    ).subscribe(image => {
+      this.image = image
+      this.imageForm.patchValue(image)
+    })
   }
 
-  onUpdate(form: NgForm, image: Image): void {
-    if (image.id == '') {
-      this.iService.create(image)
+  onUpdate(): void {
+    if (this.image.id == '') {
+      this.iService.create(this.imageForm.value)
         .then(
           () => {
             this.router.navigate(['admin/images']);
@@ -63,7 +66,7 @@ export class ImageEditComponent implements OnInit {
           })
         .catch(error => console.log(error));
     } else {
-      this.iService.update(image)
+      this.iService.update(this.imageForm.value)
         .then(
           () => {
             this.router.navigate(['admin/images']);
@@ -89,13 +92,19 @@ export class ImageEditComponent implements OnInit {
           this.pUploadService.getFiles(num).snapshotChanges().pipe(
             map(changes =>
               changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-            )).subscribe(photo => this.image.fullPicture = photo.map(photo => photo.url).toString())
+            )).subscribe(photo => {
+              this.imageForm.patchValue({fullPicture: photo.map(photo => photo.url).toString()})
+              this.image.fullPicture = photo.map(photo => photo.url).toString()
+            })
         } else if (full == false) {
           this.percentage = Math.round(percentage);
           this.pUploadService.getFiles(num).snapshotChanges().pipe(
             map(changes =>
               changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-            )).subscribe(photo => this.image.picture = photo.map(photo => photo.url).toString())
+            )).subscribe(photo => {
+              this.imageForm.patchValue({picture: photo.map(photo => photo.url).toString()})
+              this.image.picture = photo.map(photo => photo.url).toString()
+            })
         }
       },
       error => {
