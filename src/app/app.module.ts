@@ -33,6 +33,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     NgxPhotoEditorModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatIconModule
      ],
   providers: [],
   bootstrap: [AppComponent]
