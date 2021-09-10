@@ -7,17 +7,19 @@
             </ol>
         </nav>
         <div *ngIf="article" class="col-6 offset-3">
-            <form fxLayout="column" [formGroup]="articleForm" (ngSubmit)="onUpdate()">
-
+            <form  [formGroup]="articleForm" (ngSubmit)="onUpdate()">
+              <div class="form-group">
                 <label for="title">Title: </label>
-                <input id="title" type="text" formControlName="title">
-
+                <input class="form-control" id="title" type="text" formControlName="title">
+              </div>
+              <div class="form-group">
                 <label for="abstract">Abstract: </label>
-                <input id="abstract" type="text" formControlName="abstract">
-
+                <input class="form-control" id="abstract" type="text" formControlName="abstract">
+              </div>
+              <div class="form-group">
                 <label for="link">Link: </label>
-                <input id="link" type="text" formControlName="link">
-
+                <input class="form-control" id="link" type="text" formControlName="link">
+              </div>
                 <label class="mr-5" for="photo">Photo</label>
                 <img src="{{article.photo}}" alt="{{article.photo}}" style="width: 200px;">
                 <input [hidden]="article" name="photo" type="text" formControlName="photo" class="form-control"
