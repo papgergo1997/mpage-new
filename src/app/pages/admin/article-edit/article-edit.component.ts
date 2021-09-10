@@ -7,6 +7,7 @@ import { Article } from 'src/app/model/article';
 import { Photo } from 'src/app/model/photo';
 import { ArticleService } from 'src/app/service/article.service';
 import { PhotoUploadService } from 'src/app/service/photo-upload.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-article-edit',
@@ -19,6 +20,14 @@ export class ArticleEditComponent implements OnInit {
   selectedFiles: FileList;
   currentPhoto: Photo;
   percentage: number = 0;
+  //Reactive Forms START
+  articleForm = new FormGroup({
+    tile: new FormControl(''),
+    abstract: new FormControl(''),
+    link: new FormControl(''),
+    photo: new FormControl('')
+  })
+  //
 
   constructor(
     private articleService: ArticleService,

@@ -32,6 +32,7 @@ import { GalleryComponent } from './pages/image-viewer/gallery.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     NgbModule,
     NgxPhotoEditorModule,
     FlexLayoutModule,
+    ReactiveFormsModule
      ],
   providers: [],
   bootstrap: [AppComponent]
