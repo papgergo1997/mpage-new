@@ -31,11 +31,6 @@
                         readonly>
                 </div>
                 <div>
-                    <!-- <label>
-                        <input type="file" class="text-nowrap text-truncate" (change)="selectFile($event)" />
-
-                    </label> -->
-                    <!-- for cropper -->
                     <label>
                         <input type="file" (change)="fileChangeEvent($event)" />
                     </label>
@@ -44,9 +39,6 @@
                         [aspectRatio]="4/4" [viewMode]="3" [resizeToWidth]="500" [imageQuality]="20"></ngx-photo-editor>
 
                     <img [src]="base64" alt="">
-                    <!-- <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
-                        Upload
-                    </button> -->
 
                     <div *ngIf="currentPhoto" class="progress mt-2">
                         <div class="progress-bar progress-bar-info" role="progressbar"

@@ -10,6 +10,7 @@ import { ImageService } from 'src/app/service/image.service';
 //for cropper
 import { CroppedEvent } from 'ngx-photo-editor';
 //
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-image-edit',
@@ -28,6 +29,15 @@ export class ImageEditComponent implements OnInit {
   fullPercentage: number = 0;
   selectedFullFiles: FileList;
   currentFullPhoto: Photo;
+  imageForm = new FormGroup({
+    id: new FormControl(),
+    name: new FormControl(),
+    description: new FormControl(),
+    size: new FormControl(),
+    type: new FormControl(),
+    picture: new FormControl(),
+    fullPicture: new FormControl()
+  })
 
   constructor(
     private activatedRoute: ActivatedRoute,
