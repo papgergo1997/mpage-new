@@ -3,7 +3,7 @@
     <label class="search-label">Search</label>
     <input type="text" class="search-input" [(ngModel)]="filterKey" />
   </div>
-  <button mat-flat-button color="primary" [routerLink]="[0]" class="plus-btn">
+  <button mat-flat-button [routerLink]="[0]" class="plus-btn">
     <i class="fa fa-plus"></i>
   </button>
   <table class="the-table">
@@ -29,10 +29,10 @@
         </td>
         <td>
           <div class="group-btn">
-            <button [routerLink]="[image.id]" class="edit-btn" type="submit">
+            <button [routerLink]="[image.id]" class="btn-edit" type="submit">
               <i class="fa fa-pencil"></i>
             </button>
-            <button (click)="onDelete(image)" class="delete-btn">
+            <button (click)="onDelete(image)" class="btn-delete">
               <i class="fa fa-trash"></i>
             </button>
           </div>
