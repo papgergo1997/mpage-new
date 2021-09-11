@@ -1,0 +1,35 @@
+
+.table-container{
+  background-color: rgb(50, 50, 50,);
+  margin: 0;
+  padding: 0;
+  .search-area{
+    margin: 20px 10px;
+    .search-label{
+      margin: auto 10px;
+      color: rgba(245,156,56,255);
+    }
+  }
+  .plus-btn{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .the-table{
+    .table-head{
+
+    }
+    .table-body{
+      .table-row{
+        .group-btn{
+          .edit-btn{
+
+          }
+          .delete-btn{
+
+          }
+        }
+      }
+    }
+  }
+}

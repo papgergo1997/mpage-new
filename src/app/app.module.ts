@@ -36,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
+    MatTableModule,
      ],
   providers: [],
   bootstrap: [AppComponent]
