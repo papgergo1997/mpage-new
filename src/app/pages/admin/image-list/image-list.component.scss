@@ -9,6 +9,18 @@
       margin: auto 10px;
       color: rgba(245,156,56,255);
     }
+    .search-input{
+      background-color: whitesmoke;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      transition: border 300ms;
+      transition: background 300ms;
+
+    }
+    .search-input:focus{
+      border: 1px solid rgba(245,156,56,255);
+      background-color: rgba(245,156,56,0.7);
+    }
   }
   .plus-btn{
     width: 90%;
