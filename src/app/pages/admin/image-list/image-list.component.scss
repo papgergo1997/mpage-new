@@ -10,6 +10,7 @@
       color: rgb(30, 30, 30);
     }
     .search-input{
+      background-color: transparent;
       border: none;
       border-bottom: 1px solid grey;
       border-radius: 2px;
@@ -25,14 +26,18 @@
     color: whitesmoke;
     margin-left: auto;
     margin-right: auto;
+    opacity: 80%;
+  }
+  .plus-btn:hover{
+    opacity: 100%;
   }
   .the-table{
-    background-color: rgb(180, 180, 180);
-    color: whitesmoke;
+
     width: 90%;
     margin: 10px auto;
     .table-head{
       padding: 10px;
+      color: rgb(230, 230, 230);
       background-color: rgb(30, 30, 30);
       th{
         padding: 10px 0;
@@ -40,6 +45,7 @@
       }
     }
     .table-body{
+      color: rgb(30, 30, 30);
       .table-row{
         td{
           text-align: center;
@@ -68,7 +74,7 @@
         }
       }
       .table-row:nth-child(even){
-        background-color: rgb(200, 200, 200,);
+        background-color: rgb(220, 220, 220,);
       }
     }
   }
