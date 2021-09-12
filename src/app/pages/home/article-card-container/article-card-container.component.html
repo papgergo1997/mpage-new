@@ -8,9 +8,16 @@
 </div> -->
 <div class="article-card--container">
   <h2 class="articles-title">Articles</h2>
-    <div fxLayout="row wrap">
-        <app-article-card fxFlex="30.5" fxFlex.xs="100" fxFlex.sm="45" fxFlex.md="30.5" class="article-card" *ngFor="let article of articles$ | async"
-            [article]="article">
-        </app-article-card>
-    </div>
+  <div fxLayout="row wrap">
+    <app-article-card
+      fxFlex="30.5"
+      fxFlex.xs="100"
+      fxFlex.sm="45"
+      fxFlex.md="30.5"
+      class="article-cards"
+      *ngFor="let article of articles$ | async"
+      [article]="article"
+    >
+    </app-article-card>
+  </div>
 </div>
