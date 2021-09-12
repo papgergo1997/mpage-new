@@ -1,0 +1,43 @@
+.article-card--container{
+    background-image: linear-gradient(rgb(50, 50, 50),rgba(245,156,56,255));
+    box-shadow: 0 0  40px  black;
+     background-attachment: fixed;
+    height: 100%;
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 0;
+    .articles-title{
+      display: flex;
+      justify-content: center;
+      padding-top: 20px;
+      color: whitesmoke;
+    }
+}
+
+@media screen and (min-width: 600px) {
+  .article-card--container{
+    width: 710px;
+    .article-card{
+      margin: 17.5px;
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .article-card--container{
+    width: 800px;
+    .article-card{
+      margin: 11px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .article-card--container{
+    width: 880px;
+    .article-card{
+      margin: 12.3px;
+    }
+  }
+}

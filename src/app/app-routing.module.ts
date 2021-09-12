@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Config } from 'protractor';
-import { ArticleEditComponent } from './edit/article-edit/article-edit.component';
-import { ArticlesListComponent } from './list/articles-list/articles-list.component';
-import { ImageListComponent } from './list/image-list/image-list.component';
-import { ImageEditComponent } from './edit/image-edit/image-edit.component';
+import { ArticleEditComponent } from './pages/admin/article-edit/article-edit.component';
+import { ArticlesListComponent } from './pages/admin/articles-list/articles-list.component';
+import { ImageListComponent } from './pages/admin/image-list/image-list.component';
+import { ImageEditComponent } from './pages/admin/image-edit/image-edit.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
+import { GalleryComponent } from './pages/image-viewer/gallery.component';
 const routes: Routes = [
   {
     path: "admin",
@@ -39,8 +39,8 @@ const routes: Routes = [
     path: ":id",
     component: GalleryComponent
   }
-    
-  
+
+
 ];
 
 const config: Config = [

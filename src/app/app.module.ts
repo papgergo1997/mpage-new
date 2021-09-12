@@ -11,28 +11,30 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { AdminComponent } from './pages/admin/admin.component';
-import { SideNavComponent } from './pageComponents/side-nav/side-nav.component';
-import { AdminNavComponent } from './pageComponents/admin-nav/admin-nav.component';
-import { AdminFooterComponent } from './pageComponents/admin-footer/admin-footer.component';
+import { SideNavComponent } from './pages/admin/side-nav/side-nav.component';
+import { AdminNavComponent } from './pages/admin/admin-nav/admin-nav.component';
+import { AdminFooterComponent } from './pages/admin/admin-footer/admin-footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './pipe/filter.pipe';
 import { HomeComponent } from './pages/home/home.component';
-import { ItemCardContainerComponent } from './pageComponents/item-card-container/item-card-container.component';
-import { SliderComponent } from './pageComponents/slider/slider.component';
+import { ItemCardContainerComponent } from './pages/home/item-card-container/item-card-container.component';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
-import { ItemCardComponent } from './pageComponents/item-card/item-card.component';
+import { ItemCardComponent } from './pages/home/item-card/item-card.component';
 import { SliderPipe } from './pipe/slider.pipe';
-import { ArticlesListComponent } from './list/articles-list/articles-list.component';
-import { ArticleEditComponent } from './edit/article-edit/article-edit.component';
+import { ArticlesListComponent } from './pages/admin/articles-list/articles-list.component';
+import { ArticleEditComponent } from './pages/admin/article-edit/article-edit.component';
 import { ArticleFilterPipe } from './pipe/article-filter.pipe';
-import { ArticleCardComponent } from './pageComponents/article-card/article-card.component';
-import { ArticleCardContainerComponent } from './pageComponents/article-card-container/article-card-container.component';
-import { ImageListComponent } from './list/image-list/image-list.component';
-import { ImageEditComponent } from './edit/image-edit/image-edit.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
+import { ArticleCardComponent } from './pages/home/article-card/article-card.component';
+import { ArticleCardContainerComponent } from './pages/home/article-card-container/article-card-container.component';
+import { ImageListComponent } from './pages/admin/image-list/image-list.component';
+import { ImageEditComponent } from './pages/admin/image-edit/image-edit.component';
+import { GalleryComponent } from './pages/image-viewer/gallery.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,6 @@ import { NgxPhotoEditorModule } from 'ngx-photo-editor';
     FilterPipe,
     HomeComponent,
     ItemCardContainerComponent,
-    SliderComponent,
     ItemCardComponent,
     SliderPipe,
     ArticlesListComponent,
@@ -70,8 +71,12 @@ import { NgxPhotoEditorModule } from 'ngx-photo-editor';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgbModule,
-    NgxPhotoEditorModule
-  ],
+    NgxPhotoEditorModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatIconModule
+     ],
   providers: [],
   bootstrap: [AppComponent]
 })
