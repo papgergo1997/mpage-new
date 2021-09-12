@@ -397,31 +397,26 @@ html {
   width: 100%;
   top: 0;
   z-index: 1;
+}
 
-  .control-right {
-    font-size: 25px;
-    color: rgba(245, 156, 56, 255);
-    padding: 400px 20px 400px 100px;
-    position: absolute;
-    right: 0px;
-    opacity: 50%;
-  }
+[class$="arrow"] {
+  font-size: 25px;
+  color: rgba(245, 156, 56, 255);
+  position: absolute;
+  opacity: 50%;
+}
+.right-arrow {
+  padding: 400px 20px 400px 100px;
+  right: 0px;
+}
 
-  .control-left {
-    font-size: 25px;
-    padding: 400px 100px 400px 20px;
-    color: rgba(245, 156, 56, 255);
-    position: absolute;
-    opacity: 50%;
-  }
-  .control-right:hover {
-    cursor: pointer;
-    opacity: 100% !important;
-  }
-  .control-left:hover {
-    cursor: pointer;
-    opacity: 100% !important;
-  }
+.left-arrow {
+  padding: 400px 100px 400px 20px;
+}
+
+[class$="arrow"]:hover {
+  cursor: pointer;
+  opacity: 100% !important;
 }
 
 .selected {
