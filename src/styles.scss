@@ -264,6 +264,21 @@ html {
     margin: 12px;
   }
 }
+//Styles for Image Card
+.card-img {
+  width: 100%;
+  box-shadow: 0 0 20px black;
+}
+
+.cards {
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+.card-header {
+  background-color: transparent;
+  border: none;
+}
 //Styles for Article Card Container
 .article-card--container {
   background-image: linear-gradient(rgb(50, 50, 50), rgba(245, 156, 56, 255));
