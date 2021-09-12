@@ -3,7 +3,37 @@
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
 
-//Styles for everything
+//Styles for Home and Admin
+.top-nav {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  .top-nav-navbar {
+    display: none;
+    align-items: center;
+    background-color: rgba(30, 30, 30, 0.8);
+    box-shadow: 0 0 20px black;
+    height: 57px;
+    z-index: 1;
+    .item-nav {
+      text-decoration: none;
+      list-style: none;
+      .link-nav {
+        text-decoration: none;
+        color: rgba(245, 156, 56, 255);
+      }
+    }
+  }
+  .nav-toggle {
+    padding: 10px 0;
+    // background-color: rgba(30, 30, 30, 0.8);
+    color: rgba(245, 156, 56, 255);
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+}
 .sidenav-drawer {
   position: fixed !important;
   width: 180px;
@@ -24,6 +54,12 @@
       }
     }
   }
+}
+.historian {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 90px;
 }
 
 //Style for Admin
@@ -194,18 +230,29 @@
 }
 
 @media screen and (min-width: 1200px) {
+  //Styles for Home and Admin
+  .top-nav-navbar {
+    display: flex !important;
+    flex-direction: row;
+  }
+  .nav-toggle {
+    display: none !important;
+  }
+  //Styles for Admin
   .side-img {
     display: flex;
   }
+  .log-out {
+    display: block;
+  }
+  //Style for Tables
   .table-container {
     width: 70vw;
     margin: 100px 30px 0 0 !important;
     margin-top: 60px;
     padding: 0;
   }
-  .log-out {
-    display: block;
-  }
+  //Style for Forms
   .form-container {
     width: 70vw;
     margin: 70px 0;
