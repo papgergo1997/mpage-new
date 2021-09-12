@@ -19,18 +19,18 @@ html {
     box-shadow: 0 0 20px black;
     height: 57px;
     z-index: 1;
-    .item-nav {
+    [class$="nav"] {
       text-decoration: none;
+    }
+    .item-nav {
       list-style: none;
       .link-nav {
-        text-decoration: none;
         color: rgba(245, 156, 56, 255);
       }
     }
   }
   .nav-toggle {
     padding: 10px 0;
-    // background-color: rgba(30, 30, 30, 0.8);
     color: rgba(245, 156, 56, 255);
     position: fixed;
     right: 0;
@@ -53,7 +53,6 @@ html {
       list-style: none;
       .side-link {
         text-decoration: none;
-        // color: rgb(50, 50, 50);
         color: rgba(245, 156, 56, 255);
       }
     }
@@ -74,6 +73,8 @@ html {
 
 .admin-link {
   display: none;
+  position: absolute;
+  right: 10px;
 }
 
 .header {
@@ -97,7 +98,7 @@ html {
   justify-content: center;
   position: absolute;
   z-index: 1;
-  background-color: rgb(33, 33, 33);
+  background-color: rgb(30, 30, 30);
   top: 348px;
   width: 100px;
   height: 100px;
@@ -125,8 +126,7 @@ html {
   z-index: 0;
   position: relative;
   color: whitesmoke;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .about-title {
@@ -170,8 +170,7 @@ html {
   box-shadow: 0 0 40px black;
   height: 290px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   z-index: 0;
   position: relative;
   .contact-title {
@@ -179,58 +178,38 @@ html {
     text-align: center;
     padding-top: 20px;
   }
-  .contact-icon-container {
-    margin-top: 60px;
+  [class^="contact-icon"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    .contact-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
   }
+  .contact-icon-container {
+    margin-top: 60px;
+  }
+}
+
+[class$="-con"] {
+  color: whitesmoke;
+  width: 80px;
+  height: 80px;
+  opacity: 90%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 50px;
+  line-height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgb(10, 10, 10);
 }
 .linkedin-con {
   background-color: rgb(29, 161, 243);
-  color: whitesmoke;
-  width: 80px;
-  height: 80px;
-  opacity: 90%;
-  vertical-align: middle;
-  text-align: center;
-  font-size: 50px;
-  line-height: 80px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgb(10, 10, 10);
 }
-
 .facebook-con {
   background-color: rgb(59, 89, 153);
-  color: whitesmoke;
-  width: 80px;
-  height: 80px;
-  opacity: 90%;
-  vertical-align: middle;
-  text-align: center;
-  font-size: 50px;
-  line-height: 80px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgb(10, 10, 10);
 }
 .instagram-con {
   background-image: linear-gradient(rgb(182, 0, 0), rgb(169, 93, 172));
-  color: whitesmoke;
-  width: 80px;
-  height: 80px;
-  opacity: 90%;
-  vertical-align: middle;
-  text-align: center;
-  font-size: 50px;
-  line-height: 80px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgb(10, 10, 10);
 }
+
 [class$="-con"]:hover {
   opacity: 100%;
 }
@@ -251,8 +230,7 @@ html {
   background-attachment: fixed;
   height: 100%;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   box-shadow: 0 0 20px black;
   .gallery-title {
     display: flex;
@@ -286,8 +264,7 @@ html {
   background-attachment: fixed;
   height: 100%;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   z-index: 0;
   .article-cards {
     margin: 0 auto;
@@ -610,17 +587,7 @@ html {
       margin-top: 40px;
     }
   }
-  .linkedin-con {
-    width: 90px;
-    height: 90px;
-    line-height: 90px;
-  }
-  .facebook-con {
-    width: 90px;
-    height: 90px;
-    line-height: 90px;
-  }
-  .instagram-con {
+  [class$="-con"] {
     width: 90px;
     height: 90px;
     line-height: 90px;
@@ -645,8 +612,6 @@ html {
   //Styles for Home
   .admin-link {
     display: block;
-    position: absolute;
-    right: 10px;
   }
 
   .historian {
@@ -668,21 +633,13 @@ html {
   .contact {
     width: 800px;
   }
-  .linkedin-con {
+
+  [class$="-con"] {
     width: 100px;
     height: 100px;
     line-height: 100px;
   }
-  .facebook-con {
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-  }
-  .instagram-con {
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-  }
+
   //Styles for Image Card Container
   .item-card--container {
     width: 800px;
