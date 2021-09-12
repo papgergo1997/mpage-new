@@ -1,9 +1,16 @@
 <div fxLayout="column" class="gallery">
-    <a class="home-btn" routerLink="/">Back home</a>
+  <a class="home-btn" routerLink="/">Back home</a>
   <div fxLayout="row" class="viewer">
-    <div class="img-container" *ngFor="let image of swappedImages$ | async; let select = index;"
-      [ngClass]="{'selected': select == selectedIndex}">
-      <img src="{{image.fullPicture}}" alt="{{image.name}}">
+    <div
+      class="img-container"
+      *ngFor="let image of swappedImages$ | async; let select = index"
+      [ngClass]="{ selected: select == selectedIndex }"
+    >
+      <img
+        class="viewer-img"
+        src="{{ image.fullPicture }}"
+        alt="{{ image.name }}"
+      />
     </div>
     <div class="control-group">
       <i class="fa fa-chevron-right control-right" (click)="right()"></i>
