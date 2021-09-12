@@ -68,6 +68,10 @@ html {
 }
 //Styles for Home
 
+.historian-side {
+  left: 42px;
+}
+
 .admin-link {
   display: none;
 }
@@ -404,9 +408,87 @@ html {
 }
 
 @media screen and (min-width: 600px) {
+  .header {
+    background-size: 100%;
+  }
+  .logo-container {
+    top: 325px;
+    width: 150px;
+    height: 150px;
+    right: 50px;
+  }
+  .about {
+    height: 340px;
+    width: 710px;
+  }
+  .myself {
+    display: initial;
+    width: 130px;
+  }
+  .contact {
+    width: 710px;
+    .contact-icon-container {
+      margin-top: 40px;
+    }
+  }
+  .linkedin-con {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+  }
+  .facebook-con {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+  }
+  .instagram-con {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+  }
 }
 
 @media screen and (min-width: 960px) {
+  .admin-link {
+    display: block;
+    position: absolute;
+    right: 10px;
+  }
+
+  .historian {
+    width: 80px;
+  }
+  .logo-container {
+    top: 300px;
+    width: 200px;
+    height: 200px;
+    right: 70px;
+  }
+
+  .about {
+    width: 800px;
+    .myself {
+      width: 190px;
+    }
+  }
+  .contact {
+    width: 800px;
+  }
+  .linkedin-con {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+  .facebook-con {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+  .instagram-con {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -418,6 +500,23 @@ html {
   .nav-toggle {
     display: none !important;
   }
+  .sidenav-drawer {
+    display: none !important;
+  }
+  //Styles for Home
+  .header {
+    background-position-y: 710px;
+  }
+  .about {
+    width: 880px;
+    .myself {
+      width: 230px;
+    }
+  }
+  .contact {
+    width: 880px;
+  }
+
   //Styles for Admin
   .side-img {
     display: flex;
