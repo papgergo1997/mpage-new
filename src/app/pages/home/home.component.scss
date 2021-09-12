@@ -1,10 +1,10 @@
 html {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-[class^="historian"]{
-  position:absolute;
+[class^="historian"] {
+  position: absolute;
   top: 15px;
   left: 15px;
   width: 90px;
@@ -15,7 +15,7 @@ html {
 }
 
 .navbar {
-  box-shadow: 0 0 20px black ;
+  box-shadow: 0 0 20px black;
 }
 
 //probe material sidebar
@@ -26,354 +26,317 @@ html {
 
 .example-sidenav-content {
   height: 100%;
-  .top-nav{
+  .top-nav {
     position: fixed;
     width: 100%;
     z-index: 1;
-    .top-nav-navbar{
+    .top-nav-navbar {
       display: none;
       align-items: center;
       background-color: rgba(30, 30, 30, 0.8);
       box-shadow: 0 0 20px black;
       height: 57px;
       z-index: 1;
-      .item-nav{
+      .item-nav {
         text-decoration: none;
         list-style: none;
-        .link-nav{
+        .link-nav {
           text-decoration: none;
-          color: rgba(245,156,56,255);
+          color: rgba(245, 156, 56, 255);
         }
       }
     }
-    .nav-toggle{
-    padding: 10px 0;
-    // background-color: rgba(30, 30, 30, 0.8);
-    color: rgba(245,156,56,255);
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1;
-  }
-  }
-
-}
-
-.sidenav-drawer {
-  position: fixed;
-  width: 180px;
-  padding: 20px;
-  overflow: hidden;
-  background-color: rgba(30, 30, 30, 0.8);
-  box-shadow: 0 0 20px rgb(10, 10, 10);
-  .sidenav-bg{
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 125%;
-    opacity: 0.9;
-  }
-  .side-nav{
-    display: flex;
-    flex-direction: column;
-    .side-item{
-      margin-top: 30px;
-      list-style: none;
-      .side-link{
-        text-decoration: none;
-        // color: rgb(50, 50, 50);
-        color: rgba(245,156,56,255);
-      }
+    .nav-toggle {
+      padding: 10px 0;
+      // background-color: rgba(30, 30, 30, 0.8);
+      color: rgba(245, 156, 56, 255);
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 1;
     }
   }
-
 }
 //
 
 .admin-link {
-    display: none;
+  display: none;
 }
 
-.header{
-    height: 400px;
-    width: 100%;
-    background-image: url(/assets/img/őzbak.jpg);
-    background-size: 700px;
-    background-position: center;
-    // background-attachment: fixed;
-    box-shadow: 0 0 40px black;
-    z-index: 1;
+.header {
+  height: 400px;
+  width: 100%;
+  background-image: url(/assets/img/őzbak.jpg);
+  background-size: 700px;
+  background-position: center;
+  // background-attachment: fixed;
+  box-shadow: 0 0 40px black;
+  z-index: 1;
 }
 
-.h-logo{
-    width: 50%;
-    position: absolute;
+.h-logo {
+  width: 50%;
+  position: absolute;
 }
 
-.logo-container{
+.logo-container {
   display: flex;
   justify-content: center;
-    position: absolute;
-    z-index: 1;
-    background-color: rgb(33, 33, 33);
-    top: 348px;
-    width: 100px;
-    height: 100px;
-    right: 20px;
-    border-radius: 100px;
-    box-shadow: 0 0 40px black;
-
+  position: absolute;
+  z-index: 1;
+  background-color: rgb(33, 33, 33);
+  top: 348px;
+  width: 100px;
+  height: 100px;
+  right: 20px;
+  border-radius: 100px;
+  box-shadow: 0 0 40px black;
 }
 
-.main{
-    background-image: url(/assets/img/tűzfa.jpg);
-    background-size: 100%;
-    background-attachment: fixed;
+.main {
+  background-image: url(/assets/img/tűzfa.jpg);
+  background-size: 100%;
+  background-attachment: fixed;
 }
 
-.card-container{
-    position: relative;
-    z-index: 0 !important;
+.card-container {
+  position: relative;
+  z-index: 0 !important;
 }
 
-.about{
-    background-color: rgb(50, 50, 50);
-    box-shadow: 0 0 40px black;
-    height: 370px;
-    width: 100%;
-    z-index: 0;
-    position: relative;
-    color: whitesmoke;
-    margin-left: auto;
-    margin-right: auto;
+.about {
+  background-color: rgb(50, 50, 50);
+  box-shadow: 0 0 40px black;
+  height: 370px;
+  width: 100%;
+  z-index: 0;
+  position: relative;
+  color: whitesmoke;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.about-title{
-    text-shadow:0 0 20px black;
-    margin: 20px 0 20px 12px;
+.about-title {
+  text-shadow: 0 0 20px black;
+  margin: 20px 0 20px 12px;
 }
 
-.about-desc{
+.about-desc {
   margin-left: 12px;
 }
 
-.ring{
-    position: absolute;
-    top: -45px;
-    left: 450px;
-    width: 80px;
+.ring {
+  position: absolute;
+  top: -45px;
+  left: 450px;
+  width: 80px;
 }
-.ring2{
-    position: absolute;
-    top: -45px;
-    left: 300px;
-    width: 80px;
-}
-
-.myself{
-    display: none;
-    position: absolute;
-    border-radius: 150px;
-    top: -30px;
-    right: 30px;
-    box-shadow: 0 0 20px black;
+.ring2 {
+  position: absolute;
+  top: -45px;
+  left: 300px;
+  width: 80px;
 }
 
-.article-container{
-    position: relative;
-    z-index: 0 !important;
+.myself {
+  display: none;
+  position: absolute;
+  border-radius: 150px;
+  top: -30px;
+  right: 30px;
+  box-shadow: 0 0 20px black;
 }
 
-.contact{
-    background-color: rgb(50, 50, 50);
-    box-shadow: 0 0 40px black;
-    height: 290px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 0;
-    position: relative;
-    .contact-title{
-     color: whitesmoke;
-     text-align: center;
-     padding-top: 20px;
-    }
-    .contact-icon-container{
-      margin-top: 60px;
+.article-container {
+  position: relative;
+  z-index: 0 !important;
+}
+
+.contact {
+  background-color: rgb(50, 50, 50);
+  box-shadow: 0 0 40px black;
+  height: 290px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
+  position: relative;
+  .contact-title {
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 20px;
+  }
+  .contact-icon-container {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .contact-icon {
       display: flex;
       align-items: center;
       justify-content: center;
-      .contact-icon{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
     }
+  }
 }
 .linkedin-con {
-    background-color: rgb(29, 161, 243);
-    color: whitesmoke;
-    width: 80px;
-    height: 80px;
-    opacity: 90%;
-    vertical-align: middle;
-    text-align: center;
-    font-size: 50px;
-    line-height: 80px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgb(10, 10, 10);
+  background-color: rgb(29, 161, 243);
+  color: whitesmoke;
+  width: 80px;
+  height: 80px;
+  opacity: 90%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 50px;
+  line-height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgb(10, 10, 10);
 }
 
-.facebook-con{
-    background-color: rgb(59, 89, 153);
-    color: whitesmoke;
-    width: 80px;
-    height: 80px;
-    opacity: 90%;
-    vertical-align: middle;
-    text-align: center;
-    font-size: 50px;
-    line-height: 80px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgb(10, 10, 10);
+.facebook-con {
+  background-color: rgb(59, 89, 153);
+  color: whitesmoke;
+  width: 80px;
+  height: 80px;
+  opacity: 90%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 50px;
+  line-height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgb(10, 10, 10);
 }
-.instagram-con{
-    background-image: linear-gradient(rgb(182, 0, 0),rgb(169, 93, 172));
-    color: whitesmoke;
-    width: 80px;
-    height: 80px;
-    opacity: 90%;
-    vertical-align: middle;
-    text-align: center;
-    font-size: 50px;
-    line-height: 80px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgb(10, 10, 10);
+.instagram-con {
+  background-image: linear-gradient(rgb(182, 0, 0), rgb(169, 93, 172));
+  color: whitesmoke;
+  width: 80px;
+  height: 80px;
+  opacity: 90%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 50px;
+  line-height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgb(10, 10, 10);
 }
-[class$="-con"]:hover{
+[class$="-con"]:hover {
   opacity: 100%;
 }
 
-
-.footer{
-    display: flex;
-    background-color: rgb(50, 50, 50);
-    margin: 0;
-    height: 55px;
-    align-items: center;
-    color: whitesmoke;
-    z-index: 1;
-    box-shadow: 0 0 20px black ;
+.footer {
+  display: flex;
+  background-color: rgb(50, 50, 50);
+  margin: 0;
+  height: 55px;
+  align-items: center;
+  color: whitesmoke;
+  z-index: 1;
+  box-shadow: 0 0 20px black;
 }
-
-
 
 @media screen and (min-width: 600px) {
-    .header{
-        background-size: 100%;
+  .header {
+    background-size: 100%;
+  }
+  .logo-container {
+    top: 325px;
+    width: 150px;
+    height: 150px;
+    right: 50px;
+  }
+  .about {
+    height: 340px;
+    width: 710px;
+  }
+  .myself {
+    display: initial;
+    width: 130px;
+  }
+  .contact {
+    width: 710px;
+    .contact-icon-container {
+      margin-top: 40px;
     }
-    .logo-container {
-        top: 325px;
-        width: 150px;
-        height: 150px;
-        right: 50px;
-    }
-    .about{
-        height: 340px;
-        width: 710px;
-    }
-    .myself {
-        display: initial;
-        width: 130px;
-    }
-    .contact{
-      width: 710px;
-      .contact-icon-container{
-        margin-top: 40px;
-      }
-    }
-    .linkedin-con{
-        width: 90px;
-        height: 90px;
-        line-height: 90px;
-    }
-    .facebook-con{
-        width: 90px;
-        height: 90px;
-        line-height: 90px;
-    }
-    .instagram-con{
-        width: 90px;
-        height: 90px;
-        line-height: 90px;
-    }
+  }
+  .linkedin-con {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+  }
+  .facebook-con {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+  }
+  .instagram-con {
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+  }
 }
 @media screen and (min-width: 960px) {
-    .admin-link {
-        display: block;
-        position: absolute;
-        right: 10px;
-    }
+  .admin-link {
+    display: block;
+    position: absolute;
+    right: 10px;
+  }
 
+  .historian {
+    width: 80px;
+  }
+  .logo-container {
+    top: 300px;
+    width: 200px;
+    height: 200px;
+    right: 70px;
+  }
 
-    .historian{
-        width: 80px;
+  .about {
+    width: 800px;
+    .myself {
+      width: 190px;
     }
-    .logo-container {
-        top: 300px;
-        width: 200px;
-        height: 200px;
-        right: 70px;
-    }
-
-    .about{
-      width: 800px;
-      .myself{
-        width: 190px;
-      }
-    }
-    .contact{
-      width: 800px;
-    }
-    .linkedin-con{
-        width: 100px;
-        height: 100px;
-        line-height: 100px;
-    }
-    .facebook-con{
-        width: 100px;
-        height: 100px;
-        line-height: 100px;
-    }
-    .instagram-con{
-        width: 100px;
-        height: 100px;
-        line-height: 100px;
-    }
+  }
+  .contact {
+    width: 800px;
+  }
+  .linkedin-con {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+  .facebook-con {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+  .instagram-con {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
 }
 
-@media screen and(min-width: 1200px){
-    .header{
-      background-position-y: 710px;
+@media screen and(min-width: 1200px) {
+  .header {
+    background-position-y: 710px;
   }
-  .about{
+  .about {
     width: 880px;
     .myself {
       width: 230px;
     }
   }
-  .contact{
+  .contact {
     width: 880px;
   }
-  .top-nav-navbar{
+  .top-nav-navbar {
     display: flex !important;
     flex-direction: row;
   }
-  .nav-toggle{
+  .nav-toggle {
     display: none;
   }
-  .sidenav-drawer{
+  .sidenav-drawer {
     display: none;
   }
 }

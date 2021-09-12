@@ -1,5 +1,15 @@
 <mat-drawer-container class="admin-container" [hasBackdrop]="true">
-  <mat-drawer #drawer mode="over">I'm a drawer</mat-drawer>
+  <mat-drawer class="sidenav-drawer admin-sidenav" #drawer mode="over">
+    <img class="sidenav-bg" src="/assets/img/sidebar-1.jpg" alt="side-img" />
+    <ul class="side-nav">
+      <li class="side-item">
+        <a class="side-link" mat-button routerLink="images">Photos</a>
+      </li>
+      <li class="side-item">
+        <a class="side-link" mat-button routerLink="articles">Articles</a>
+      </li>
+    </ul>
+  </mat-drawer>
   <mat-drawer-content>
     <nav class="top-nav">
       <ul class="top-nav-navbar">
@@ -27,7 +37,10 @@
         <mat-icon>reorder</mat-icon>
       </button>
     </nav>
-    <router-outlet></router-outlet>
+    <div fxLayout="row">
+      <img class="side-img" src="/assets/img/sidebar-1.jpg" alt="side-img" />
+      <router-outlet fxFlex="75"></router-outlet>
+    </div>
   </mat-drawer-content>
 </mat-drawer-container>
 <!-- <link rel="stylesheet" href="/assets/css/material-dashboard.min.css">
