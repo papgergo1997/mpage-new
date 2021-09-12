@@ -135,9 +135,15 @@
 //Style for Forms
 
 .form-container {
+  width: 96vw;
+  margin: 60px 0;
+  padding: 0;
   .b-nav-item {
     list-style: none;
     margin-left: 2px;
+    a {
+      text-decoration: none;
+    }
   }
   .form {
     width: 500px;
@@ -150,7 +156,9 @@
           margin: 10px 0;
         }
         .input-control {
+          max-width: 450px;
           border: none;
+          outline: none;
           border-bottom: 1px solid rgb(200, 200, 200);
           border-radius: 2px;
           transition: border 300ms;
@@ -170,6 +178,7 @@
         cursor: pointer;
       }
       .submit-btn {
+        max-width: 450px;
         margin-top: 15px;
         background-color: rgb(77, 133, 245);
         color: whitesmoke;
@@ -196,5 +205,10 @@
   }
   .log-out {
     display: block;
+  }
+  .form-container {
+    width: 70vw;
+    margin: 70px 0;
+    padding: 0;
   }
 }
