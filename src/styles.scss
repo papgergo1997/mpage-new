@@ -245,7 +245,24 @@ html {
   z-index: 1;
   box-shadow: 0 0 20px black;
 }
-//Styles for Article Card Component
+//Styles for Article Card Container
+.article-card--container {
+  background-image: linear-gradient(rgb(50, 50, 50), rgba(245, 156, 56, 255));
+  box-shadow: 0 0 40px black;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
+  .articles-title {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    color: whitesmoke;
+  }
+}
+//Styles for Article Card
 .article-card {
   background-color: transparent;
   border-radius: 10px;
@@ -289,6 +306,7 @@ html {
     background-color: rgb(30, 30, 30);
   }
 }
+
 //Style for Admin
 .side-img {
   display: none;
@@ -451,6 +469,7 @@ html {
 }
 
 @media screen and (min-width: 600px) {
+  //Styles for Home
   .header {
     background-size: 100%;
   }
@@ -489,9 +508,17 @@ html {
     height: 90px;
     line-height: 90px;
   }
+  //Styles for Article Card Container
+  .article-card--container {
+    width: 710px;
+    .article-card {
+      margin: 17.5px;
+    }
+  }
 }
 
 @media screen and (min-width: 960px) {
+  //Styles for Home
   .admin-link {
     display: block;
     position: absolute;
@@ -532,6 +559,13 @@ html {
     height: 100px;
     line-height: 100px;
   }
+  //Styles for Article Card Container
+  .article-card--container {
+    width: 800px;
+    .article-card {
+      margin: 11px;
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -559,7 +593,13 @@ html {
   .contact {
     width: 880px;
   }
-
+  //Styles for Article Card Container
+  .article-card--container {
+    width: 880px;
+    .article-card {
+      margin: 12.3px;
+    }
+  }
   //Styles for Admin
   .side-img {
     display: flex;
