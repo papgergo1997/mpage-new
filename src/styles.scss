@@ -174,13 +174,9 @@
 }
 
 @media screen and (min-width: 600px) {
-  .table-container {
-  }
 }
 
 @media screen and (min-width: 960px) {
-  .table-container {
-  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -188,8 +184,8 @@
     display: flex;
   }
   .table-container {
-    width: 100%;
-    margin: 100px 130px 0 0 !important;
+    width: 70vw;
+    margin: 100px 30px 0 0 !important;
     margin-top: 60px;
     padding: 0;
   }
