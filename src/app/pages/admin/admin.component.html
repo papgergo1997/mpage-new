@@ -26,6 +26,14 @@
         <li class="item-nav">
           <a class="link-nav" mat-button routerLink="articles"> Articles </a>
         </li>
+        <li class="item-nav log-out">
+          <a class="link-nav" mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>person</mat-icon>
+          </a>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/">Log out</button>
+          </mat-menu>
+        </li>
       </ul>
 
       <button
