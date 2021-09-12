@@ -245,6 +245,25 @@ html {
   z-index: 1;
   box-shadow: 0 0 20px black;
 }
+//Styles for Image Card Container
+.item-card--container {
+  background-image: linear-gradient(rgba(245, 156, 56, 255), rgb(50, 50, 50));
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 20px black;
+  .gallery-title {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    color: whitesmoke;
+  }
+  .image-card {
+    margin: 12px;
+  }
+}
 //Styles for Article Card Container
 .article-card--container {
   background-image: linear-gradient(rgb(50, 50, 50), rgba(245, 156, 56, 255));
@@ -508,6 +527,13 @@ html {
     height: 90px;
     line-height: 90px;
   }
+  //Styles for Image Card Container
+  .item-card--container {
+    width: 710px;
+    .image-card {
+      margin: 17.5px;
+    }
+  }
   //Styles for Article Card Container
   .article-card--container {
     width: 710px;
@@ -559,6 +585,13 @@ html {
     height: 100px;
     line-height: 100px;
   }
+  //Styles for Image Card Container
+  .item-card--container {
+    width: 800px;
+    .image-card {
+      margin: 11px;
+    }
+  }
   //Styles for Article Card Container
   .article-card--container {
     width: 800px;
@@ -592,6 +625,13 @@ html {
   }
   .contact {
     width: 880px;
+  }
+  //Styles for Image Card Container
+  .item-card--container {
+    width: 880px;
+    .image-card {
+      margin: 12.3px;
+    }
   }
   //Styles for Article Card Container
   .article-card--container {
