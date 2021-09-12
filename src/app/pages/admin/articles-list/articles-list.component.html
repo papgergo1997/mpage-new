@@ -1,4 +1,46 @@
-<div class="container">
+<div fxLayout="column" class="table-container">
+  <div fxLayout="row" class="search-area">
+    <label class="search-label">Search</label>
+    <input type="text" class="search-input" [(ngModel)]="filterKey" />
+  </div>
+  <button mat-flat-button [routerLink]="[0]" class="plus-btn">
+    <i class="fa fa-plus"></i>
+  </button>
+  <table class="the-table">
+    <thead class="table-head">
+      <th>Title</th>
+      <th>Abstract</th>
+      <th>Photo</th>
+      <th>Link</th>
+      <th></th>
+    </thead>
+    <tbody class="table-body">
+      <tr
+        class="table-row"
+        *ngFor="let article of list$ | async | articleFilter: filterKey"
+      >
+        <td>{{ article.title }}</td>
+        <td>{{ article.abstract }}</td>
+        <td>
+          <img src="{{ article.photo }}" alt="article" style="width: 140px" />
+        </td>
+        <td>{{ article.link }}</td>
+        <td>
+          <div class="group-btn">
+            <button [routerLink]="[article.id]" class="btn-edit">
+              <i class="fa fa-pencil"></i>
+            </button>
+            <button (click)="onDelete(article)" class="btn-delete">
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- <div class="container">
     <div class="row">
         <div>
             <div class="row">
@@ -37,4 +79,4 @@
             </table>
         </div>
     </div>
-</div>
+</div> -->

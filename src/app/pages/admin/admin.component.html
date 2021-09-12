@@ -1,10 +1,61 @@
-<link rel="stylesheet" href="/assets/css/material-dashboard.min.css">
+<mat-drawer-container class="admin-container" [hasBackdrop]="true">
+  <mat-drawer class="sidenav-drawer admin-sidenav" #drawer mode="over">
+    <img class="sidenav-bg" src="/assets/img/sidebar-1.jpg" alt="side-img" />
+    <ul class="side-nav">
+      <li class="side-item">
+        <a class="side-link" mat-button routerLink="images">Photos</a>
+      </li>
+      <li class="side-item">
+        <a class="side-link" mat-button routerLink="articles">Articles</a>
+      </li>
+    </ul>
+  </mat-drawer>
+  <mat-drawer-content>
+    <nav class="top-nav">
+      <ul class="top-nav-navbar">
+        <div class="d-flex align-items-center justify-content-center">
+          <img
+            class="historian mx-auto"
+            src="/assets/img/logos/historian-narancssárga.png"
+            alt="historian"
+          />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <li class="item-nav">
+          <a class="link-nav" mat-button routerLink="images"> Photos </a>
+        </li>
+        <li class="item-nav">
+          <a class="link-nav" mat-button routerLink="articles"> Articles </a>
+        </li>
+        <li class="item-nav log-out">
+          <a class="link-nav" mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>person</mat-icon>
+          </a>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/">Log out</button>
+          </mat-menu>
+        </li>
+      </ul>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        mat-button
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>reorder</mat-icon>
+      </button>
+    </nav>
+    <div fxLayout="row">
+      <img class="side-img" src="/assets/img/sidebar-1.jpg" alt="side-img" />
+      <router-outlet fxFlex></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+<!-- <link rel="stylesheet" href="/assets/css/material-dashboard.min.css">
 <div class="wrapper ">
     <app-side-nav></app-side-nav>
     <div class="main-panel">
-        <!-- Navbar -->
         <app-admin-nav></app-admin-nav>
-        <!-- End Navbar -->
         <div class="content">
             <div class="container-fluid">
                 <router-outlet></router-outlet>
@@ -12,4 +63,4 @@
         </div>
         <app-admin-footer></app-admin-footer>
     </div>
-</div>
+</div> -->

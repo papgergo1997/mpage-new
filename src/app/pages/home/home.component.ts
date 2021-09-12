@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   @Output() images$: Observable<Image[]> = new Observable<Image[]>();
 
+  showFiller = false;
 
   constructor(private iService: ImageService) { }
 
