@@ -1,9 +1,16 @@
-
-<div  class="item-card--container">
+<div class="item-card--container">
   <h2 class="gallery-title">Gallery</h2>
-    <div fxLayout="row wrap" >
-        <app-item-card fxFlex="30.5" fxFlex.xs="100" fxFlex.sm="45" fxFlex.md="30.5" class="image-card" *ngFor="let image of images$ | async" [image]="image">
-        </app-item-card>
-    </div>
+  <p class="gallery-info">Click on Image to open in Image Viewer!</p>
+  <div fxLayout="row wrap">
+    <app-item-card
+      fxFlex="30.5"
+      fxFlex.xs="100"
+      fxFlex.sm="45"
+      fxFlex.md="30.5"
+      class="image-card"
+      *ngFor="let image of images$ | async"
+      [image]="image"
+    >
+    </app-item-card>
+  </div>
 </div>
-
