@@ -3,6 +3,8 @@
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
 @import "/src/assets/scss/variables/fonts";
+@import "/src/assets/scss/variables/colors";
+@import "/src/assets/scss/variables/shadows";
 
 //Styles for Home and Admin
 html {
@@ -17,8 +19,8 @@ html {
   .top-nav-navbar {
     display: none;
     align-items: center;
-    background-color: rgba(30, 30, 30, 0.8);
-    box-shadow: 0 0 20px black;
+    background-color: $nav-bg-color;
+    box-shadow: $secondary-shadow;
     height: 57px;
     z-index: 1;
     [class$="nav"] {
@@ -28,13 +30,13 @@ html {
       list-style: none;
       margin-left: 20px;
       .link-nav {
-        color: rgba(245, 156, 56, 255);
+        color: $main-orange;
       }
     }
   }
   .nav-toggle {
     padding: 10px 0;
-    color: rgba(245, 156, 56, 255);
+    color: $main-orange;
     position: fixed;
     right: 0;
     top: 0;
@@ -47,8 +49,8 @@ html {
   width: 180px;
   padding: 20px;
   overflow: hidden;
-  background-color: rgba(30, 30, 30, 0.8);
-  box-shadow: 0 0 20px rgb(10, 10, 10);
+  background-color: $nav-bg-color;
+  box-shadow: $secondary-shadow;
   .side-nav {
     display: flex;
     flex-direction: column;
@@ -57,7 +59,7 @@ html {
       list-style: none;
       .side-link {
         text-decoration: none;
-        color: rgba(245, 156, 56, 255);
+        color: $main-orange;
       }
     }
   }
@@ -88,7 +90,7 @@ html {
   background-size: 700px;
   background-position: center;
   // background-attachment: fixed;
-  box-shadow: 0 0 40px black;
+  box-shadow: $primary-shadow;
   z-index: 1;
 }
 
@@ -102,13 +104,13 @@ html {
   justify-content: center;
   position: absolute;
   z-index: 1;
-  background-color: rgb(30, 30, 30);
+  background-color: $secondary-gray;
   top: 348px;
   width: 100px;
   height: 100px;
   right: 20px;
   border-radius: 100px;
-  box-shadow: 0 0 40px black;
+  box-shadow: $primary-shadow;
 }
 
 .main {
@@ -124,18 +126,18 @@ html {
 }
 
 .about {
-  background-color: rgb(50, 50, 50);
-  box-shadow: 0 0 40px black;
+  background-color: $main-gray;
+  box-shadow: $primary-shadow;
   height: 370px;
   width: 100%;
   z-index: 0;
   position: relative;
-  color: whitesmoke;
+  color: $text-white;
   margin: 0 auto;
 }
 
 .about-title {
-  text-shadow: 0 0 20px black;
+  text-shadow: $secondary-shadow;
   margin: 20px 0 20px 12px;
 }
 
@@ -162,7 +164,7 @@ html {
   border-radius: 150px;
   top: -30px;
   right: 30px;
-  box-shadow: 0 0 20px black;
+  box-shadow: $secondary-shadow;
 }
 
 .article-container {
@@ -171,15 +173,15 @@ html {
 }
 
 .contact {
-  background-color: rgb(50, 50, 50);
-  box-shadow: 0 0 40px black;
+  background-color: $main-gray;
+  box-shadow: $primary-shadow;
   height: 290px;
   width: 100%;
   margin: 0 auto;
   z-index: 0;
   position: relative;
   .contact-title {
-    color: whitesmoke;
+    color: $text-white;
     text-align: center;
     padding-top: 20px;
   }
@@ -194,7 +196,7 @@ html {
 }
 
 [class$="-con"] {
-  color: whitesmoke;
+  color: $text-white !important;
   width: 80px;
   height: 80px;
   opacity: 90%;
@@ -203,7 +205,7 @@ html {
   font-size: 50px;
   line-height: 80px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgb(10, 10, 10);
+  box-shadow: $secondary-shadow;
 }
 .linkedin-con {
   background-color: rgb(29, 161, 243);
@@ -221,28 +223,28 @@ html {
 
 .footer {
   display: flex;
-  background-color: rgb(50, 50, 50);
+  background-color: $main-gray;
   font-family: $secondary-font;
   margin: 0;
   height: 55px;
   align-items: center;
-  color: whitesmoke;
+  color: $text-white;
   z-index: 1;
-  box-shadow: 0 0 20px black;
+  box-shadow: $secondary-shadow;
 }
 //Styles for Image Card Container
 .item-card--container {
-  background-image: linear-gradient(rgba(245, 156, 56, 255), rgb(50, 50, 50));
+  background-image: linear-gradient($main-orange, $main-gray);
   background-attachment: fixed;
   height: 100%;
   width: 100%;
   margin: 0 auto;
-  box-shadow: 0 0 20px black;
+  box-shadow: $secondary-shadow;
   .gallery-title {
     display: flex;
     justify-content: center;
     padding-top: 20px;
-    color: whitesmoke;
+    color: $text-white;
   }
   .image-card {
     margin: 12px;
@@ -251,13 +253,13 @@ html {
 //Styles for Image Card
 .card-img {
   width: 100%;
-  box-shadow: 0 0 20px black;
+  box-shadow: $secondary-shadow;
 }
 
 .cards {
   border: none;
   background-color: transparent;
-  color: white;
+  color: $text-white;
 }
 .card-header {
   background-color: transparent;
@@ -265,8 +267,8 @@ html {
 }
 //Styles for Article Card Container
 .article-card--container {
-  background-image: linear-gradient(rgb(50, 50, 50), rgba(245, 156, 56, 255));
-  box-shadow: 0 0 40px black;
+  background-image: linear-gradient($main-gray, $main-orange);
+  box-shadow: $primary-shadow;
   background-attachment: fixed;
   height: 100%;
   width: 100%;
@@ -279,15 +281,15 @@ html {
     display: flex;
     justify-content: center;
     padding-top: 20px;
-    color: whitesmoke;
+    color: $text-white;
   }
 }
 //Styles for Article Card
 .article-card {
   background-color: transparent;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgb(30, 30, 30);
-  color: whitesmoke;
+  box-shadow: 0 0 20px $secondary-gray;
+  color: $text-white;
   height: 500px;
   align-items: center;
   padding: 10px 0 10px 0;
@@ -297,7 +299,7 @@ html {
     width: 90%;
     .article-img {
       width: 100%;
-      box-shadow: 0 0 20px black;
+      box-shadow: $secondary-shadow;
     }
   }
   .article-title {
@@ -311,10 +313,10 @@ html {
     overflow: hidden;
   }
   .readm-btn {
-    color: rgba(245, 156, 56, 255);
+    color: $main-orange;
     margin-top: auto;
     text-decoration: none;
-    background-color: rgb(50, 50, 50);
+    background-color: $main-gray;
     border: 1px solid transparent;
     border-radius: 5px;
     opacity: 90%;
@@ -323,7 +325,7 @@ html {
   }
   .readm-btn:hover {
     opacity: 100%;
-    background-color: rgb(30, 30, 30);
+    background-color: $secondary-gray;
   }
 }
 
@@ -333,9 +335,9 @@ html {
   width: 100vw;
   align-items: center;
   overflow: hidden;
-  background-color: rgb(50, 50, 50);
+  background-color: $main-gray;
   .home-btn {
-    color: rgba(245, 156, 56, 255);
+    color: $main-orange;
     margin: 10px 0;
     padding: 5px 5px;
     text-decoration: none;
@@ -346,7 +348,7 @@ html {
   }
   .home-btn:hover {
     opacity: 100%;
-    background-color: rgb(30, 30, 30);
+    background-color: $secondary-gray;
   }
   .viewer {
     width: 80%;
@@ -368,7 +370,7 @@ html {
   .viewer-img {
     width: 100%;
     border-radius: 7px;
-    box-shadow: 0 0 20px rgb(15, 15, 15);
+    box-shadow: $secondary-shadow;
   }
 }
 .control-group {
@@ -384,7 +386,7 @@ html {
 
 [class$="arrow"] {
   font-size: 25px;
-  color: rgba(245, 156, 56, 255);
+  color: $main-orange;
   position: absolute;
   opacity: 50%;
 }
@@ -439,7 +441,7 @@ html {
     margin: 20px 10px;
     .search-label {
       margin: auto 10px;
-      color: rgb(30, 30, 30);
+      color: $secondary-gray;
     }
     .search-input {
       background-color: transparent;
@@ -450,13 +452,13 @@ html {
       transition: border 300ms;
     }
     .search-input:focus {
-      border-bottom: 1px solid rgb(69, 197, 64);
+      border-bottom: 1px solid $main-green;
     }
   }
   .plus-btn {
     width: 100%;
-    background-color: rgb(69, 197, 64);
-    color: whitesmoke;
+    background-color: $main-green;
+    color: $text-white;
     margin: 0 auto;
     opacity: 80%;
   }
@@ -468,15 +470,15 @@ html {
     margin: 10px auto;
     .table-head {
       padding: 10px;
-      color: rgb(230, 230, 230);
-      background-color: rgb(30, 30, 30);
+      color: $text-white;
+      background-color: $secondary-gray;
       th {
         padding: 10px 0;
         text-align: center;
       }
     }
     .table-body {
-      color: rgb(30, 30, 30);
+      color: $secondary-gray;
       overflow: hidden;
       .table-row {
         overflow: hidden;
@@ -491,12 +493,12 @@ html {
             border: none;
             width: 50%;
             height: 40px;
-            color: whitesmoke;
+            color: $text-white;
             opacity: 80%;
           }
           .btn-edit {
             border-radius: 5px 0px 0px 5px;
-            background-color: rgb(77, 133, 245);
+            background-color: $edit-blue;
           }
           .btn-delete {
             border-radius: 0px 5px 5px 0px;
@@ -508,7 +510,7 @@ html {
         }
       }
       .table-row:nth-child(even) {
-        background-color: rgb(220, 220, 220);
+        background-color: $text-white;
       }
     }
   }
@@ -547,13 +549,13 @@ html {
           transition: border 300ms;
         }
         .input-control:focus {
-          border-bottom: 1px solid rgb(69, 197, 64);
+          border-bottom: 1px solid $main-green;
         }
       }
       .upload-btn {
         border: none;
-        background-color: rgb(69, 197, 64);
-        color: rgb(230, 230, 230);
+        background-color: $main-green;
+        color: $text-white;
         opacity: 90%;
       }
       .upload-btn:hover {
@@ -563,8 +565,8 @@ html {
       .submit-btn {
         max-width: 450px;
         margin-top: 15px;
-        background-color: rgb(77, 133, 245);
-        color: whitesmoke;
+        background-color: $edit-blue;
+        color: $text-white;
       }
     }
   }
