@@ -417,13 +417,16 @@ html {
   opacity: 20%;
   box-shadow: 0 0 90px black;
 }
+.admin-sidenav {
+  background-color: rgba(250, 250, 250, 0.7);
+}
 .sidenav-bg {
   display: flex;
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-  opacity: 10% !important;
+  opacity: 20% !important;
 }
 .log-out {
   display: none;
