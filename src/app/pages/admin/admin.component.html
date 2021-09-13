@@ -2,10 +2,18 @@
   <mat-drawer class="sidenav-drawer admin-sidenav" #drawer mode="over">
     <img class="sidenav-bg" src="/assets/img/sidebar-1.jpg" alt="side-img" />
     <ul class="side-nav">
-      <li class="side-item">
+      <li
+        class="side-item"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a class="side-link" mat-button routerLink="images">Photos</a>
       </li>
-      <li class="side-item">
+      <li
+        class="side-item"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         <a class="side-link" mat-button routerLink="articles">Articles</a>
       </li>
     </ul>
@@ -51,16 +59,3 @@
     </div>
   </mat-drawer-content>
 </mat-drawer-container>
-<!-- <link rel="stylesheet" href="/assets/css/material-dashboard.min.css">
-<div class="wrapper ">
-    <app-side-nav></app-side-nav>
-    <div class="main-panel">
-        <app-admin-nav></app-admin-nav>
-        <div class="content">
-            <div class="container-fluid">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
-        <app-admin-footer></app-admin-footer>
-    </div>
-</div> -->
