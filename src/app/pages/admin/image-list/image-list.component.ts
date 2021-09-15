@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { FilterPipe } from 'src/app/pipe/filter.pipe';
 
 @Component({
   selector: 'app-image-list',
@@ -12,31 +13,41 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./image-list.component.scss']
 })
 export class ImageListComponent implements OnInit {
-
+  //Material Paginator
+  @ViewChild ('paginator') paginator: MatPaginator;
+  //
   list$: Observable<Image[]> = new Observable<Image[]>();
   filterKey: string = '';
-
+  //Material Table
+  dataSource: MatTableDataSource<Image>;
+  displayedColumns: string[] = ['name', 'description', 'size', 'type', 'picture','edit']
+  //
   constructor(private iService: ImageService,
-    private toaster: ToastrService) { }
+    private toaster: ToastrService,
+    ) { }
 
   ngOnInit(): void {
     this.list$ = this.iService.list$;
+    //Material Table and paginator
     this.iService.list$.subscribe(list=>{
       this.dataSource = new MatTableDataSource(list);
       this.dataSource.paginator = this.paginator;
     })
   }
+  //for Material filter
+  filterTable (filterValue :string) {
+    this.dataSource.filter = filterValue.toLowerCase();
+ }
 
   onDelete(image: Image): void {
     this.iService.remove(image);
     this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
   }
 
-  //Material Table Test
-  dataSource: MatTableDataSource<Image>;
-  displayedColumns: string[] = ['name', 'description', 'size', 'type', 'picture','edit']
 
-  //Material Paginator test
-  @ViewChild ('paginator') paginator: MatPaginator;
+
+
+
+
 
 }
