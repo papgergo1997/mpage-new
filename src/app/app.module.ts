@@ -38,6 +38,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatSidenavModule,
     MatTableModule,
     MatMenuModule,
+    MatPaginatorModule,
      ],
   providers: [],
   bootstrap: [AppComponent]
