@@ -479,42 +479,43 @@ html {
         text-align: center;
       }
     }
-    .table-body {
-      color: $secondary-gray;
+    //for not mat-table
+    // .table-body {
+    //   color: $secondary-gray;
+    //   overflow: hidden;
+    .table-row {
       overflow: hidden;
-      .table-row {
-        overflow: hidden;
-        td {
-          text-align: center;
-          overflow: hidden !important;
-        }
-        .group-btn {
-          width: 100px;
-          border: none;
-          [class^="btn"] {
-            border: none;
-            width: 50%;
-            height: 40px;
-            color: $text-white;
-            opacity: 80%;
-          }
-          .btn-edit {
-            border-radius: 5px 0px 0px 5px;
-            background-color: $edit-blue;
-          }
-          .btn-delete {
-            border-radius: 0px 5px 5px 0px;
-            background-color: rgb(236, 47, 47);
-          }
-          [class^="btn"]:hover {
-            opacity: 100%;
-          }
-        }
+      td {
+        text-align: center;
+        overflow: hidden !important;
       }
-      .table-row:nth-child(even) {
-        background-color: $text-white;
+      .group-btn {
+        width: 100px;
+        border: none;
+        [class^="btn"] {
+          border: none;
+          width: 50%;
+          height: 40px;
+          color: $text-white;
+          opacity: 80%;
+        }
+        .btn-edit {
+          border-radius: 5px 0px 0px 5px;
+          background-color: $edit-blue;
+        }
+        .btn-delete {
+          border-radius: 0px 5px 5px 0px;
+          background-color: rgb(236, 47, 47);
+        }
+        [class^="btn"]:hover {
+          opacity: 100%;
+        }
       }
     }
+    .table-row:nth-child(even) {
+      background-color: $text-white;
+    }
+    // }
   }
 }
 
