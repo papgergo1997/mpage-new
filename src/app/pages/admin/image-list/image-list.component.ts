@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
 import { MatPaginator } from '@angular/material/paginator';
-import { FilterPipe } from 'src/app/pipe/filter.pipe';
 
 @Component({
   selector: 'app-image-list',

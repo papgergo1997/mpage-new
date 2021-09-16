@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Article } from 'src/app/model/article';
 import { ArticleService } from 'src/app/service/article.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-articles-list',
