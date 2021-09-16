@@ -36,7 +36,7 @@ export class ImageListComponent implements OnInit {
   //for Material filter
   filterTable (filterValue :string) {
     this.dataSource.filter = filterValue.toLowerCase();
- }
+  }
 
   onDelete(image: Image): void {
     this.iService.remove(image);
