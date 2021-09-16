@@ -446,8 +446,9 @@ html {
       color: $secondary-gray;
     }
     .search-input {
+      width: 170px;
       background-color: transparent;
-      outline: none;
+      outline: transparent;
       border: none;
       border-bottom: 1px solid grey;
       border-radius: 2px;
@@ -490,8 +491,12 @@ html {
         text-align: center;
         overflow: hidden !important;
       }
+      .list-img {
+        width: 80px;
+      }
       .group-btn {
         width: 100px;
+        margin-left: 30px;
         border: none;
         [class^="btn"] {
           border: none;
@@ -672,6 +677,10 @@ html {
   .article-img {
     width: 100%;
     max-height: auto !important;
+  }
+  //Styles for tables
+  .group-btn {
+    margin-left: 60px !important;
   }
 }
 
