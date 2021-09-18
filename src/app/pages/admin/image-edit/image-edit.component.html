@@ -42,6 +42,13 @@
           formControlName="description"
           class="input-control"
         />
+
+        <div
+          class="error-message"
+          *ngIf="imageForm.get('description').hasError('minlength')"
+        >
+          Description must be 4 characters long at least
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="size">Size</label>
@@ -60,12 +67,16 @@
       </div>
       <div class="input-group">
         <label class="input-label" for="type">Technique</label>
-        <input
+        <!-- <input
           id="type"
           type="text"
           formControlName="type"
           class="input-control"
-        />
+        /> -->
+        <select formControlName="type" id="type" class="input-control">
+          <option value="Colored">Colored</option>
+          <option value="B&W">B&W</option>
+        </select>
       </div>
       <div class="input-group">
         <label class="input-label" for="picture">Preview Image</label>

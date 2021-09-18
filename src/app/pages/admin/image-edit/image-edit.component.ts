@@ -36,11 +36,10 @@ export class ImageEditComponent implements OnInit {
       Validators.minLength(3),
     ]),
     description: new FormControl('', [
-      Validators.required,
       Validators.minLength(4),
     ]),
     size: new FormControl('', Validators.pattern('^[1-9]{1,2}:([1-9]|10)')),
-    type: new FormControl(''),
+    type: new FormControl('', Validators.required),
     picture: new FormControl('', Validators.required),
     fullPicture: new FormControl('', Validators.required)
   })
