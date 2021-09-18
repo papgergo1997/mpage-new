@@ -51,6 +51,12 @@
           formControlName="size"
           class="input-control"
         />
+        <div
+          class="error-message"
+          *ngIf="imageForm.get('size').hasError('pattern')"
+        >
+          Recommended Format: 16:9 / 4:3 / etc.
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="type">Technique</label>
