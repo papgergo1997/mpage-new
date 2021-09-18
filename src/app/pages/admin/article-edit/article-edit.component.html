@@ -82,30 +82,32 @@
           </div>
         </div>
       </div>
-      <label class="input-label" for="photo">Photo</label>
-      <img
-        src="{{ article.photo }}"
-        alt="{{ article.photo }}"
-        style="width: 200px"
-      />
-      <input
-        [hidden]="article"
-        name="photo"
-        type="text"
-        formControlName="photo"
-        class="input-control"
-        readonly
-      />
-      <div *ngIf="articleForm.get('photo').invalid">
-        <div
-          class="error-message"
-          *ngIf="articleForm.get('photo').hasError('required')"
-        >
-          Photo is required
+      <div class="input-group">
+        <label class="input-label" for="photo">Photo</label>
+        <img
+          src="{{ article.photo }}"
+          alt="{{ article.photo }}"
+          style="width: 200px"
+        />
+        <input
+          [hidden]="article"
+          name="photo"
+          type="text"
+          formControlName="photo"
+          class="input-control"
+          readonly
+        />
+        <div *ngIf="articleForm.get('photo').invalid">
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('photo').hasError('required')"
+          >
+            Photo is required
+          </div>
         </div>
       </div>
       <div>
-        <label>
+        <label class="file-input">
           <input
             type="file"
             class="text-nowrap text-truncate"
