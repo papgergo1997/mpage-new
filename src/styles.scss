@@ -598,6 +598,10 @@ html {
   animation: error 1s 1;
 }
 
+.progress {
+  max-width: 450px !important;
+}
+
 @keyframes error {
   0% {
     right: -300px;
