@@ -545,6 +545,7 @@ html {
     form {
       .input-group {
         display: flex;
+
         flex-direction: column;
         .input-label {
           margin: 10px 0;
@@ -579,6 +580,9 @@ html {
       }
     }
   }
+}
+.error {
+  border-bottom: 1px solid rgb(236, 47, 47) !important;
 }
 
 @media screen and (min-width: 600px) {

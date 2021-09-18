@@ -17,7 +17,7 @@
           type="text"
           formControlName="name"
           class="input-control"
-          required
+          [class.error]="imageForm.get('name').invalid"
         />
         <div *ngIf="imageForm.get('name').invalid">
           <div
@@ -41,13 +41,15 @@
           type="text"
           formControlName="description"
           class="input-control"
+          [class.error]="imageForm.get('description').invalid"
         />
-
-        <div
-          class="error-message"
-          *ngIf="imageForm.get('description').hasError('minlength')"
-        >
-          Description must be 4 characters long at least
+        <div *ngIf="imageForm.get('description').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('description').hasError('minlength')"
+          >
+            Description must be 4 characters long at least
+          </div>
         </div>
       </div>
       <div class="input-group">
@@ -57,12 +59,15 @@
           type="text"
           formControlName="size"
           class="input-control"
+          [class.error]="imageForm.get('size').invalid"
         />
-        <div
-          class="error-message"
-          *ngIf="imageForm.get('size').hasError('pattern')"
-        >
-          Recommended Format: 16:9 / 4:3 / etc.
+        <div *ngIf="imageForm.get('size').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('size').hasError('pattern')"
+          >
+            Recommended Format: 16:9 / 4:3 / etc.
+          </div>
         </div>
       </div>
       <div class="input-group">
@@ -73,15 +78,22 @@
           formControlName="type"
           class="input-control"
         /> -->
-        <select formControlName="type" id="type" class="input-control">
+        <select
+          formControlName="type"
+          id="type"
+          class="input-control"
+          [class.error]="imageForm.get('type').invalid"
+        >
           <option value="Colored">Colored</option>
           <option value="B&W">B&W</option>
         </select>
-        <div
-          class="error-message"
-          *ngIf="imageForm.get('type').hasError('required')"
-        >
-          You must choose a type
+        <div *ngIf="imageForm.get('type').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('type').hasError('required')"
+          >
+            You must choose a technique
+          </div>
         </div>
       </div>
       <div class="input-group">
@@ -99,6 +111,14 @@
           class="input-control"
           readonly
         />
+        <div *ngIf="imageForm.get('picture').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('picture').hasError('required')"
+          >
+            You must upload an image
+          </div>
+        </div>
       </div>
       <div>
         <label>
@@ -144,6 +164,14 @@
           class="input-control"
           readonly
         />
+        <div *ngIf="imageForm.get('fullPicture').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('fullPicture').hasError('required')"
+          >
+            You must upload an image
+          </div>
+        </div>
       </div>
       <div>
         <label>
