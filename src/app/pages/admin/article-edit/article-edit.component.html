@@ -17,7 +17,22 @@
           id="title"
           type="text"
           formControlName="title"
+          [class.error]="articleForm.get('title').invalid"
         />
+        <div *ngIf="articleForm.get('title').invalid">
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('title').hasError('required')"
+          >
+            Title is required
+          </div>
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('title').hasError('minlength')"
+          >
+            Title must be 5 characters long at least
+          </div>
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="abstract">Abstract: </label>
@@ -81,7 +96,12 @@
           </div>
         </div>
       </div>
-      <button mat-flat-button type="submit" class="submit-btn">
+      <button
+        [disabled]="!articleForm.valid || submitted"
+        mat-flat-button
+        type="submit"
+        class="submit-btn"
+      >
         <i class="fa fa-save"></i>
       </button>
     </form>

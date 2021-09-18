@@ -19,6 +19,7 @@ export class ArticleEditComponent implements OnInit {
   selectedFiles: FileList;
   currentPhoto: Photo;
   percentage: number = 0;
+  submitted: boolean = false;
   //Reactive Forms START
   articleForm = new FormGroup({
     id: new FormControl(''),
@@ -72,6 +73,7 @@ export class ArticleEditComponent implements OnInit {
           })
         .catch(error => console.log(error));
     }
+    this.submitted = true
   };
 
   selectFile(event): void {
