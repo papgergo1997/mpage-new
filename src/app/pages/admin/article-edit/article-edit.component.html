@@ -71,7 +71,16 @@
           id="link"
           type="text"
           formControlName="link"
+          [class.error]="articleForm.get('link').invalid"
         />
+        <div *ngIf="articleForm.get('link').invalid">
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('link').hasError('required')"
+          >
+            Link is required
+          </div>
+        </div>
       </div>
       <label class="input-label" for="photo">Photo</label>
       <img
