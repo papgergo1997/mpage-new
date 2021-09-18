@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, Validators, FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { switchMap, map } from 'rxjs/operators';
@@ -9,8 +9,7 @@ import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
 //for cropper
 import { CroppedEvent } from 'ngx-photo-editor';
-//
-import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-image-edit',
@@ -29,9 +28,13 @@ export class ImageEditComponent implements OnInit {
   fullPercentage: number = 0;
   selectedFullFiles: FileList;
   currentFullPhoto: Photo;
+  submitted: boolean = false;
   imageForm = new FormGroup({
     id: new FormControl(''),
-    name: new FormControl(''),
+    name: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]),
     description: new FormControl(''),
     size: new FormControl(''),
     type: new FormControl(''),
@@ -74,7 +77,7 @@ export class ImageEditComponent implements OnInit {
           })
         .catch(error => console.log(error));
     }
-
+    this.submitted = true;
   }
 
   // selectFile(event): void {

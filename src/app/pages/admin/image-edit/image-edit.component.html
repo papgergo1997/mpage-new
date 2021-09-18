@@ -17,6 +17,7 @@
           type="text"
           formControlName="name"
           class="input-control"
+          required
         />
       </div>
       <div class="input-group">
@@ -138,7 +139,12 @@
           </div>
         </div>
       </div>
-      <button mat-flat-button type="submit" class="submit-btn">
+      <button
+        [disabled]="!imageForm.valid || submitted"
+        mat-flat-button
+        type="submit"
+        class="submit-btn"
+      >
         <i class="fa fa-save"></i>
       </button>
     </form>
