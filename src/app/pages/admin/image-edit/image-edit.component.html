@@ -19,6 +19,20 @@
           class="input-control"
           required
         />
+        <div *ngIf="imageForm.get('name').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('name').hasError('required')"
+          >
+            Title is required
+          </div>
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('name').hasError('minlength')"
+          >
+            Title must be 3 characters long at least
+          </div>
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="description">Description</label>
