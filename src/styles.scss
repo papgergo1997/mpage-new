@@ -585,6 +585,25 @@ html {
   border-bottom: 1px solid rgb(236, 47, 47) !important;
 }
 
+.error-message {
+  width: 100%;
+  font-style: italic;
+  font-size: 0.8em;
+  color: rgb(155, 4, 4);
+  overflow: hidden;
+  position: absolute;
+  animation: error 1s 1;
+}
+
+@keyframes error {
+  0% {
+    right: -300px;
+  }
+  50% {
+    right: -15px;
+  }
+}
+
 @media screen and (min-width: 600px) {
   //Styles for Home
   .header {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, Validators, FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { switchMap, map } from 'rxjs/operators';
@@ -7,7 +7,6 @@ import { Article } from 'src/app/model/article';
 import { Photo } from 'src/app/model/photo';
 import { ArticleService } from 'src/app/service/article.service';
 import { PhotoUploadService } from 'src/app/service/photo-upload.service';
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-article-edit',
@@ -23,10 +22,19 @@ export class ArticleEditComponent implements OnInit {
   //Reactive Forms START
   articleForm = new FormGroup({
     id: new FormControl(''),
-    title: new FormControl(''),
-    abstract: new FormControl(''),
-    link: new FormControl(''),
-    photo: new FormControl('')
+    title: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5)
+    ]),
+    abstract: new FormControl('', [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(200)
+    ]),
+    link: new FormControl('', [
+      Validators.required,
+    ]),
+    photo: new FormControl('', Validators.required)
   })
   //
 
