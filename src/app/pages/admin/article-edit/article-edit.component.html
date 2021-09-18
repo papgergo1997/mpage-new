@@ -41,7 +41,28 @@
           id="abstract"
           type="text"
           formControlName="abstract"
+          [class.error]="articleForm.get('abstract').invalid"
         />
+        <div *ngIf="articleForm.get('abstract').invalid">
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('abstract').hasError('required')"
+          >
+            Abstract is required
+          </div>
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('abstract').hasError('minlength')"
+          >
+            Abstract must be 10 characters long at least
+          </div>
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('abstract').hasError('maxlength')"
+          >
+            Abstract cannot be longer than 200 characters
+          </div>
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="link">Link: </label>
