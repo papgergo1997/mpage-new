@@ -96,6 +96,14 @@
         class="input-control"
         readonly
       />
+      <div *ngIf="articleForm.get('photo').invalid">
+        <div
+          class="error-message"
+          *ngIf="articleForm.get('photo').hasError('required')"
+        >
+          Photo is required
+        </div>
+      </div>
       <div>
         <label>
           <input
