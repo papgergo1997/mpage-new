@@ -77,6 +77,12 @@
           <option value="Colored">Colored</option>
           <option value="B&W">B&W</option>
         </select>
+        <div
+          class="error-message"
+          *ngIf="imageForm.get('type').hasError('required')"
+        >
+          You must choose a type
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="picture">Preview Image</label>
