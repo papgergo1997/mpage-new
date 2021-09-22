@@ -40,7 +40,8 @@ import { MatTableModule } from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
-import { AngularFireAuthModule } from '@angular/fire/auth'
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LoginComponent } from './pages/login/login.component'
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth'
     ImageListComponent,
     ImageEditComponent,
     GalleryComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
