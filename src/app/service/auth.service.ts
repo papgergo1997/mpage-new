@@ -32,7 +32,7 @@ export class AuthService {
   login(email, password) {
     return this.fireAuth.signInWithEmailAndPassword(email, password)
     .then(value => {
-      this.router.navigate(['admin'])
+      this.router.navigate(['admin/images'])
     })
     .catch(error => {
       console.log('Something went wrong: ', error)

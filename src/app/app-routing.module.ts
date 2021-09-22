@@ -37,13 +37,13 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: "login",
+    component: LoginComponent
+  },
+  {
     path: ":id",
     component: GalleryComponent
   },
-  {
-    path: "login",
-    component: LoginComponent
-  }
 
 ];
 
