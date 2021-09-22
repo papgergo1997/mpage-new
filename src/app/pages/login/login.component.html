@@ -8,22 +8,12 @@
     <h3 class="login-title">Login</h3>
     <div fxLayout="column" class="input-group">
       <label class="input-label" for="email"> Email: </label>
-      <input
-        class="input-control"
-        id="email"
-        type="email"
-        formControlName="email"
-      />
+      <input class="input-login" id="email" formControlName="email" />
     </div>
     <div fxLayout="column" class="input-group">
       <label class="input-label" for="password"> Password: </label>
-      <input
-        class="input-control"
-        id="password"
-        type="password"
-        formControlName="password"
-      />
+      <input class="input-login" id="password" formControlName="password" />
     </div>
-    <button type="submit">Login</button>
+    <button mat-button class="login-btn" type="submit">Login</button>
   </form>
 </div>
