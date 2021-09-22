@@ -40,6 +40,7 @@ import { MatTableModule } from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
+import { AngularFireAuthModule } from '@angular/fire/auth'
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import {MatInputModule} from '@angular/material/input';
     MatMenuModule,
     MatPaginatorModule,
     MatInputModule,
+    AngularFireAuthModule
      ],
   providers: [],
   bootstrap: [AppComponent]
