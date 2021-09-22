@@ -39,7 +39,7 @@
             <mat-icon>person</mat-icon>
           </a>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/">Log out</button>
+            <button mat-menu-item (click)="logout()">Log out</button>
           </mat-menu>
         </li>
       </ul>
