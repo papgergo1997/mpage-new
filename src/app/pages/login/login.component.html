@@ -1,6 +1,12 @@
 <div class="login-container">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="input-group">
+  <form
+    fxLayout="column"
+    class="login"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <h3 class="login-title">Login</h3>
+    <div fxLayout="column" class="input-group">
       <label class="input-label" for="email"> Email: </label>
       <input
         class="input-control"
@@ -9,7 +15,7 @@
         formControlName="email"
       />
     </div>
-    <div class="input-group">
+    <div fxLayout="column" class="input-group">
       <label class="input-label" for="password"> Password: </label>
       <input
         class="input-control"
