@@ -409,39 +409,62 @@ html {
 }
 //Styles for Login
 .login-container {
-  background-image: url();
-  width: 100%;
-  height: 100%;
+  background-image: linear-gradient(45deg, $main-orange, $text-white);
+  width: 100vw;
+  height: 100vh !important;
+  align-items: center;
+  justify-content: center;
+  font-family: $main-font;
+  .woods {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    // opacity: 70%;
+  }
   .login {
+    position: relative;
     background-color: $main-gray;
-    border-radius: 10px;
-    box-shadow: $secondary-shadow;
     color: $text-white;
-    width: 350px;
+    width: 480px;
     height: 250px;
-    margin: 290px auto;
+    align-items: center;
+    // opacity: 70%;
     .login-title {
-      margin: 0 auto;
+      color: $main-gray;
+      position: absolute;
+      top: -150px;
+      left: 140px;
+      font-size: 200px;
     }
     .input-group {
-      width: 300px;
-      margin: 0 auto;
+      width: 400px;
+      margin: 8px auto;
+      z-index: 1;
       .input-label {
         margin: 5px 0;
-      }
-      .input-login {
         color: $text-white;
-        margin: 5px 0;
-        background-color: $secondary-gray;
+      }
+      .input-control {
+        color: $text-white;
+        margin: 0 0;
+        background-color: transparent;
         border: transparent;
         border-bottom: 1px solid gray;
+        height: 40px;
         outline: transparent;
+        transition: border 300ms;
+      }
+      .input-control:focus {
+        border-bottom: 1px solid $main-green;
       }
     }
     .login-btn {
-      background-color: $edit-blue;
+      background-color: $main-orange;
+      color: $text-white;
       margin: 10px auto;
-      width: 300px;
+      width: 400px;
+      z-index: 1;
     }
   }
 }

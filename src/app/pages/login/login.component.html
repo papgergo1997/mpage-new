@@ -1,19 +1,72 @@
-<div class="login-container">
+<div fxLayout="column" class="login-container">
+  <img
+    class="woods"
+    src="../../assets/img/patterns/woods pattern.png"
+    alt=""
+    srcset=""
+  />
   <form
     fxLayout="column"
     class="login"
     [formGroup]="loginForm"
     (ngSubmit)="onSubmit()"
   >
-    <h3 class="login-title">Login</h3>
+    <mat-icon class="login-title">person</mat-icon>
     <div fxLayout="column" class="input-group">
       <label class="input-label" for="email"> Email: </label>
-      <input class="input-login" id="email" formControlName="email" />
+      <input
+        class="input-control"
+        id="email"
+        type="email"
+        formControlName="email"
+        [class.error]="loginForm.get('email').invalid"
+      />
+      <div *ngIf="loginForm.get('email').invalid">
+        <div
+          class="error-message"
+          *ngIf="loginForm.get('email').hasError('required')"
+        >
+          Email is required
+        </div>
+        <div
+          class="error-message"
+          *ngIf="loginForm.get('email').hasError('pattern')"
+        >
+          Wrong email format
+        </div>
+      </div>
     </div>
     <div fxLayout="column" class="input-group">
       <label class="input-label" for="password"> Password: </label>
-      <input class="input-login" id="password" formControlName="password" />
+      <input
+        class="input-control"
+        id="password"
+        type="password"
+        formControlName="password"
+        [class.error]="loginForm.get('password').invalid"
+      />
+      <div *ngIf="loginForm.get('password').invalid">
+        <div
+          class="error-message"
+          *ngIf="loginForm.get('password').hasError('required')"
+        >
+          Password is required
+        </div>
+        <div
+          class="error-message"
+          *ngIf="loginForm.get('password').hasError('pattern')"
+        >
+          Wrong password format
+        </div>
+      </div>
     </div>
-    <button mat-button class="login-btn" type="submit">Login</button>
+    <button
+      [disabled]="loginForm.invalid || submitted"
+      mat-button
+      class="login-btn"
+      type="submit"
+    >
+      Login
+    </button>
   </form>
 </div>
