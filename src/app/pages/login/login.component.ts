@@ -29,7 +29,10 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value )
-
+    this.submitted = true;
+    setTimeout(() => {
+      this.submitted = false
+    }, 3000);
   }
 
 }

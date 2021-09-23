@@ -415,16 +415,17 @@ html {
   align-items: center;
   justify-content: center;
   font-family: $main-font;
-  .breadcrumb-nav {
+  .login-nav {
     position: absolute;
     top: 50px;
     left: 50px;
+    font-size: large;
   }
   .woods {
     position: absolute;
     width: 100%;
     bottom: 0;
-    z-index: 1;
+    z-index: 0;
     // opacity: 70%;
   }
   .login {
@@ -470,7 +471,24 @@ html {
       margin: 10px auto;
       width: 400px;
       z-index: 1;
+      .load-icon {
+        line-height: normal;
+        animation: rotate 1s linear infinite;
+      }
     }
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
