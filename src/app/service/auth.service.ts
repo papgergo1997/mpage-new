@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { User } from '../model/user';
 import * as firebase from 'firebase/app'
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class AuthService {
     public fireStore: AngularFirestore,
     public fireAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone
+    public ngZone: NgZone,
+    private toaster: ToastrService
   ) {
     this.fireAuth.authState.subscribe(user => {
       if (user) {
@@ -35,7 +37,7 @@ export class AuthService {
       this.router.navigate(['admin/images'])
     })
     .catch(error => {
-      console.log('Something went wrong: ', error)
+      this.toaster.error(error, 'Something went wrong: ',  { timeOut: 5000 })
     });
   }
 

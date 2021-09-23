@@ -415,6 +415,11 @@ html {
   align-items: center;
   justify-content: center;
   font-family: $main-font;
+  .breadcrumb-nav {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+  }
   .woods {
     position: absolute;
     width: 100%;
@@ -587,19 +592,19 @@ html {
 }
 
 //Style for Forms
-
+.b-nav-item {
+  list-style: none;
+  margin-left: 2px;
+  a {
+    text-decoration: none;
+  }
+}
 .form-container {
   font-family: $secondary-font;
   width: 96vw;
   margin: 60px 0;
   padding: 0;
-  .b-nav-item {
-    list-style: none;
-    margin-left: 2px;
-    a {
-      text-decoration: none;
-    }
-  }
+
   .form {
     width: 500px;
     margin: 20px auto;
