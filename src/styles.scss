@@ -418,7 +418,7 @@ html {
   .login-nav {
     position: absolute;
     top: 50px;
-    left: 50px;
+    left: 0px;
     font-size: large;
   }
   .woods {
@@ -432,7 +432,8 @@ html {
     position: relative;
     background-color: $main-gray;
     color: $text-white;
-    width: 480px;
+    width: 400px;
+    // width: 480px;
     height: 250px;
     align-items: center;
     // opacity: 70%;
@@ -440,11 +441,12 @@ html {
       color: $main-gray;
       position: absolute;
       top: -150px;
-      left: 140px;
+      left: 100px;
       font-size: 200px;
     }
     .input-group {
-      width: 400px;
+      width: 370px;
+      // width: 400px;
       margin: 8px auto;
       z-index: 1;
       .input-label {
@@ -469,7 +471,7 @@ html {
       background-color: $main-orange;
       color: $text-white;
       margin: 10px auto;
-      width: 400px;
+      width: 370px;
       z-index: 1;
       .load-icon {
         line-height: normal;
@@ -737,6 +739,23 @@ html {
     width: 710px;
     .article-card {
       margin: 17.5px;
+    }
+  }
+  .login-container {
+    .login-nav {
+      left: 50px;
+    }
+    .login {
+      width: 480px;
+      .login-title {
+        left: 140px;
+      }
+      .input-group {
+        width: 400px;
+      }
+      .login-btn {
+        width: 400px;
+      }
     }
   }
 }
