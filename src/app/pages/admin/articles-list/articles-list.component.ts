@@ -41,8 +41,12 @@ export class ArticlesListComponent implements OnInit {
   }
 
   onDelete(article: Article): void {
-    this.articleService.remove(article);
+    if(!confirm('Are you sure you want to delete this item?')){
+      return
+    } else {
+     this.articleService.remove(article);
     this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
+    }
   }
 
 }

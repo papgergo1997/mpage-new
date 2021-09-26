@@ -39,8 +39,12 @@ export class ImageListComponent implements OnInit {
   }
 
   onDelete(image: Image): void {
-    this.iService.remove(image);
+    if(!confirm('Are you sure you want to delete this item?')){
+      return
+    } else {
+      this.iService.remove(image);
     this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
+    }
   }
 
 
