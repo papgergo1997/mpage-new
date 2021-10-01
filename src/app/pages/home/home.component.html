@@ -19,7 +19,7 @@
         <a class="side-link" mat-button href="#contact">Contact</a>
       </li>
       <li class="side-item side-admin">
-        <a class="side-link" mat-button routerLink="/login">Admin</a>
+        <a class="side-link" mat-button routerLink="/login">Login</a>
       </li>
     </ul>
   </mat-drawer>
@@ -45,8 +45,17 @@
         <li class="item-nav">
           <a class="link-nav" mat-button href="#contact"> Contact </a>
         </li>
-        <li class="item-nav admin-link">
-          <a class="link-nav" mat-button routerLink="/login"> Admin </a>
+        <li *ngIf="!isLoggedIn" class="item-nav admin-link">
+          <a class="link-nav" mat-button routerLink="/login"> Login </a>
+        </li>
+        <li *ngIf="isLoggedIn" class="item-nav admin-link">
+          <a class="link-nav" mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>person</mat-icon>
+          </a>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/admin/images">To Admin</button>
+            <button mat-menu-item (click)="logout()">Log out</button>
+          </mat-menu>
         </li>
       </ul>
 

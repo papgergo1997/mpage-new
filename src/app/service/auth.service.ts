@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   userData: any;
+  isAuthenticated: boolean;
 
   constructor(
     public fireStore: AngularFirestore,
@@ -34,7 +35,8 @@ export class AuthService {
   login(email, password) {
     return this.fireAuth.signInWithEmailAndPassword(email, password)
     .then(value => {
-      this.router.navigate(['admin/images']);
+      this.isAuthenticated = true;
+      this.router.navigate(['']);
       this.toaster.success('Succesfull login', 'Success', {timeOut: 3000})
     })
     .catch(error => {
