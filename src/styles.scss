@@ -73,6 +73,11 @@ html {
   left: 42px;
 }
 
+.side-admin {
+  position: absolute;
+  bottom: 20px;
+}
+
 .admin-link {
   display: none;
   position: absolute;
@@ -407,6 +412,92 @@ html {
   opacity: 1;
   transition: 1s;
 }
+//Styles for Login
+.login-container {
+  background-image: linear-gradient(45deg, $main-orange, $text-white);
+  width: 100vw;
+  height: 100vh !important;
+  align-items: center;
+  justify-content: center;
+  font-family: $main-font;
+  .login-nav {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    font-size: large;
+  }
+  .woods {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 0;
+    // opacity: 70%;
+  }
+  .login {
+    position: relative;
+    background-color: $main-gray;
+    color: $text-white;
+    width: 400px;
+    // width: 480px;
+    height: 250px;
+    align-items: center;
+    // opacity: 70%;
+    .login-title {
+      color: $main-gray;
+      position: absolute;
+      top: -150px;
+      left: 100px;
+      font-size: 200px;
+    }
+    .input-group {
+      width: 370px;
+      // width: 400px;
+      margin: 8px auto;
+      z-index: 1;
+      .input-label {
+        margin: 5px 0;
+        color: $text-white;
+      }
+      .input-control {
+        color: $text-white;
+        margin: 0 0;
+        background-color: transparent;
+        border: transparent;
+        border-bottom: 1px solid gray;
+        height: 40px;
+        outline: transparent;
+        transition: border 300ms;
+      }
+      .input-control:focus {
+        border-bottom: 1px solid $main-green;
+      }
+    }
+    .login-btn {
+      background-color: $main-orange;
+      color: $text-white;
+      margin: 10px auto;
+      width: 370px;
+      z-index: 1;
+      .load-icon {
+        line-height: normal;
+        animation: rotate 1s linear infinite;
+      }
+    }
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 //Style for Admin
 .side-img {
@@ -427,6 +518,10 @@ html {
   height: 100%;
   opacity: 20% !important;
 }
+.side-log-out {
+  position: absolute;
+  bottom: 20px;
+}
 .log-out {
   display: none;
   position: absolute;
@@ -446,8 +541,9 @@ html {
       color: $secondary-gray;
     }
     .search-input {
+      width: 170px;
       background-color: transparent;
-      outline: none;
+      outline: transparent;
       border: none;
       border-bottom: 1px solid grey;
       border-radius: 2px;
@@ -479,65 +575,72 @@ html {
         text-align: center;
       }
     }
-    .table-body {
-      color: $secondary-gray;
+    //for not mat-table
+    // .table-body {
+    //   color: $secondary-gray;
+    //   overflow: hidden;
+    .table-row {
       overflow: hidden;
-      .table-row {
-        overflow: hidden;
-        td {
-          text-align: center;
-          overflow: hidden !important;
-        }
-        .group-btn {
-          width: 100px;
-          border: none;
-          [class^="btn"] {
-            border: none;
-            width: 50%;
-            height: 40px;
-            color: $text-white;
-            opacity: 80%;
-          }
-          .btn-edit {
-            border-radius: 5px 0px 0px 5px;
-            background-color: $edit-blue;
-          }
-          .btn-delete {
-            border-radius: 0px 5px 5px 0px;
-            background-color: rgb(236, 47, 47);
-          }
-          [class^="btn"]:hover {
-            opacity: 100%;
-          }
-        }
+      height: 81px;
+      td {
+        text-align: center;
+        overflow: hidden !important;
       }
-      .table-row:nth-child(even) {
-        background-color: $text-white;
+      .list-img {
+        width: 80px;
+      }
+      .group-btn {
+        width: 100px;
+        margin-left: 30px;
+        border: none;
+        [class^="btn"] {
+          border: none;
+          width: 50%;
+          height: 40px;
+          color: $text-white;
+          opacity: 80%;
+        }
+        .btn-edit {
+          border-radius: 5px 0px 0px 5px;
+          background-color: $edit-blue;
+        }
+        .btn-delete {
+          border-radius: 0px 5px 5px 0px;
+          background-color: rgb(236, 47, 47);
+        }
+        [class^="btn"]:hover {
+          opacity: 100%;
+        }
       }
     }
+    .table-row:nth-child(even) {
+      background-color: $text-white;
+    }
+    // }
   }
 }
 
 //Style for Forms
-
+.b-nav-item {
+  list-style: none;
+  margin-left: 2px;
+  a {
+    text-decoration: none;
+  }
+}
 .form-container {
   font-family: $secondary-font;
   width: 96vw;
   margin: 60px 0;
   padding: 0;
-  .b-nav-item {
-    list-style: none;
-    margin-left: 2px;
-    a {
-      text-decoration: none;
-    }
-  }
+
   .form {
     width: 500px;
     margin: 20px auto;
     form {
       .input-group {
         display: flex;
+
         flex-direction: column;
         .input-label {
           margin: 10px 0;
@@ -571,6 +674,35 @@ html {
         color: $text-white;
       }
     }
+  }
+}
+.file-input {
+  margin-top: 20px;
+}
+.error {
+  border-bottom: 1px solid rgb(236, 47, 47) !important;
+}
+
+.error-message {
+  width: 100%;
+  font-style: italic;
+  font-size: 0.8em;
+  color: rgb(155, 4, 4);
+  overflow: hidden;
+  position: absolute;
+  animation: error 1s 1;
+}
+
+.progress {
+  max-width: 450px !important;
+}
+
+@keyframes error {
+  0% {
+    right: -300px;
+  }
+  50% {
+    right: -15px;
   }
 }
 
@@ -616,6 +748,23 @@ html {
     width: 710px;
     .article-card {
       margin: 17.5px;
+    }
+  }
+  .login-container {
+    .login-nav {
+      left: 50px;
+    }
+    .login {
+      width: 480px;
+      .login-title {
+        left: 140px;
+      }
+      .input-group {
+        width: 400px;
+      }
+      .login-btn {
+        width: 400px;
+      }
     }
   }
 }
@@ -670,6 +819,10 @@ html {
   .article-img {
     width: 100%;
     max-height: auto !important;
+  }
+  //Styles for tables
+  .group-btn {
+    margin-left: 60px !important;
   }
 }
 

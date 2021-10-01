@@ -38,6 +38,10 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { LoginComponent } from './pages/login/login.component'
 
 @NgModule({
   declarations: [
@@ -59,6 +63,7 @@ import {MatMenuModule} from '@angular/material/menu';
     ImageListComponent,
     ImageEditComponent,
     GalleryComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -82,6 +87,9 @@ import {MatMenuModule} from '@angular/material/menu';
     MatSidenavModule,
     MatTableModule,
     MatMenuModule,
+    MatPaginatorModule,
+    MatInputModule,
+    AngularFireAuthModule
      ],
   providers: [],
   bootstrap: [AppComponent]

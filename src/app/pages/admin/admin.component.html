@@ -16,6 +16,9 @@
       >
         <a class="side-link" mat-button routerLink="articles">Articles</a>
       </li>
+      <li class="side-item side-log-out">
+        <a class="side-link" mat-button (click)="logout()"> Log out </a>
+      </li>
     </ul>
   </mat-drawer>
   <mat-drawer-content>
@@ -39,7 +42,7 @@
             <mat-icon>person</mat-icon>
           </a>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/">Log out</button>
+            <button mat-menu-item (click)="logout()">Log out</button>
           </mat-menu>
         </li>
       </ul>

@@ -8,6 +8,7 @@ import { ImageEditComponent } from './pages/admin/image-edit/image-edit.componen
 import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GalleryComponent } from './pages/image-viewer/gallery.component';
+import { LoginComponent } from './pages/login/login.component';
 const routes: Routes = [
   {
     path: "admin",
@@ -36,10 +37,13 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: "login",
+    component: LoginComponent
+  },
+  {
     path: ":id",
     component: GalleryComponent
-  }
-
+  },
 
 ];
 

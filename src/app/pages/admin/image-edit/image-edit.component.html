@@ -17,7 +17,22 @@
           type="text"
           formControlName="name"
           class="input-control"
+          [class.error]="imageForm.get('name').invalid"
         />
+        <div *ngIf="imageForm.get('name').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('name').hasError('required')"
+          >
+            Title is required
+          </div>
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('name').hasError('minlength')"
+          >
+            Title must be 3 characters long at least
+          </div>
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="description">Description</label>
@@ -26,7 +41,16 @@
           type="text"
           formControlName="description"
           class="input-control"
+          [class.error]="imageForm.get('description').invalid"
         />
+        <div *ngIf="imageForm.get('description').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('description').hasError('minlength')"
+          >
+            Description must be 4 characters long at least
+          </div>
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="size">Size</label>
@@ -35,16 +59,42 @@
           type="text"
           formControlName="size"
           class="input-control"
+          [class.error]="imageForm.get('size').invalid"
         />
+        <div *ngIf="imageForm.get('size').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('size').hasError('pattern')"
+          >
+            Recommended Format: 16:9 / 4:3 / etc.
+          </div>
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="type">Technique</label>
-        <input
+        <!-- <input
           id="type"
           type="text"
           formControlName="type"
           class="input-control"
-        />
+        /> -->
+        <select
+          formControlName="type"
+          id="type"
+          class="input-control"
+          [class.error]="imageForm.get('type').invalid"
+        >
+          <option value="Colored">Colored</option>
+          <option value="B&W">B&W</option>
+        </select>
+        <div *ngIf="imageForm.get('type').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('type').hasError('required')"
+          >
+            You must choose a technique
+          </div>
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="picture">Preview Image</label>
@@ -61,9 +111,17 @@
           class="input-control"
           readonly
         />
+        <div *ngIf="imageForm.get('picture').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('picture').hasError('required')"
+          >
+            You must upload an image
+          </div>
+        </div>
       </div>
       <div>
-        <label>
+        <label class="file-input">
           <input type="file" (change)="fileChangeEvent($event)" />
         </label>
 
@@ -106,9 +164,17 @@
           class="input-control"
           readonly
         />
+        <div *ngIf="imageForm.get('fullPicture').invalid">
+          <div
+            class="error-message"
+            *ngIf="imageForm.get('fullPicture').hasError('required')"
+          >
+            You must upload an image
+          </div>
+        </div>
       </div>
       <div>
-        <label>
+        <label class="file-input">
           <input
             type="file"
             class="text-nowrap text-truncate"
@@ -138,7 +204,12 @@
           </div>
         </div>
       </div>
-      <button mat-flat-button type="submit" class="submit-btn">
+      <button
+        [disabled]="!imageForm.valid || submitted"
+        mat-flat-button
+        type="submit"
+        class="submit-btn"
+      >
         <i class="fa fa-save"></i>
       </button>
     </form>

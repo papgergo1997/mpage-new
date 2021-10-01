@@ -1,0 +1,84 @@
+<div fxLayout="column" class="login-container">
+  <nav>
+    <ol fxLayout="row" class="breadcrumb-nav login-nav">
+      <li class="b-nav-item">
+        <a [routerLink]="['/']">Home</a>
+      </li>
+      <li class="b-nav-item">/</li>
+      <li class="b-nav-item">Login</li>
+    </ol>
+  </nav>
+  <img
+    class="woods"
+    src="../../assets/img/patterns/woods pattern-gray2.png"
+    alt=""
+    srcset=""
+  />
+  <form
+    fxLayout="column"
+    class="login"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <mat-icon class="login-title">person</mat-icon>
+    <div fxLayout="column" class="input-group">
+      <label class="input-label" for="email"> Email: </label>
+      <input
+        class="input-control"
+        id="email"
+        type="email"
+        formControlName="email"
+        [class.error]="loginForm.get('email').invalid"
+      />
+      <div *ngIf="loginForm.get('email').invalid">
+        <div
+          class="error-message"
+          *ngIf="loginForm.get('email').hasError('required')"
+        >
+          Email is required
+        </div>
+        <div
+          class="error-message"
+          *ngIf="loginForm.get('email').hasError('pattern')"
+        >
+          Wrong email format
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column" class="input-group">
+      <label class="input-label" for="password"> Password: </label>
+      <input
+        class="input-control"
+        id="password"
+        type="password"
+        formControlName="password"
+        [class.error]="loginForm.get('password').invalid"
+      />
+      <div *ngIf="loginForm.get('password').invalid">
+        <div
+          class="error-message"
+          *ngIf="loginForm.get('password').hasError('required')"
+        >
+          Password is required
+        </div>
+        <div
+          class="error-message"
+          *ngIf="loginForm.get('password').hasError('pattern')"
+        >
+          Wrong password format
+        </div>
+      </div>
+    </div>
+    <button
+      [disabled]="loginForm.invalid || submitted"
+      mat-button
+      class="login-btn"
+      type="submit"
+    >
+      <label *ngIf="!submitted">Login</label>
+      <label class="load-icon" *ngIf="submitted"
+        ><mat-icon> autorenew </mat-icon></label
+      >
+    </button>
+  </form>
+</div>

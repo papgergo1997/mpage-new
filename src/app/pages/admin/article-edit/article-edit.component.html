@@ -17,7 +17,22 @@
           id="title"
           type="text"
           formControlName="title"
+          [class.error]="articleForm.get('title').invalid"
         />
+        <div *ngIf="articleForm.get('title').invalid">
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('title').hasError('required')"
+          >
+            Title is required
+          </div>
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('title').hasError('minlength')"
+          >
+            Title must be 5 characters long at least
+          </div>
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="abstract">Abstract: </label>
@@ -26,7 +41,28 @@
           id="abstract"
           type="text"
           formControlName="abstract"
+          [class.error]="articleForm.get('abstract').invalid"
         />
+        <div *ngIf="articleForm.get('abstract').invalid">
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('abstract').hasError('required')"
+          >
+            Abstract is required
+          </div>
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('abstract').hasError('minlength')"
+          >
+            Abstract must be 10 characters long at least
+          </div>
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('abstract').hasError('maxlength')"
+          >
+            Abstract cannot be longer than 200 characters
+          </div>
+        </div>
       </div>
       <div class="input-group">
         <label class="input-label" for="link">Link: </label>
@@ -35,24 +71,43 @@
           id="link"
           type="text"
           formControlName="link"
+          [class.error]="articleForm.get('link').invalid"
         />
+        <div *ngIf="articleForm.get('link').invalid">
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('link').hasError('required')"
+          >
+            Link is required
+          </div>
+        </div>
       </div>
-      <label class="input-label" for="photo">Photo</label>
-      <img
-        src="{{ article.photo }}"
-        alt="{{ article.photo }}"
-        style="width: 200px"
-      />
-      <input
-        [hidden]="article"
-        name="photo"
-        type="text"
-        formControlName="photo"
-        class="input-control"
-        readonly
-      />
+      <div class="input-group">
+        <label class="input-label" for="photo">Photo</label>
+        <img
+          src="{{ article.photo }}"
+          alt="{{ article.photo }}"
+          style="width: 200px"
+        />
+        <input
+          [hidden]="article"
+          name="photo"
+          type="text"
+          formControlName="photo"
+          class="input-control"
+          readonly
+        />
+        <div *ngIf="articleForm.get('photo').invalid">
+          <div
+            class="error-message"
+            *ngIf="articleForm.get('photo').hasError('required')"
+          >
+            Photo is required
+          </div>
+        </div>
+      </div>
       <div>
-        <label>
+        <label class="file-input">
           <input
             type="file"
             class="text-nowrap text-truncate"
@@ -81,7 +136,12 @@
           </div>
         </div>
       </div>
-      <button mat-flat-button type="submit" class="submit-btn">
+      <button
+        [disabled]="!articleForm.valid || submitted"
+        mat-flat-button
+        type="submit"
+        class="submit-btn"
+      >
         <i class="fa fa-save"></i>
       </button>
     </form>
