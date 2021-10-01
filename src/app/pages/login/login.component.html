@@ -28,9 +28,9 @@
         id="email"
         type="email"
         formControlName="email"
-        [class.error]="loginForm.get('email').invalid"
+        [class.error]="loginForm.get('email').invalid && !loginForm.pristine"
       />
-      <div *ngIf="loginForm.get('email').invalid">
+      <div *ngIf="loginForm.get('email').invalid && !loginForm.pristine">
         <div
           class="error-message"
           *ngIf="loginForm.get('email').hasError('required')"
@@ -52,9 +52,9 @@
         id="password"
         type="password"
         formControlName="password"
-        [class.error]="loginForm.get('password').invalid"
+        [class.error]="loginForm.get('password').invalid && !loginForm.pristine"
       />
-      <div *ngIf="loginForm.get('password').invalid">
+      <div *ngIf="loginForm.get('password').invalid && !loginForm.pristine">
         <div
           class="error-message"
           *ngIf="loginForm.get('password').hasError('required')"

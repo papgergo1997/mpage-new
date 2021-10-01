@@ -17,9 +17,11 @@
           id="title"
           type="text"
           formControlName="title"
-          [class.error]="articleForm.get('title').invalid"
+          [class.error]="
+            articleForm.get('title').invalid && !articleForm.pristine
+          "
         />
-        <div *ngIf="articleForm.get('title').invalid">
+        <div *ngIf="articleForm.get('title').invalid && !articleForm.pristine">
           <div
             class="error-message"
             *ngIf="articleForm.get('title').hasError('required')"
@@ -41,9 +43,13 @@
           id="abstract"
           type="text"
           formControlName="abstract"
-          [class.error]="articleForm.get('abstract').invalid"
+          [class.error]="
+            articleForm.get('abstract').invalid && !articleForm.pristine
+          "
         />
-        <div *ngIf="articleForm.get('abstract').invalid">
+        <div
+          *ngIf="articleForm.get('abstract').invalid && !articleForm.pristine"
+        >
           <div
             class="error-message"
             *ngIf="articleForm.get('abstract').hasError('required')"
@@ -71,9 +77,11 @@
           id="link"
           type="text"
           formControlName="link"
-          [class.error]="articleForm.get('link').invalid"
+          [class.error]="
+            articleForm.get('link').invalid && !articleForm.pristine
+          "
         />
-        <div *ngIf="articleForm.get('link').invalid">
+        <div *ngIf="articleForm.get('link').invalid && !articleForm.pristine">
           <div
             class="error-message"
             *ngIf="articleForm.get('link').hasError('required')"
@@ -97,7 +105,7 @@
           class="input-control"
           readonly
         />
-        <div *ngIf="articleForm.get('photo').invalid">
+        <div *ngIf="articleForm.get('photo').invalid && !articleForm.pristine">
           <div
             class="error-message"
             *ngIf="articleForm.get('photo').hasError('required')"
