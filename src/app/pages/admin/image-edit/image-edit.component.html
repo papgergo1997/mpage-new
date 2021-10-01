@@ -17,9 +17,9 @@
           type="text"
           formControlName="name"
           class="input-control"
-          [class.error]="imageForm.get('name').invalid"
+          [class.error]="imageForm.get('name').invalid && !imageForm.pristine"
         />
-        <div *ngIf="imageForm.get('name').invalid">
+        <div *ngIf="imageForm.get('name').invalid && !imageForm.pristine">
           <div
             class="error-message"
             *ngIf="imageForm.get('name').hasError('required')"
@@ -41,9 +41,13 @@
           type="text"
           formControlName="description"
           class="input-control"
-          [class.error]="imageForm.get('description').invalid"
+          [class.error]="
+            imageForm.get('description').invalid && !imageForm.pristine
+          "
         />
-        <div *ngIf="imageForm.get('description').invalid">
+        <div
+          *ngIf="imageForm.get('description').invalid && !imageForm.pristine"
+        >
           <div
             class="error-message"
             *ngIf="imageForm.get('description').hasError('minlength')"
@@ -59,9 +63,9 @@
           type="text"
           formControlName="size"
           class="input-control"
-          [class.error]="imageForm.get('size').invalid"
+          [class.error]="imageForm.get('size').invalid && !imageForm.pristine"
         />
-        <div *ngIf="imageForm.get('size').invalid">
+        <div *ngIf="imageForm.get('size').invalid && !imageForm.pristine">
           <div
             class="error-message"
             *ngIf="imageForm.get('size').hasError('pattern')"
@@ -82,12 +86,12 @@
           formControlName="type"
           id="type"
           class="input-control"
-          [class.error]="imageForm.get('type').invalid"
+          [class.error]="imageForm.get('type').invalid && !imageForm.pristine"
         >
           <option value="Colored">Colored</option>
           <option value="B&W">B&W</option>
         </select>
-        <div *ngIf="imageForm.get('type').invalid">
+        <div *ngIf="imageForm.get('type').invalid && !imageForm.pristine">
           <div
             class="error-message"
             *ngIf="imageForm.get('type').hasError('required')"
@@ -111,7 +115,7 @@
           class="input-control"
           readonly
         />
-        <div *ngIf="imageForm.get('picture').invalid">
+        <div *ngIf="imageForm.get('picture').invalid && !imageForm.pristine">
           <div
             class="error-message"
             *ngIf="imageForm.get('picture').hasError('required')"
@@ -164,7 +168,9 @@
           class="input-control"
           readonly
         />
-        <div *ngIf="imageForm.get('fullPicture').invalid">
+        <div
+          *ngIf="imageForm.get('fullPicture').invalid && !imageForm.pristine"
+        >
           <div
             class="error-message"
             *ngIf="imageForm.get('fullPicture').hasError('required')"
