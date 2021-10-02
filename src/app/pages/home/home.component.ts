@@ -14,15 +14,14 @@ export class HomeComponent implements OnInit {
   @Output() images$: Observable<Image[]> = new Observable<Image[]>();
 
   showFiller = false;
-  isLoggedIn: boolean;
 
-  constructor(private iService: ImageService, private authService: AuthService) {
-    console.log(this.isLoggedIn)
+
+  constructor(private iService: ImageService, public authService: AuthService) {
+
    }
 
   ngOnInit(): void {
     this.images$ = this.iService.list$;
-    this.isLoggedIn = this.authService.isAuthenticated;
   }
   logout(){
     this.authService.logout()

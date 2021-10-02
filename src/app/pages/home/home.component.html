@@ -18,10 +18,10 @@
       <li class="side-item">
         <a class="side-link" mat-button href="#contact">Contact</a>
       </li>
-      <li *ngIf="!isLoggedIn" class="side-item side-admin">
+      <li *ngIf="!this.authService.isLoggedIn" class="side-item side-admin">
         <a class="side-link" mat-button routerLink="/login"> Login </a>
       </li>
-      <li *ngIf="isLoggedIn" class="side-item side-admin">
+      <li *ngIf="this.authService.isLoggedIn" class="side-item side-admin">
         <a class="side-link" mat-button [matMenuTriggerFor]="menu">
           <mat-icon>person</mat-icon>
         </a>
@@ -54,10 +54,10 @@
         <li class="item-nav">
           <a class="link-nav" mat-button href="#contact"> Contact </a>
         </li>
-        <li *ngIf="!isLoggedIn" class="item-nav admin-link">
+        <li *ngIf="!this.authService.isLoggedIn" class="item-nav admin-link">
           <a class="link-nav" mat-button routerLink="/login"> Login </a>
         </li>
-        <li *ngIf="isLoggedIn" class="item-nav admin-link">
+        <li *ngIf="this.authService.isLoggedIn" class="item-nav admin-link">
           <a class="link-nav" mat-button [matMenuTriggerFor]="menu">
             <mat-icon>person</mat-icon>
           </a>

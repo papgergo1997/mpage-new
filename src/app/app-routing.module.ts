@@ -14,7 +14,7 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminComponent,
-    canActivateChild: [AuthGuardService],
+    canActivate: [AuthGuardService],
     children: [
       {
         path: "images",
@@ -46,6 +46,10 @@ const routes: Routes = [
     path: ":id",
     component: GalleryComponent
   },
+  {
+    path: "**",
+    component: HomeComponent
+  }
 
 ];
 

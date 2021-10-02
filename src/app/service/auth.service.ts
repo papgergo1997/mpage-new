@@ -35,9 +35,8 @@ export class AuthService {
   login(email, password) {
     return this.fireAuth.signInWithEmailAndPassword(email, password)
     .then(value => {
-      this.isAuthenticated = true;
       this.router.navigate(['']);
-      this.toaster.success('Succesfull login', 'Success', {timeOut: 3000})
+      this.toaster.success('Succesfull login', 'Success', {timeOut: 2000})
     })
     .catch(error => {
       this.toaster.error(error, 'Something went wrong: ',  { timeOut: 5000 })
