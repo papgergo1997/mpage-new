@@ -18,8 +18,17 @@
       <li class="side-item">
         <a class="side-link" mat-button href="#contact">Contact</a>
       </li>
-      <li class="side-item side-admin">
-        <a class="side-link" mat-button routerLink="/login">Login</a>
+      <li *ngIf="!isLoggedIn" class="side-item side-admin">
+        <a class="side-link" mat-button routerLink="/login"> Login </a>
+      </li>
+      <li *ngIf="isLoggedIn" class="side-item side-admin">
+        <a class="side-link" mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>person</mat-icon>
+        </a>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/admin/images">To Admin</button>
+          <button mat-menu-item (click)="logout()">Log out</button>
+        </mat-menu>
       </li>
     </ul>
   </mat-drawer>

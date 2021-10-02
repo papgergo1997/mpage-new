@@ -54,9 +54,16 @@ export class AuthService {
   //     console.log('Something went wrong: ', error);
   //   });
   // }
+
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user !== null ? true : false;
+  }
+
   logout() {
     this.fireAuth.signOut().then(() => {
       this.router.navigate(['/']);
     });
   }
+
 }
