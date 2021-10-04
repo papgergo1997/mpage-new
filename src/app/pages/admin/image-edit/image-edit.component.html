@@ -76,12 +76,7 @@
       </div>
       <div class="input-group">
         <label class="input-label" for="type">Technique</label>
-        <!-- <input
-          id="type"
-          type="text"
-          formControlName="type"
-          class="input-control"
-        /> -->
+
         <select
           formControlName="type"
           id="type"
@@ -219,85 +214,3 @@
     </form>
   </div>
 </div>
-
-<!-- <div class="container">
-    <div class="row">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a [routerLink]="['/admin/'+ 'images']">Photos</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Editor</li>
-            </ol>
-        </nav>
-        <div *ngIf="image" class="col-6 offset-3">
-            <form [formGroup]="imageForm" (ngSubmit)="onUpdate()">
-                <div class="">
-                    <label for="name">Title</label>
-                    <input id="name" type="text" formControlName="name" class="">
-                </div>
-                <div class="">
-                    <label for="description">Description</label>
-                    <input id="description" type="text" formControlName="description" class="">
-                </div>
-                <div class="">
-                    <label for="size">Size</label>
-                    <input id="size" type="text" formControlName="size" class="">
-                </div>
-                <div class="">
-                    <label for="type">Technique</label>
-                    <input id="type" type="text" formControlName="type" class="">
-                </div>
-                <div class="">
-                    <label class="mr-5" for="picture">Preview Image</label>
-                    <img src="{{image.picture}}" alt="{{image.picture}}" style="width: 200px;">
-                    <input [hidden]="image" id="picture" type="text" formControlName="picture" class=""
-                        readonly>
-                </div>
-                <div>
-                    <label>
-                        <input type="file" (change)="fileChangeEvent($event)" />
-                    </label>
-
-                    <ngx-photo-editor [imageChanedEvent]="imageChangedEvent" (imageCropped)="imageCropped($event)"
-                        [aspectRatio]="4/4" [viewMode]="3" [resizeToWidth]="500" [imageQuality]="20"></ngx-photo-editor>
-
-                    <img [src]="base64" alt="">
-
-                    <div *ngIf="currentPhoto" class="progress mt-2">
-                        <div class="progress-bar progress-bar-info" role="progressbar"
-                            attr.aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100"
-                            [ngStyle]="{ width: percentage + '%' }">
-                            {{ percentage }}%
-                        </div>
-                    </div>
-                </div>
-                <div class="">
-                    <label class="mr-5" for="fullPicture">Full Image</label>
-                    <img src="{{image.fullPicture}}" alt="{{image.fullPicture}}" style="width: 200px;">
-                    <input [hidden]="image" id="fullPicture" type="text" formControlName="fullPicture"
-                        class="" readonly>
-                </div>
-                <div>
-                    <label>
-                        <input type="file" class="text-nowrap text-truncate" (change)="selectFullFile($event)" />
-                    </label>
-
-                    <button class="btn btn-success btn-sm" [disabled]="!selectedFullFiles && !selectedFiles"
-                        (click)="upload()">
-                        Upload
-                    </button>
-
-                    <div *ngIf="currentFullPhoto" class="progress mt-2">
-                        <div class="progress-bar progress-bar-info" role="progressbar"
-                            attr.aria-valuenow="{{ fullPercentage }}" aria-valuemin="0" aria-valuemax="100"
-                            [ngStyle]="{ width: fullPercentage + '%' }">
-                            {{ fullPercentage }}%
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-info col">
-                    <i class="fa fa-save"></i>
-                </button>
-            </form>
-        </div>
-    </div>
-</div> -->

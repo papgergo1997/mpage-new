@@ -591,6 +591,9 @@ html {
       .list-img {
         width: 80px;
       }
+      .pop-up {
+        display: none;
+      }
       .group-btn {
         width: 100px;
         margin-left: 30px;
@@ -621,7 +624,9 @@ html {
     // }
   }
 }
-
+.popped {
+  display: block !important;
+}
 //Style for Forms
 .b-nav-item {
   list-style: none;
