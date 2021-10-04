@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   userData: any;
+  isAuthenticated: boolean;
 
   constructor(
     public fireStore: AngularFirestore,
@@ -34,8 +35,8 @@ export class AuthService {
   login(email, password) {
     return this.fireAuth.signInWithEmailAndPassword(email, password)
     .then(value => {
-      this.router.navigate(['admin/images']);
-      this.toaster.success('Succesfull login', 'Success', {timeOut: 3000})
+      this.router.navigate(['']);
+      this.toaster.success('Succesfull login', 'Success', {timeOut: 2000})
     })
     .catch(error => {
       this.toaster.error(error, 'Something went wrong: ',  { timeOut: 5000 })
@@ -52,9 +53,16 @@ export class AuthService {
   //     console.log('Something went wrong: ', error);
   //   });
   // }
+
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user !== null ? true : false;
+  }
+
   logout() {
     this.fireAuth.signOut().then(() => {
       this.router.navigate(['/']);
     });
   }
+
 }

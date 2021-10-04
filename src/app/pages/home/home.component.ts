@@ -1,7 +1,8 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +15,16 @@ export class HomeComponent implements OnInit {
 
   showFiller = false;
 
-  constructor(private iService: ImageService) { }
+
+  constructor(private iService: ImageService, public authService: AuthService) {
+
+   }
 
   ngOnInit(): void {
     this.images$ = this.iService.list$;
+  }
+  logout(){
+    this.authService.logout()
   }
 
 }
