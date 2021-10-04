@@ -22,7 +22,7 @@ export class ImageEditComponent implements OnInit {
   //
   //For pop-up
   @Input() image: Image;
-  isOpened: boolean = false;
+  isOpened: boolean;
   //
   // image: Image;
   selectedFiles: any;
@@ -51,13 +51,13 @@ export class ImageEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params
-      .pipe(switchMap((params) => this.iService.get(params.id)))
-      .subscribe((image) => {
-        this.image = image;
-        this.imageForm.patchValue(image);
-      });
-    // this.imageForm.patchValue(this.image);
+    // this.activatedRoute.params
+    //   .pipe(switchMap((params) => this.iService.get(params.id)))
+    //   .subscribe((image) => {
+    //     this.image = image;
+    //     this.imageForm.patchValue(image);
+    //   });
+    this.imageForm.patchValue(this.image);
   }
 
   onUpdate(): void {
@@ -156,5 +156,13 @@ export class ImageEditComponent implements OnInit {
   imageCropped(event: CroppedEvent) {
     this.selectedFiles = event.file;
   }
+
+  // @HostListener('window:click', ['$event.target']) onClick(targetElement: any) {
+  //   if (targetElement != this.modal) {
+  //     this.image.isOpened = true;
+  //   } else {
+  //     this.image.isOpened = false;
+  //   }
+  // }
   //
 }

@@ -8,6 +8,7 @@
       <li class="b-nav-item">Editor</li>
     </ol>
   </nav>
+  <div (click)="image.isOpened = false" class="modal-bg"></div>
   <div *ngIf="image" class="form">
     <form fxLayout="column" [formGroup]="imageForm" (ngSubmit)="onUpdate()">
       <div class="input-group">
