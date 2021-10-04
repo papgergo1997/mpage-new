@@ -76,6 +76,7 @@ html {
 .side-admin {
   position: absolute;
   bottom: 20px;
+  left: 58px;
 }
 
 .admin-link {
@@ -479,7 +480,7 @@ html {
       width: 370px;
       z-index: 1;
       .load-icon {
-        line-height: normal;
+        line-height: 9px;
         animation: rotate 1s linear infinite;
       }
     }
@@ -521,6 +522,7 @@ html {
 .side-log-out {
   position: absolute;
   bottom: 20px;
+  left: 58px;
 }
 .log-out {
   display: none;
