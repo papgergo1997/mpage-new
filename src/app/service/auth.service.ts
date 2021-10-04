@@ -1,13 +1,14 @@
 import { Injectable, NgZone } from '@angular/core';
-import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { User } from '../model/user';
-import * as firebase from 'firebase/app'
+import * as firebase from 'firebase/app';
 import { ToastrService } from 'ngx-toastr';
+import { runInThisContext } from 'vm';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   userData: any;
@@ -20,7 +21,7 @@ export class AuthService {
     public ngZone: NgZone,
     private toaster: ToastrService
   ) {
-    this.fireAuth.authState.subscribe(user => {
+    this.fireAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
@@ -29,18 +30,19 @@ export class AuthService {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
-    })
+    });
   }
 
   login(email, password) {
-    return this.fireAuth.signInWithEmailAndPassword(email, password)
-    .then(value => {
-      this.router.navigate(['']);
-      this.toaster.success('Succesfull login', 'Success', {timeOut: 2000})
-    })
-    .catch(error => {
-      this.toaster.error(error, 'Something went wrong: ',  { timeOut: 5000 })
-    });
+    return this.fireAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((value) => {
+        this.router.navigate(['']);
+        this.toaster.success('Succesfull login', 'Success', { timeOut: 2000 });
+      })
+      .catch((error) => {
+        this.toaster.error(error, 'Something went wrong: ', { timeOut: 5000 });
+      });
   }
 
   // emailSignup(email: string, password: string) {
@@ -60,9 +62,15 @@ export class AuthService {
   }
 
   logout() {
-    this.fireAuth.signOut().then(() => {
-      this.router.navigate(['/']);
-    });
+    this.fireAuth
+      .signOut()
+      .then(() => {
+        this.router.navigate(['/']);
+        this.toaster.success('Succesfull logout', 'Success', { timeOut: 2000 });
+      })
+      .catch((error) => {
+        console.error(error);
+        this.toaster.error(error, 'Something went wrong:', { timeOut: 5000 });
+      });
   }
-
 }
