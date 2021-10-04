@@ -127,19 +127,6 @@ export class ImageEditComponent implements OnInit {
 
       this.uploadFunction(1, this.currentPhoto, false);
 
-      // this.pUploadService.pushFileToStorage(this.currentPhoto).subscribe(
-      //   percentage => {
-      //     this.percentage = Math.round(percentage);
-      //     this.pUploadService.getFiles(this.gIN).snapshotChanges().pipe(
-      //       map(changes =>
-      //         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-      //       )).subscribe(photo => this.image.picture = photo.map(photo => photo.url).toString())
-      //   },
-      //   error => {
-      //     console.log(error);
-      //   }
-
-      // );
     } else if (this.selectedFullFiles != undefined && this.selectedFiles == undefined) {
       const fullFile = this.selectedFullFiles.item(0);
       this.selectedFullFiles = undefined;
@@ -158,47 +145,12 @@ export class ImageEditComponent implements OnInit {
       this.uploadFunction(2, this.currentPhoto, false);
       this.uploadFunction(1, this.currentFullPhoto, true);
     }
-    // if (this.selectedFullFiles != undefined) {
-    //   const fullFile = this.selectedFullFiles.item(0);
-    //   this.selectedFullFiles = undefined;
-    //   this.currentFullPhoto = new Photo(fullFile);
-    //   this.pUploadService.pushFileToStorage(this.currentFullPhoto).subscribe(
-    //     percentage => {
-    //       this.fullPercentage = Math.round(percentage);
-    //       this.pUploadService.getFiles(1).snapshotChanges().pipe(
-    //         map(changes =>
-    //           changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-    //         )).subscribe(photo => this.image.fullPicture = photo.map(photo => photo.url).toString())
-    //     },
-    //     error => {
-    //       console.log(error);
-    //     }
-    //   );
-    // }
   };
 
-  //  uploadFull(): void {
-  //    const fullFile = this.selectedFullFiles.item(0);
-  //    this.selectedFullFiles = undefined;
-  //    this.currentFullPhoto = new Photo(fullFile);
-
-  //    this.pUploadService.pushFileToStorage(this.currentFullPhoto).subscribe(
-  //      percentage => {
-  //        this.fullPercentage = Math.round(percentage);
-  //        this.pUploadService.getFiles(1).snapshotChanges().pipe(
-  //          map(changes =>
-  //            changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-  //          )).subscribe(photo => this.image.fullPicture = photo.map(photo => photo.url).toString())
-  //      },
-  //      error => {
-  //        console.log(error);
-  //      }
-  //    );
-  //  }
-
-  //for cropper
+  //For Cropper
   fileChangeEvent(event: any) {
     this.imageChangedEvent = event;
+    this.selectedFullFiles = event.target.files;
   };
 
   imageCropped(event: CroppedEvent) {
