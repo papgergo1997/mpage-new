@@ -125,10 +125,6 @@
         </div>
       </div>
       <div>
-        <label class="file-input">
-          <input type="file" (change)="fileChangeEvent($event)" />
-        </label>
-
         <ngx-photo-editor
           [imageChanedEvent]="imageChangedEvent"
           (imageCropped)="imageCropped($event)"
@@ -180,14 +176,16 @@
         </div>
       </div>
       <div>
-        <label class="file-input">
+        <!-- <label class="file-input">
           <input
             type="file"
             class="text-nowrap text-truncate"
             (change)="selectFullFile($event)"
           />
+        </label> -->
+        <label class="file-input">
+          <input type="file" (change)="fileChangeEvent($event)" />
         </label>
-
         <button
           mat-button
           class="upload-btn"

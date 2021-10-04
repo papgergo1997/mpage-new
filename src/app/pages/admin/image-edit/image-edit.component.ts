@@ -50,7 +50,9 @@ export class ImageEditComponent implements OnInit {
     private pUploadService: PhotoUploadService,
     private router: Router,
     private toaster: ToastrService
-  ) { }
+  ) {
+
+   }
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe(
@@ -59,6 +61,8 @@ export class ImageEditComponent implements OnInit {
       this.image = image
       this.imageForm.patchValue(image)
     })
+    this.image.fullPicture = undefined;
+    this.image.picture = undefined;
   }
 
   onUpdate(): void {
@@ -120,20 +124,6 @@ export class ImageEditComponent implements OnInit {
   }
 
   upload(): void {
-    if (this.selectedFiles != undefined && this.selectedFullFiles == undefined) {
-      const file = this.selectedFiles;
-      this.selectedFiles = undefined;
-      this.currentPhoto = new Photo(file);
-
-      this.uploadFunction(1, this.currentPhoto, false);
-
-    } else if (this.selectedFullFiles != undefined && this.selectedFiles == undefined) {
-      const fullFile = this.selectedFullFiles.item(0);
-      this.selectedFullFiles = undefined;
-      this.currentFullPhoto = new Photo(fullFile);
-
-      this.uploadFunction(1, this.currentFullPhoto, true);
-    } else {
       const file = this.selectedFiles;
       this.selectedFiles = undefined;
       this.currentPhoto = new Photo(file);
@@ -144,7 +134,6 @@ export class ImageEditComponent implements OnInit {
 
       this.uploadFunction(2, this.currentPhoto, false);
       this.uploadFunction(1, this.currentFullPhoto, true);
-    }
   };
 
   //For Cropper
