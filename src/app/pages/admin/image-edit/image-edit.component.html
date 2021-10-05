@@ -8,8 +8,10 @@
       <li class="b-nav-item">Editor</li>
     </ol>
   </nav> -->
+
   <div (click)="image.isOpened = false" class="modal-bg"></div>
   <div *ngIf="image" class="form">
+    <mat-icon (click)="image.isOpened = false" class="close">close</mat-icon>
     <form fxLayout="column" [formGroup]="imageForm" (ngSubmit)="onUpdate()">
       <div fxLayout="row">
         <div fxLayout="column" fxFlex="50">
