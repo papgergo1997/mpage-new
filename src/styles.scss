@@ -637,16 +637,15 @@ html {
 }
 .form-container {
   font-family: $secondary-font;
-  width: 100%;
-  height: 100%;
-  margin: 60px 0;
+  width: 100vw !important;
+  height: 100vh !important;
   padding: 0;
   right: 0;
   top: 0;
   position: absolute;
   align-items: center;
-  justify-content: center;
   z-index: 1;
+  animation: fadein 0.5s;
   .modal-bg {
     width: 100vw !important;
     height: 100vh !important;
@@ -656,18 +655,20 @@ html {
     background-color: $nav-bg-color;
   }
   .form {
-    width: 500px;
-    margin: 20px auto;
-    background-color: $main-gray;
+    width: 550px;
+    height: 550px;
+    background-color: white;
+    position: absolute;
+    overflow: hidden;
     form {
       .input-group {
         display: flex;
         flex-direction: column;
+        align-items: center;
         .input-label {
-          margin: 10px 0;
+          margin: 20px 0;
         }
         .input-control {
-          max-width: 450px;
           border: none;
           outline: none;
           border-bottom: 1px solid rgb(200, 200, 200);
@@ -683,18 +684,27 @@ html {
         background-color: $main-green;
         color: $text-white;
         opacity: 90%;
+        width: 100%;
       }
       .upload-btn:hover {
         opacity: 100%;
         cursor: pointer;
       }
       .submit-btn {
-        max-width: 450px;
-        margin-top: 15px;
+        max-width: 100%;
+        margin: 20px 0;
         background-color: $edit-blue;
         color: $text-white;
       }
     }
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 // .form-container {
