@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private iService: ImageService,
-    public authService: AuthService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -24,5 +24,8 @@ export class HomeComponent implements OnInit {
   }
   logout() {
     this.authService.logout();
+  }
+  loggedIn() {
+    return this.authService.isLoggedIn;
   }
 }

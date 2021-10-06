@@ -157,12 +157,9 @@ export class ImageEditComponent implements OnInit {
     this.selectedFiles = event.file;
   }
 
-  // @HostListener('window:click', ['$event.target']) onClick(targetElement: any) {
-  //   if (targetElement != this.modal) {
-  //     this.image.isOpened = true;
-  //   } else {
-  //     this.image.isOpened = false;
-  //   }
-  // }
-  //
+  //For Modal
+
+  close() {
+    this.image.isOpened = false;
+  }
 }

@@ -9,9 +9,9 @@
     </ol>
   </nav> -->
 
-  <div (click)="image.isOpened = false" class="modal-bg"></div>
+  <div (click)="close()" class="modal-bg"></div>
   <div *ngIf="image" class="form">
-    <mat-icon (click)="image.isOpened = false" class="close">close</mat-icon>
+    <mat-icon (click)="close()" class="close">close</mat-icon>
     <form fxLayout="column" [formGroup]="imageForm" (ngSubmit)="onUpdate()">
       <div fxLayout="row wrap">
         <div fxLayout="column" fxFlex="49">
