@@ -12,53 +12,50 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuardService } from './service/auth-guard.service';
 const routes: Routes = [
   {
-    path: "admin",
+    path: 'admin',
     component: AdminComponent,
     canActivate: [AuthGuardService],
     children: [
       {
-        path: "images",
-        component: ImageListComponent
+        path: 'images',
+        component: ImageListComponent,
       },
       {
-        path: "images/:id",
-        component: ImageEditComponent
+        path: 'images/:id',
+        component: ImageEditComponent,
       },
       {
-        path: "articles",
-        component: ArticlesListComponent
+        path: 'articles',
+        component: ArticlesListComponent,
       },
       {
-        path: "articles/:id",
-        component: ArticleEditComponent
-      }
-    ]
+        path: 'articles/:id',
+        component: ArticleEditComponent,
+      },
+    ],
   },
   {
-    path: "",
-    component: HomeComponent
+    path: '',
+    component: HomeComponent,
   },
   {
-    path: "login",
-    component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: ":id",
-    component: GalleryComponent
+    path: ':id',
+    component: GalleryComponent,
   },
   {
-    path: "**",
-    component: HomeComponent
-  }
-
+    path: '**',
+    component: HomeComponent,
+  },
 ];
 
-const config: Config = [
-
-]
+const config: Config = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
