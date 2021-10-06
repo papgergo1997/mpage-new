@@ -637,8 +637,8 @@ html {
 }
 .form-container {
   font-family: $secondary-font;
-  width: 100vw !important;
-  height: 100vh !important;
+  width: 100% !important;
+  height: 90% !important;
   padding: 0;
   right: 0;
   top: 0;
@@ -648,8 +648,8 @@ html {
   animation: fadein 0.5s;
 
   .modal-bg {
-    width: 100vw !important;
-    height: 100vh !important;
+    width: 100% !important;
+    height: 100% !important;
     position: fixed;
     left: 0;
     top: 0;
@@ -707,7 +707,7 @@ html {
       }
       .submit-btn {
         max-width: 100%;
-        margin: 10px 0;
+        margin: 10px 5px;
         background-color: $edit-blue;
         color: $text-white;
       }

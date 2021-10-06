@@ -13,8 +13,8 @@
   <div *ngIf="image" class="form">
     <mat-icon (click)="image.isOpened = false" class="close">close</mat-icon>
     <form fxLayout="column" [formGroup]="imageForm" (ngSubmit)="onUpdate()">
-      <div fxLayout="row">
-        <div fxLayout="column" fxFlex="50">
+      <div fxLayout="row wrap">
+        <div fxLayout="column" fxFlex="49">
           <div class="input-group">
             <label class="input-label" for="name">Title</label>
             <input
