@@ -1,5 +1,5 @@
-<div class="form-container">
-  <nav>
+<div fxLayout="column" class="form-container">
+  <!-- <nav>
     <ol fxLayout="row" class="breadcrumb-nav">
       <li class="b-nav-item">
         <a [routerLink]="['/admin/' + 'articles']">Articles</a>
@@ -7,140 +7,156 @@
       <li class="b-nav-item">/</li>
       <li class="b-nav-item">Editor</li>
     </ol>
-  </nav>
+  </nav> -->
+  <div (click)="close()" class="modal-bg"></div>
   <div *ngIf="article" class="form">
+    <mat-icon (click)="close()" class="close">close</mat-icon>
     <form fxLayout="column" [formGroup]="articleForm" (ngSubmit)="onUpdate()">
-      <div class="input-group">
-        <label class="input-label" for="title">Title: </label>
-        <input
-          class="input-control"
-          id="title"
-          type="text"
-          formControlName="title"
-          [class.error]="
-            articleForm.get('title').invalid && !articleForm.pristine
-          "
-        />
-        <div *ngIf="articleForm.get('title').invalid && !articleForm.pristine">
-          <div
-            class="error-message"
-            *ngIf="articleForm.get('title').hasError('required')"
-          >
-            Title is required
+      <div fxLayout="row wrap">
+        <div fxLayout="column" fxFlex="49">
+          <div class="input-group">
+            <label class="input-label" for="title">Title: </label>
+            <input
+              class="input-control"
+              id="title"
+              type="text"
+              formControlName="title"
+              [class.error]="
+                articleForm.get('title').invalid && !articleForm.pristine
+              "
+            />
+            <div
+              *ngIf="articleForm.get('title').invalid && !articleForm.pristine"
+            >
+              <div
+                class="error-message"
+                *ngIf="articleForm.get('title').hasError('required')"
+              >
+                Title is required
+              </div>
+              <div
+                class="error-message"
+                *ngIf="articleForm.get('title').hasError('minlength')"
+              >
+                Title must be 5 characters long at least
+              </div>
+            </div>
           </div>
-          <div
-            class="error-message"
-            *ngIf="articleForm.get('title').hasError('minlength')"
-          >
-            Title must be 5 characters long at least
+          <div class="input-group">
+            <label class="input-label" for="abstract">Abstract: </label>
+            <input
+              class="input-control"
+              id="abstract"
+              type="text"
+              formControlName="abstract"
+              [class.error]="
+                articleForm.get('abstract').invalid && !articleForm.pristine
+              "
+            />
+            <div
+              *ngIf="
+                articleForm.get('abstract').invalid && !articleForm.pristine
+              "
+            >
+              <div
+                class="error-message"
+                *ngIf="articleForm.get('abstract').hasError('required')"
+              >
+                Abstract is required
+              </div>
+              <div
+                class="error-message"
+                *ngIf="articleForm.get('abstract').hasError('minlength')"
+              >
+                Abstract must be 10 characters long at least
+              </div>
+              <div
+                class="error-message"
+                *ngIf="articleForm.get('abstract').hasError('maxlength')"
+              >
+                Abstract cannot be longer than 200 characters
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="input-group">
-        <label class="input-label" for="abstract">Abstract: </label>
-        <input
-          class="input-control"
-          id="abstract"
-          type="text"
-          formControlName="abstract"
-          [class.error]="
-            articleForm.get('abstract').invalid && !articleForm.pristine
-          "
-        />
-        <div
-          *ngIf="articleForm.get('abstract').invalid && !articleForm.pristine"
-        >
-          <div
-            class="error-message"
-            *ngIf="articleForm.get('abstract').hasError('required')"
-          >
-            Abstract is required
-          </div>
-          <div
-            class="error-message"
-            *ngIf="articleForm.get('abstract').hasError('minlength')"
-          >
-            Abstract must be 10 characters long at least
-          </div>
-          <div
-            class="error-message"
-            *ngIf="articleForm.get('abstract').hasError('maxlength')"
-          >
-            Abstract cannot be longer than 200 characters
-          </div>
-        </div>
-      </div>
-      <div class="input-group">
-        <label class="input-label" for="link">Link: </label>
-        <input
-          class="input-control"
-          id="link"
-          type="text"
-          formControlName="link"
-          [class.error]="
-            articleForm.get('link').invalid && !articleForm.pristine
-          "
-        />
-        <div *ngIf="articleForm.get('link').invalid && !articleForm.pristine">
-          <div
-            class="error-message"
-            *ngIf="articleForm.get('link').hasError('required')"
-          >
-            Link is required
-          </div>
-        </div>
-      </div>
-      <div class="input-group">
-        <label class="input-label" for="photo">Photo</label>
-        <img
-          src="{{ article.photo }}"
-          alt="{{ article.photo }}"
-          style="width: 200px"
-        />
-        <input
-          [hidden]="article"
-          name="photo"
-          type="text"
-          formControlName="photo"
-          class="input-control"
-          readonly
-        />
-        <div *ngIf="articleForm.get('photo').invalid && !articleForm.pristine">
-          <div
-            class="error-message"
-            *ngIf="articleForm.get('photo').hasError('required')"
-          >
-            Photo is required
+          <div class="input-group">
+            <label class="input-label" for="link">Link: </label>
+            <input
+              class="input-control"
+              id="link"
+              type="text"
+              formControlName="link"
+              [class.error]="
+                articleForm.get('link').invalid && !articleForm.pristine
+              "
+            />
+            <div
+              *ngIf="articleForm.get('link').invalid && !articleForm.pristine"
+            >
+              <div
+                class="error-message"
+                *ngIf="articleForm.get('link').hasError('required')"
+              >
+                Link is required
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <label class="file-input">
-          <input
-            type="file"
-            class="text-nowrap text-truncate"
-            (change)="selectFile($event)"
-          />
-        </label>
+        <div fxLayout="column" fxFlex="50">
+          <div class="input-group">
+            <label class="input-label" for="photo">Photo</label>
+            <img
+              src="{{ article.photo }}"
+              alt="{{ article.photo }}"
+              style="width: 200px"
+            />
+            <input
+              [hidden]="article"
+              name="photo"
+              type="text"
+              formControlName="photo"
+              class="input-control"
+              readonly
+            />
+            <div
+              *ngIf="articleForm.get('photo').invalid && !articleForm.pristine"
+            >
+              <div
+                class="error-message"
+                *ngIf="articleForm.get('photo').hasError('required')"
+              >
+                Photo is required
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="file-input">
+              <input
+                type="file"
+                class="text-nowrap text-truncate"
+                (change)="selectFile($event)"
+              />
+            </label>
 
-        <button
-          mat-button
-          class="upload-btn"
-          [disabled]="!selectedFiles"
-          (click)="upload()"
-        >
-          Upload
-        </button>
-        <div *ngIf="currentPhoto" class="progress">
-          <div
-            class="progress-bar progress-bar-info"
-            role="progressbar"
-            attr.aria-valuenow="{{ percentage }}"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            [ngStyle]="{ width: percentage + '%' }"
-          >
-            {{ percentage }}%
+            <button
+              mat-button
+              class="upload-btn"
+              [disabled]="!selectedFiles"
+              (click)="upload()"
+            >
+              Upload
+            </button>
+            <div *ngIf="currentPhoto" class="progress">
+              <div
+                class="progress-bar progress-bar-info"
+                role="progressbar"
+                attr.aria-valuenow="{{ percentage }}"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                [ngStyle]="{ width: percentage + '%' }"
+              >
+                {{ percentage }}%
+              </div>
+            </div>
           </div>
         </div>
       </div>

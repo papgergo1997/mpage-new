@@ -20,10 +20,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ItemCardContainerComponent } from './pages/home/item-card-container/item-card-container.component';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { ItemCardComponent } from './pages/home/item-card/item-card.component';
-import { SliderPipe } from './pipe/slider.pipe';
 import { ArticlesListComponent } from './pages/admin/articles-list/articles-list.component';
 import { ArticleEditComponent } from './pages/admin/article-edit/article-edit.component';
-import { ArticleFilterPipe } from './pipe/article-filter.pipe';
 import { ArticleCardComponent } from './pages/home/article-card/article-card.component';
 import { ArticleCardContainerComponent } from './pages/home/article-card-container/article-card-container.component';
 import { ImageListComponent } from './pages/admin/image-list/image-list.component';
@@ -34,14 +32,14 @@ import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { LoginComponent } from './pages/login/login.component'
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -54,10 +52,8 @@ import { LoginComponent } from './pages/login/login.component'
     HomeComponent,
     ItemCardContainerComponent,
     ItemCardComponent,
-    SliderPipe,
     ArticlesListComponent,
     ArticleEditComponent,
-    ArticleFilterPipe,
     ArticleCardComponent,
     ArticleCardContainerComponent,
     ImageListComponent,
@@ -89,9 +85,9 @@ import { LoginComponent } from './pages/login/login.component'
     MatMenuModule,
     MatPaginatorModule,
     MatInputModule,
-    AngularFireAuthModule
-     ],
+    AngularFireAuthModule,
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

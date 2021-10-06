@@ -8,48 +8,17 @@
       (keyup)="filterTable($event.target.value)"
     />
   </div>
-  <!-- <div fxLayout="row" class="search-area">
-    <label class="search-label">Search</label>
-    <input type="text" class="search-input" [(ngModel)]="filterKey" />
-  </div> -->
-  <button mat-flat-button [routerLink]="[0]" class="plus-btn">
+
+  <button mat-flat-button (click)="image.isOpened = true" class="plus-btn">
     <i class="fa fa-plus"></i>
   </button>
-  <!-- <table class="the-table">
-    <thead class="table-head">
-      <th>Title</th>
-      <th>Description</th>
-      <th>Size</th>
-      <th>Type</th>
-      <th>Photo</th>
-      <th></th>
-    </thead>
-    <tbody class="table-body">
-      <tr
-        class="table-row"
-        *ngFor="let image of list$ | async | filter: filterKey"
-      >
-        <td>{{ image.name }}</td>
-        <td>{{ image.description }}</td>
-        <td>{{ image.size }}</td>
-        <td>{{ image.type }}</td>
-        <td>
-          <img src="{{ image.picture }}" alt="" style="width: 140px" />
-        </td>
-        <td>
-          <div class="group-btn">
-            <button [routerLink]="[image.id]" class="btn-edit">
-              <i class="fa fa-pencil"></i>
-            </button>
-            <button (click)="onDelete(image)" class="btn-delete">
-              <i class="fa fa-trash"></i>
-            </button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
-  <!-- Material table test -->
+  <app-image-edit
+    *ngIf="image"
+    class="pop-up"
+    [class.popped]="image.isOpened == true"
+    [image]="image"
+  ></app-image-edit>
+
   <table class="the-table" mat-table [dataSource]="dataSource">
     <ng-container
       [matColumnDef]="column"
@@ -72,10 +41,20 @@
       </div>
       <div *ngIf="column == 'edit'">
         <td mat-cell *matCellDef="let image">
+          <!--For Pop-Up START-->
+          <app-image-edit
+            class="pop-up"
+            [class.popped]="image.isOpened == true"
+            [image]="image"
+          ></app-image-edit>
           <div class="group-btn">
-            <button [routerLink]="[image.id]" class="btn-edit">
+            <button (click)="image.isOpened = true" class="btn-edit">
               <i class="fa fa-pencil"></i>
             </button>
+            <!--For Pop-Up END-->
+            <!-- <button [routerLink]="[image.id]" class="btn-edit">
+              <i class="fa fa-pencil"></i>
+            </button> -->
             <button (click)="onDelete(image)" class="btn-delete">
               <i class="fa fa-trash"></i>
             </button>

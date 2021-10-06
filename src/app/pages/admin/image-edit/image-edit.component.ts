@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm, Validators, FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -20,7 +20,11 @@ export class ImageEditComponent implements OnInit {
   imageChangedEvent: any;
   base64: any;
   //
-  image: Image;
+  //For pop-up
+  @Input() image: Image;
+  isOpened: boolean;
+  //
+  // image: Image;
   selectedFiles: any;
   currentPhoto: Photo;
   percentage: number = 0;
@@ -47,12 +51,13 @@ export class ImageEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params
-      .pipe(switchMap((params) => this.iService.get(params.id)))
-      .subscribe((image) => {
-        this.image = image;
-        this.imageForm.patchValue(image);
-      });
+    // this.activatedRoute.params
+    //   .pipe(switchMap((params) => this.iService.get(params.id)))
+    //   .subscribe((image) => {
+    //     this.image = image;
+    //     this.imageForm.patchValue(image);
+    //   });
+    this.imageForm.patchValue(this.image);
   }
 
   onUpdate(): void {
@@ -60,7 +65,7 @@ export class ImageEditComponent implements OnInit {
       this.iService
         .create(this.imageForm.value)
         .then(() => {
-          this.router.navigate(['admin/images']);
+          this.close();
           this.toaster.success('Successfully created!', 'Created', {
             timeOut: 3000,
           });
@@ -70,7 +75,7 @@ export class ImageEditComponent implements OnInit {
       this.iService
         .update(this.imageForm.value)
         .then(() => {
-          this.router.navigate(['admin/images']);
+          this.close();
           this.toaster.info('Successfully updated!', 'Updated', {
             timeOut: 3000,
           });
@@ -151,5 +156,10 @@ export class ImageEditComponent implements OnInit {
   imageCropped(event: CroppedEvent) {
     this.selectedFiles = event.file;
   }
-  //
+
+  //For Modal
+
+  close() {
+    this.image.isOpened = false;
+  }
 }
