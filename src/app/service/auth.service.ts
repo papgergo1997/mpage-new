@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, OnDestroy } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -6,11 +6,13 @@ import { User } from '../model/user';
 import * as firebase from 'firebase/app';
 import { ToastrService } from 'ngx-toastr';
 import { runInThisContext } from 'vm';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthService implements OnDestroy {
+  subscription: Subscription;
   userData: any;
   isAuthenticated: boolean;
 
@@ -21,7 +23,7 @@ export class AuthService {
     public ngZone: NgZone,
     private toaster: ToastrService
   ) {
-    this.fireAuth.authState.subscribe((user) => {
+    this.subscription = this.fireAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
@@ -72,5 +74,8 @@ export class AuthService {
         console.error(error);
         this.toaster.error(error, 'Something went wrong:', { timeOut: 5000 });
       });
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
