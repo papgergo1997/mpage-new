@@ -16,7 +16,7 @@ export class ImageListComponent implements OnInit {
   @ViewChild('paginator') paginator: MatPaginator;
   //
   list$: Observable<Image[]> = new Observable<Image[]>();
-  @Output() image: Image;
+  @Output() image: Image = new Image();
   filterKey: string = '';
   //Material Table
   dataSource: MatTableDataSource<Image>;
@@ -38,6 +38,7 @@ export class ImageListComponent implements OnInit {
       this.dataSource = new MatTableDataSource(list);
       this.dataSource.paginator = this.paginator;
     });
+    console.log(this.image.isOpened);
   }
   //for Material filter
   filterTable(filterValue: string) {

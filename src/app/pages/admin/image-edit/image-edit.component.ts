@@ -65,7 +65,7 @@ export class ImageEditComponent implements OnInit {
       this.iService
         .create(this.imageForm.value)
         .then(() => {
-          this.router.navigate(['admin/images']);
+          this.close();
           this.toaster.success('Successfully created!', 'Created', {
             timeOut: 3000,
           });
@@ -75,7 +75,7 @@ export class ImageEditComponent implements OnInit {
       this.iService
         .update(this.imageForm.value)
         .then(() => {
-          this.router.navigate(['admin/images']);
+          this.close();
           this.toaster.info('Successfully updated!', 'Updated', {
             timeOut: 3000,
           });
