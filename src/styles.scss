@@ -638,8 +638,9 @@ html {
 }
 .form-container {
   font-family: $secondary-font;
+  font-size: small;
   width: 100% !important;
-  height: 69vh !important;
+  height: 80vh !important;
   padding: 0;
   right: 0;
   top: 70px;
@@ -682,6 +683,7 @@ html {
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: start;
         .input-label {
           margin: 28px 0;
         }
@@ -707,7 +709,7 @@ html {
         background-color: $main-green;
         color: $text-white;
         opacity: 90%;
-        width: 90%;
+        width: 100%;
         margin-top: auto;
         margin-bottom: 50px;
       }
@@ -804,8 +806,14 @@ html {
   0% {
     right: -300px;
   }
-  50% {
+  25% {
     right: -15px;
+  }
+  50% {
+    right: -50px;
+  }
+  100% {
+    right: 0;
   }
 }
 
@@ -877,6 +885,9 @@ html {
       height: 550px;
       width: 550px;
       overflow: hidden;
+      .input-group {
+        align-items: start !important;
+      }
       .upload-btn {
         margin-bottom: 0;
       }

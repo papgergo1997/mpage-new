@@ -38,7 +38,6 @@ export class ImageListComponent implements OnInit {
       this.dataSource = new MatTableDataSource(list);
       this.dataSource.paginator = this.paginator;
     });
-    console.log(this.image.isOpened);
   }
   //for Material filter
   filterTable(filterValue: string) {

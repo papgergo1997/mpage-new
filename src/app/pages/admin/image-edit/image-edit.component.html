@@ -114,11 +114,13 @@
             <label class="input-label image-label" for="picture"
               >Preview Image</label
             >
-            <img
-              src="{{ image.picture }}"
-              alt="{{ image.picture }}"
-              style="width: 100px"
-            />
+            <div>
+              <img
+                src="{{ image.picture }}"
+                alt="{{ image.picture }}"
+                style="width: 100px"
+              />
+            </div>
             <input
               [hidden]="image"
               id="picture"
@@ -127,16 +129,6 @@
               class="input-control"
               readonly
             />
-            <div
-              *ngIf="imageForm.get('picture').invalid && !imageForm.pristine"
-            >
-              <div
-                class="error-message"
-                *ngIf="imageForm.get('picture').hasError('required')"
-              >
-                You must upload an image
-              </div>
-            </div>
           </div>
           <div>
             <ngx-photo-editor
