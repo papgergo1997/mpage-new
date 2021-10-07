@@ -6,7 +6,6 @@ import { ArticlesListComponent } from './pages/admin/articles-list/articles-list
 import { ImageListComponent } from './pages/admin/image-list/image-list.component';
 import { ImageEditComponent } from './pages/admin/image-edit/image-edit.component';
 import { AdminComponent } from './pages/admin/admin.component';
-import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuardService } from './service/auth-guard.service';
 const routes: Routes = [
@@ -35,7 +34,8 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: HomeComponent,
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'login',
@@ -50,7 +50,8 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: HomeComponent,
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
   },
 ];
 

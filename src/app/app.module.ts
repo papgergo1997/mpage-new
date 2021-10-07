@@ -16,7 +16,6 @@ import { AdminNavComponent } from './pages/admin/admin-nav/admin-nav.component';
 import { AdminFooterComponent } from './pages/admin/admin-footer/admin-footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './pipe/filter.pipe';
-import { HomeComponent } from './pages/home/home.component';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { ItemCardComponent } from './pages/home/item-card/item-card.component';
 import { ArticlesListComponent } from './pages/admin/articles-list/articles-list.component';
@@ -48,7 +47,6 @@ import { ItemCardContainerComponent } from './pages/home/item-card-container/ite
     AdminNavComponent,
     AdminFooterComponent,
     FilterPipe,
-    HomeComponent,
     ItemCardContainerComponent,
     ItemCardComponent,
     ArticlesListComponent,
