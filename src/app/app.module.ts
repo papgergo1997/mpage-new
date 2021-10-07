@@ -36,7 +36,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { LoginComponent } from './pages/login/login.component';
 import { ItemCardContainerComponent } from './pages/home/item-card-container/item-card-container.component';
 
 @NgModule({
@@ -55,7 +54,6 @@ import { ItemCardContainerComponent } from './pages/home/item-card-container/ite
     ArticleCardContainerComponent,
     ImageListComponent,
     ImageEditComponent,
-    LoginComponent,
   ],
   imports: [
     CommonModule,
