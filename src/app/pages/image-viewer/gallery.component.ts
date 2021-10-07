@@ -1,10 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  HostBinding,
-  OnDestroy,
-} from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Image } from 'src/app/model/image';
 import { switchMap } from 'rxjs/operators';
@@ -61,7 +55,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   selectedIndex = 0;
   slide1Or2: boolean = true;
   num: number = 0;
-  image: Image;
+  image: Image = new Image();
   images$: Observable<Image[]>;
   swappedImages$: Observable<Image[]>;
 

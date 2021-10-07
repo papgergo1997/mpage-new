@@ -17,7 +17,6 @@ import { AdminFooterComponent } from './pages/admin/admin-footer/admin-footer.co
 import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './pipe/filter.pipe';
 import { HomeComponent } from './pages/home/home.component';
-
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { ItemCardComponent } from './pages/home/item-card/item-card.component';
 import { ArticlesListComponent } from './pages/admin/articles-list/articles-list.component';
@@ -26,7 +25,6 @@ import { ArticleCardComponent } from './pages/home/article-card/article-card.com
 import { ArticleCardContainerComponent } from './pages/home/article-card-container/article-card-container.component';
 import { ImageListComponent } from './pages/admin/image-list/image-list.component';
 import { ImageEditComponent } from './pages/admin/image-edit/image-edit.component';
-import { GalleryComponent } from './pages/image-viewer/gallery.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -59,7 +57,6 @@ import { ItemCardContainerComponent } from './pages/home/item-card-container/ite
     ArticleCardContainerComponent,
     ImageListComponent,
     ImageEditComponent,
-    GalleryComponent,
     LoginComponent,
   ],
   imports: [

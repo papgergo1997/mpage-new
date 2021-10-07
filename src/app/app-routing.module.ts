@@ -44,7 +44,10 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: GalleryComponent,
+    loadChildren: () =>
+      import('./pages/image-viewer/gallery.module').then(
+        (m) => m.GalleryModule
+      ),
   },
   {
     path: '**',
