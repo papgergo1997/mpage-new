@@ -15,6 +15,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { NgxPhotoEditorModule } from 'ngx-photo-editor';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MatInputModule } from '@angular/material/input';
     MatPaginatorModule,
     ReactiveFormsModule,
     MatInputModule,
+    NgxPhotoEditorModule,
   ],
 })
 export class AdminModule {}
