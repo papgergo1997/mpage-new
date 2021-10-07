@@ -17,7 +17,7 @@ import { AdminFooterComponent } from './pages/admin/admin-footer/admin-footer.co
 import { ToastrModule } from 'ngx-toastr';
 import { FilterPipe } from './pipe/filter.pipe';
 import { HomeComponent } from './pages/home/home.component';
-import { ItemCardContainerComponent } from './pages/home/item-card-container/item-card-container.component';
+
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { ItemCardComponent } from './pages/home/item-card/item-card.component';
 import { ArticlesListComponent } from './pages/admin/articles-list/articles-list.component';
@@ -40,6 +40,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { LoginComponent } from './pages/login/login.component';
+import { ItemCardContainerComponent } from './pages/home/item-card-container/item-card-container.component';
 
 @NgModule({
   declarations: [
