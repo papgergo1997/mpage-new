@@ -19,16 +19,8 @@ const routes: Routes = [
         component: ImageListComponent,
       },
       {
-        path: 'images/:id',
-        component: ImageEditComponent,
-      },
-      {
         path: 'articles',
         component: ArticlesListComponent,
-      },
-      {
-        path: 'articles/:id',
-        component: ArticleEditComponent,
       },
     ],
   },
