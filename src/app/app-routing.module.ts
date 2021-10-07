@@ -7,7 +7,6 @@ import { ImageListComponent } from './pages/admin/image-list/image-list.componen
 import { ImageEditComponent } from './pages/admin/image-edit/image-edit.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './pages/home/home.component';
-import { GalleryComponent } from './pages/image-viewer/gallery.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuardService } from './service/auth-guard.service';
 const routes: Routes = [
