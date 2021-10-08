@@ -1,7 +1,7 @@
-import { Component, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
 import { MatPaginator } from '@angular/material/paginator';
@@ -11,7 +11,8 @@ import { MatPaginator } from '@angular/material/paginator';
   templateUrl: './image-list.component.html',
   styleUrls: ['./image-list.component.scss'],
 })
-export class ImageListComponent implements OnInit {
+export class ImageListComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
   //Material Paginator
   @ViewChild('paginator') paginator: MatPaginator;
   //
@@ -34,7 +35,7 @@ export class ImageListComponent implements OnInit {
   ngOnInit(): void {
     this.list$ = this.iService.list$;
     //Material Table and paginator
-    this.iService.list$.subscribe((list) => {
+    this.subscription = this.iService.list$.subscribe((list) => {
       this.dataSource = new MatTableDataSource(list);
       this.dataSource.paginator = this.paginator;
     });
@@ -51,5 +52,8 @@ export class ImageListComponent implements OnInit {
       this.iService.remove(image);
       this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
     }
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

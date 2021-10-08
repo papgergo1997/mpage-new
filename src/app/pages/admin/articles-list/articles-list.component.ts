@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Article } from 'src/app/model/article';
 import { ArticleService } from 'src/app/service/article.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,7 +11,8 @@ import { MatPaginator } from '@angular/material/paginator';
   templateUrl: './articles-list.component.html',
   styleUrls: ['./articles-list.component.scss'],
 })
-export class ArticlesListComponent implements OnInit {
+export class ArticlesListComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
   //Material Paginator
   @ViewChild('paginator') paginator: MatPaginator;
   //
@@ -31,7 +32,7 @@ export class ArticlesListComponent implements OnInit {
   ngOnInit(): void {
     this.list$ = this.articleService.list$;
     //Material Table and paginator
-    this.articleService.list$.subscribe((list) => {
+    this.subscription = this.articleService.list$.subscribe((list) => {
       this.dataSource = new MatTableDataSource(list);
       this.dataSource.paginator = this.paginator;
     });
@@ -48,5 +49,9 @@ export class ArticlesListComponent implements OnInit {
       this.articleService.remove(article);
       this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
     }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
