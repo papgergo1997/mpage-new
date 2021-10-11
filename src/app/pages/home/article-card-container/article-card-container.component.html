@@ -1,19 +1,12 @@
-<!-- <div class="container mx-0 px-0 mx-sm-auto px-sm-auto">
-    <div class="row col col-lg-8 article-card--container mx-0 px-0 mx-sm-auto pb-4">
-        <h2 class="text-center mt-5 text-white">Articles</h2>
-        <app-article-card class="col-12 col-md-6 col-lg-4" *ngFor="let article of articles$ | async"
-            [article]="article">
-        </app-article-card>
-    </div>
-</div> -->
-<div class="article-card--container">
+
+<div class="article-card--container" fxFlex="55" fxFlex.xs="100" fxFlex.sm="96" fxFlex.md="80" fxFlex.lg="55">
   <h2 class="articles-title">Articles</h2>
   <div fxLayout="row wrap">
     <app-article-card
       fxFlex="30.5"
       fxFlex.xs="100"
-      fxFlex.sm="45"
-      fxFlex.md="30.5"
+      fxFlex.sm="46"
+      fxFlex.gt-md="30.5"
       class="article-cards"
       *ngFor="let article of articles$ | async"
       [article]="article"
