@@ -78,7 +78,7 @@
       </button>
     </nav>
 
-    <main class="main">
+    <main class="main" fxLayout="row wrap">
       <section id="gallery" class="header">
         <div class="logo-container">
           <img
@@ -89,33 +89,45 @@
           />
         </div>
       </section>
-      <section>
+      <section fxFlex="100">
         <ng-container #gallery class="card-container"></ng-container>
       </section>
-      <section>
-        <div fxLayout="column">
-          <div class="about">
-            <div id="about">
-              <h2 class="about-title">About me</h2>
-              <p class="about-desc">
-                My name is Gergő Pap. <br />I am a hungarian amateur nature
-                photographer and Frontend webdeveloper. <br />What makes me
-                happy is to help other people realize what they and their work
-                worth.<br /><br />I won't use big words about how great things I
-                can do, <br />cause that just woludn't be me. <br />So I just
-                let my Photos and my site to talk for themselfs. <br />
-                If you like what you see, just enjoy it!
-              </p>
-              <img class="myself" src="/assets/img/rólam.jpg" alt="myself" />
-            </div>
+      <section fxFlex="100">
+        <div
+          class="about"
+          fxFlex="55"
+          fxFlex.xs="100"
+          fxFlex.sm="96"
+          fxFlex.md="80"
+          fxFlex.lg="55"
+        >
+          <div id="about">
+            <h2 class="about-title">About me</h2>
+            <p class="about-desc">
+              My name is Gergő Pap. <br />I am a hungarian amateur nature
+              photographer and Frontend webdeveloper. <br />What makes me happy
+              is to help other people realize what they and their work worth.<br /><br />I
+              won't use big words about how great things I can do, <br />cause
+              that just woludn't be me. <br />So I just let my Photos and my
+              site to talk for themselfs. <br />
+              If you like what you see, just enjoy it!
+            </p>
+            <img class="myself" src="/assets/img/rólam.jpg" alt="myself" />
           </div>
         </div>
       </section>
-      <section id="articles">
+      <section fxFlex="100" id="articles">
         <ng-container #articles class="article-container"></ng-container>
       </section>
-      <section id="contact">
-        <div class="contact">
+      <section fxFlex="100" id="contact">
+        <div
+          class="contact"
+          fxFlex="55"
+          fxFlex.xs="100"
+          fxFlex.sm="96"
+          fxFlex.md="80"
+          fxFlex.lg="55"
+        >
           <h3 class="contact-title">Contact me</h3>
           <div fxLayout="row" class="contact-icon-container">
             <div fxFlex="33.33" class="contact-icon">
@@ -166,7 +178,7 @@
           </div>
         </div>
       </section>
-      <footer>
+      <footer fxFlex="100">
         <div class="footer">
           <h6 class="copyright">&copy; Historian 2021. All Rights Reserved</h6>
         </div>

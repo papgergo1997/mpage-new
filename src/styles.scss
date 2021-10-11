@@ -93,7 +93,7 @@ html {
   background-position: center;
   // background-attachment: fixed;
   box-shadow: $primary-shadow;
-  z-index: 1;
+  z-index: 0;
 }
 
 .h-logo {
@@ -105,7 +105,7 @@ html {
   display: flex;
   justify-content: center;
   position: absolute;
-  z-index: 1;
+  z-index: 0;
   background-color: $secondary-gray;
   top: 348px;
   width: 100px;
@@ -131,7 +131,6 @@ html {
   background-color: $main-gray;
   box-shadow: $primary-shadow;
   height: 370px;
-  width: 100%;
   z-index: 0;
   position: relative;
   color: $text-white;
@@ -178,7 +177,6 @@ html {
   background-color: $main-gray;
   box-shadow: $primary-shadow;
   height: 290px;
-  width: 100%;
   margin: 0 auto;
   z-index: 0;
   position: relative;
@@ -239,9 +237,10 @@ html {
   background-image: linear-gradient($main-orange, $main-gray);
   background-attachment: fixed;
   height: 100%;
-  width: 100%;
   margin: 0 auto;
   box-shadow: $secondary-shadow;
+  justify-content: center;
+  align-items: center;
   [class^="gallery-"] {
     display: flex;
     justify-content: center;
@@ -249,7 +248,7 @@ html {
     color: $text-white;
   }
   .image-card {
-    margin: 12px;
+    margin: auto;
   }
 }
 //Styles for Image Card
@@ -273,7 +272,6 @@ html {
   box-shadow: $primary-shadow;
   background-attachment: fixed;
   height: 100%;
-  width: 100%;
   margin: 0 auto;
   z-index: 0;
   .article-cards {
@@ -350,6 +348,7 @@ html {
     border-radius: 5px;
     opacity: 90%;
     transition: background-color 200ms;
+    z-index: 1;
   }
   .home-btn:hover {
     opacity: 100%;
@@ -830,14 +829,12 @@ html {
   }
   .about {
     height: 340px;
-    width: 710px;
   }
   .myself {
     display: initial;
     width: 130px;
   }
   .contact {
-    width: 710px;
     .contact-icon-container {
       margin-top: 40px;
     }
@@ -846,20 +843,6 @@ html {
     width: 90px;
     height: 90px;
     line-height: 90px;
-  }
-  //Styles for Image Card Container
-  .item-card--container {
-    width: 710px;
-    .image-card {
-      margin: 17.5px;
-    }
-  }
-  //Styles for Article Card Container
-  .article-card--container {
-    width: 710px;
-    .article-card {
-      margin: 17.5px;
-    }
   }
   .login-container {
     .login-nav {
@@ -915,13 +898,9 @@ html {
   }
 
   .about {
-    width: 800px;
     .myself {
       width: 190px;
     }
-  }
-  .contact {
-    width: 800px;
   }
 
   [class$="-con"] {
@@ -931,19 +910,19 @@ html {
   }
 
   //Styles for Image Card Container
-  .item-card--container {
-    width: 800px;
-    .image-card {
-      margin: 11px;
-    }
-  }
+  // .item-card--container {
+  //   // width: 800px;
+  //   .image-card {
+  //     margin: 11px;
+  //   }
+  // }
   //Styles for Article Card Container
-  .article-card--container {
-    width: 800px;
-    .article-card {
-      margin: 11px;
-    }
-  }
+  // .article-card--container {
+  //   width: 800px;
+  //   .article-card {
+  //     margin: 11px;
+  //   }
+  // }
   //Styles for Article Card
   .article-img {
     width: 100%;
@@ -972,26 +951,8 @@ html {
     background-position-y: 710px;
   }
   .about {
-    width: 880px;
     .myself {
       width: 230px;
-    }
-  }
-  .contact {
-    width: 880px;
-  }
-  //Styles for Image Card Container
-  .item-card--container {
-    width: 880px;
-    .image-card {
-      margin: 12.3px;
-    }
-  }
-  //Styles for Article Card Container
-  .article-card--container {
-    width: 880px;
-    .article-card {
-      margin: 12.3px;
     }
   }
   //Styles for Image Viewer
