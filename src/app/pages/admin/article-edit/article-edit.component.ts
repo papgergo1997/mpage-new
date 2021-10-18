@@ -42,12 +42,6 @@ export class ArticleEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.activatedRoute.params
-    //   .pipe(switchMap((params) => this.articleService.get(params.id)))
-    //   .subscribe((article) => {
-    //     this.article = article;
-    //     this.articleForm.patchValue(this.article);
-    //   });
     this.articleForm.patchValue(this.article);
   }
 

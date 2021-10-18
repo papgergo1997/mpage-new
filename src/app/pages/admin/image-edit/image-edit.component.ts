@@ -24,7 +24,6 @@ export class ImageEditComponent implements OnInit {
   @Input() image: Image;
   isOpened: boolean;
   //
-  // image: Image;
   selectedFiles: any;
   currentPhoto: Photo;
   percentage: number = 0;
@@ -51,12 +50,6 @@ export class ImageEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.activatedRoute.params
-    //   .pipe(switchMap((params) => this.iService.get(params.id)))
-    //   .subscribe((image) => {
-    //     this.image = image;
-    //     this.imageForm.patchValue(image);
-    //   });
     this.imageForm.patchValue(this.image);
   }
 
@@ -84,10 +77,6 @@ export class ImageEditComponent implements OnInit {
     }
     this.submitted = true;
   }
-
-  // selectFullFile(event): void {
-  //   this.selectedFullFiles = event.target.files;
-  // }
 
   uploadFunction(num: number, photo: Photo, full: boolean) {
     this.pUploadService.pushFileToStorage(photo).subscribe(
@@ -156,6 +145,7 @@ export class ImageEditComponent implements OnInit {
   imageCropped(event: CroppedEvent) {
     this.selectedFiles = event.file;
   }
+  //
 
   //For Modal
 

@@ -1,13 +1,4 @@
 <div fxLayout="column" class="form-container">
-  <!-- <nav>
-    <ol fxLayout="row" class="breadcrumb-nav">
-      <li class="b-nav-item">
-        <a [routerLink]="['/admin/' + 'images']">Photos</a>
-      </li>
-      <li class="b-nav-item">/</li>
-      <li class="b-nav-item">Editor</li>
-    </ol>
-  </nav> -->
 
   <div (click)="close()" class="modal-bg"></div>
   <div *ngIf="image" class="form">
@@ -192,13 +183,6 @@
             </div>
           </div>
           <div>
-            <!-- <label class="file-input">
-            <input
-              type="file"
-              class="text-nowrap text-truncate"
-              (change)="selectFullFile($event)"
-            />
-          </label> -->
             <div
               *ngIf="currentFullPhoto"
               class="progress"

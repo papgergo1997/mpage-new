@@ -44,7 +44,7 @@ export class ImageListComponent implements OnInit, OnDestroy {
   filterTable(filterValue: string) {
     this.dataSource.filter = filterValue.toLowerCase();
   }
-
+  //
   onDelete(image: Image): void {
     if (!confirm('Are you sure you want to delete this item?')) {
       return;

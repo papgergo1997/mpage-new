@@ -49,9 +49,6 @@
             <button (click)="article.isOpened = true" class="btn-edit">
               <i class="fa fa-pencil"></i>
             </button>
-            <!-- <button [routerLink]="[article.id]" class="btn-edit">
-              <i class="fa fa-pencil"></i>
-            </button> -->
             <button (click)="onDelete(article)" class="btn-delete">
               <i class="fa fa-trash"></i>
             </button>
@@ -75,41 +72,4 @@
     [pageSizeOptions]="[3, 5, 8]"
     showFirstLastButtons
   ></mat-paginator>
-  <!-- <table class="the-table">
-    <thead class="table-head">
-      <th>Title</th>
-      <th>Abstract</th>
-      <th>Photo</th>
-      <th>Link</th>
-      <th></th>
-    </thead>
-    <tbody class="table-body">
-      <tr
-        class="table-row"
-        *ngFor="let article of list$ | async | articleFilter: filterKey"
-      >
-        <td>{{ article.title }}</td>
-        <td>{{ article.abstract }}</td>
-        <td>
-          <img
-            class="list-img"
-            src="{{ article.photo }}"
-            alt="article"
-            style="width: 140px"
-          />
-        </td>
-        <td>{{ article.link }}</td>
-        <td>
-          <div class="group-btn">
-            <button [routerLink]="[article.id]" class="btn-edit">
-              <i class="fa fa-pencil"></i>
-            </button>
-            <button (click)="onDelete(article)" class="btn-delete">
-              <i class="fa fa-trash"></i>
-            </button>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table> -->
 </div>
