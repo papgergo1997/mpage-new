@@ -106,7 +106,7 @@
               >Preview Image</label
             >
             <div>
-              <img
+              <img *ngIf="(fullPercentage == 100 && image.picture == '')|| image.picture != ''"
                 src="{{ image.picture }}"
                 alt="{{ image.picture }}"
                 style="width: 100px"
