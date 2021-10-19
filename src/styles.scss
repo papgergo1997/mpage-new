@@ -371,6 +371,7 @@ html {
   will-change: opacity;
   transition: opacity 0.3s;
   z-index: 0;
+
   .viewer-img {
     width: 100%;
     border-radius: 7px;
@@ -734,52 +735,7 @@ html {
     opacity: 1;
   }
 }
-// .form-container {
-//   font-family: $secondary-font;
-//   width: 96vw;
-//   margin: 60px 0;
-//   padding: 0;
-//   .form {
-//     width: 500px;
-//     margin: 20px auto;
-//     form {
-//       .input-group {
-//         display: flex;
-//         flex-direction: column;
-//         .input-label {
-//           margin: 10px 0;
-//         }
-//         .input-control {
-//           max-width: 450px;
-//           border: none;
-//           outline: none;
-//           border-bottom: 1px solid rgb(200, 200, 200);
-//           border-radius: 2px;
-//           transition: border 300ms;
-//         }
-//         .input-control:focus {
-//           border-bottom: 1px solid $main-green;
-//         }
-//       }
-//       .upload-btn {
-//         border: none;
-//         background-color: $main-green;
-//         color: $text-white;
-//         opacity: 90%;
-//       }
-//       .upload-btn:hover {
-//         opacity: 100%;
-//         cursor: pointer;
-//       }
-//       .submit-btn {
-//         max-width: 450px;
-//         margin-top: 15px;
-//         background-color: $edit-blue;
-//         color: $text-white;
-//       }
-//     }
-//   }
-// }
+
 .file-input {
   margin-top: 20px;
 }
@@ -844,6 +800,14 @@ html {
     height: 90px;
     line-height: 90px;
   }
+  //Styles for Image Viewer
+  .img-container{
+    top: -220px;
+  }
+  .control-group{
+    top: -220px;
+  }
+  //Styles for Login
   .login-container {
     .login-nav {
       left: 50px;
@@ -909,24 +873,17 @@ html {
     line-height: 100px;
   }
 
-  //Styles for Image Card Container
-  // .item-card--container {
-  //   // width: 800px;
-  //   .image-card {
-  //     margin: 11px;
-  //   }
-  // }
-  //Styles for Article Card Container
-  // .article-card--container {
-  //   width: 800px;
-  //   .article-card {
-  //     margin: 11px;
-  //   }
-  // }
   //Styles for Article Card
   .article-img {
     width: 100%;
     max-height: auto !important;
+  }
+  //Styles for Image Viewer
+  .img-container{
+    top: 0;
+  }
+  .control-group{
+    top: 0;
   }
   //Styles for tables
   .group-btn {
