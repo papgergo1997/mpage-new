@@ -22,6 +22,7 @@ export class ImageEditComponent implements OnInit {
   //
   //For pop-up
   @Input() image: Image = new Image();
+  @Input() newImage: boolean;
   isOpened: boolean;
   //
   selectedFiles: any;
@@ -153,5 +154,9 @@ export class ImageEditComponent implements OnInit {
   close() {
     this.image.isOpened = false;
     this.imageForm.reset()
+    if(this.newImage){
+      this.imageForm.patchValue(new Image())
+    }
+    this.imageForm.patchValue(this.image)
   }
 }
