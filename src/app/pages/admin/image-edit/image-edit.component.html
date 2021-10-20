@@ -106,7 +106,7 @@
               >Preview Image</label
             >
             <div>
-              <img *ngIf="(fullPercentage == 100 && image.picture == '')|| image.picture != ''"
+              <img *ngIf="fullPercentage == 100 && image.picture != ''"
                 src="{{ image.picture }}"
                 alt="{{ image.picture }}"
                 style="width: 100px"
@@ -155,7 +155,7 @@
               >Full Image</label
             >
             <div style="height: 130px">
-              <img
+              <img *ngIf="fullPercentage == 100 && image.picture != ''"
                 src="{{ image.fullPicture }}"
                 alt="{{ image.fullPicture }}"
                 style="max-width: 200px; max-height: 130px"

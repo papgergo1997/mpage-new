@@ -21,13 +21,13 @@ export class ImageEditComponent implements OnInit {
   base64: any;
   //
   //For pop-up
-  @Input() image: Image;
+  @Input() image: Image = new Image();
   isOpened: boolean;
   //
   selectedFiles: any;
   currentPhoto: Photo;
   percentage: number = 0;
-  fullPercentage: number = 0;
+  fullPercentage: number = 100;
   selectedFullFiles: FileList;
   currentFullPhoto: Photo;
   submitted: boolean = false;
@@ -124,6 +124,7 @@ export class ImageEditComponent implements OnInit {
   }
 
   upload(): void {
+    this.fullPercentage = 0;
     const file = this.selectedFiles;
     this.selectedFiles = undefined;
     this.currentPhoto = new Photo(file);
@@ -151,5 +152,6 @@ export class ImageEditComponent implements OnInit {
 
   close() {
     this.image.isOpened = false;
+    this.imageForm.reset()
   }
 }
