@@ -107,8 +107,8 @@
             >
             <div>
               <img *ngIf="fullPercentage == 100 && image.picture != ''"
-                src="{{ image.picture }}"
-                alt="{{ image.picture }}"
+                src="{{ imageForm.get('picture').value }}"
+                alt="{{ imageForm.get('picture').value }}"
                 style="width: 100px"
               />
             </div>
@@ -155,9 +155,9 @@
               >Full Image</label
             >
             <div style="height: 130px">
-              <img *ngIf="fullPercentage == 100 && image.picture != ''"
-                src="{{ image.fullPicture }}"
-                alt="{{ image.fullPicture }}"
+              <img *ngIf="fullPercentage == 100 && imageForm.get('fullPicture') != ''"
+                src="{{ imageForm.get('fullPicture').value }}"
+                alt="{{ imageForm.get('fullPicture').value }}"
                 style="max-width: 200px; max-height: 130px"
               />
             </div>
