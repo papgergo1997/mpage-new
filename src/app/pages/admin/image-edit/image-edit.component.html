@@ -1,5 +1,4 @@
 <div fxLayout="column" class="form-container">
-
   <div (click)="close()" class="modal-bg"></div>
   <div *ngIf="image" class="form">
     <mat-icon (click)="close()" class="close">close</mat-icon>
@@ -106,7 +105,8 @@
               >Preview Image</label
             >
             <div>
-              <img *ngIf="fullPercentage == 100 && image.picture != ''"
+              <img
+                *ngIf="fullPercentage == 100 && image.picture != ''"
                 src="{{ imageForm.get('picture').value }}"
                 alt="{{ imageForm.get('picture').value }}"
                 style="width: 100px"
@@ -134,7 +134,7 @@
             <img [src]="base64" alt="" />
 
             <div
-              *ngIf="currentPhoto"
+              *ngIf="currentPhoto && imageForm.get('picture').value != null"
               class="progress"
               style="max-height: 10px; margin: 0"
             >
@@ -155,7 +155,10 @@
               >Full Image</label
             >
             <div style="height: 130px">
-              <img *ngIf="fullPercentage == 100 && imageForm.get('fullPicture') != ''"
+              <img
+                *ngIf="
+                  fullPercentage == 100 && imageForm.get('fullPicture') != ''
+                "
                 src="{{ imageForm.get('fullPicture').value }}"
                 alt="{{ imageForm.get('fullPicture').value }}"
                 style="max-width: 200px; max-height: 130px"
@@ -183,11 +186,7 @@
             </div>
           </div>
           <div>
-            <div
-              *ngIf="currentFullPhoto"
-              class="progress"
-              style="max-height: 10px; margin: 0"
-            >
+            <div *ngIf="currentPhoto && imageForm.get('picture').value != null" class="progress" style="max-height: 10px; margin: 0">
               <div
                 class="progress-bar progress-bar-info"
                 role="progressbar"

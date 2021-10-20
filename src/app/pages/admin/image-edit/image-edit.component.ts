@@ -153,10 +153,10 @@ export class ImageEditComponent implements OnInit {
 
   close() {
     this.image.isOpened = false;
-    this.submitted = false
+    this.submitted = false;
+
     if(this.newImage){
-      this.imageForm.reset()
+      this.imageForm.reset('')
     }
-    console.log(this.imageForm.get('fullPicture').value)
   }
 }
