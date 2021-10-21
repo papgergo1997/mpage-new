@@ -126,7 +126,6 @@ export class ImageEditComponent implements OnInit {
               });
               this.image.picture = photo.map((photo) => photo.url).toString();
               this.pictureName = photo.map((photo)=> photo.name).toString();
-              console.log(this.pictureId)
             });
         }
       },
@@ -166,7 +165,6 @@ export class ImageEditComponent implements OnInit {
   close() {
     this.image.isOpened = false;
     this.submitted = false;
-
     if(this.newImage){
       this.imageForm.reset('')
     }

@@ -49,8 +49,6 @@ export class ImageListComponent implements OnInit, OnDestroy {
   //
   onDelete(image: Image): void {
     if (!confirm('Are you sure you want to delete this item?')) {
-      console.log(image.pictureId)
-      console.log(image.pictureName.split(',')[0],image.pictureName.split(',')[1])
       return;
     } else {
       this.iService.remove(image);

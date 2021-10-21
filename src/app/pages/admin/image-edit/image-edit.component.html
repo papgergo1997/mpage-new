@@ -198,7 +198,7 @@
                 {{ fullPercentage }}%
               </div>
             </div>
-            <label class="file-input">
+            <label *ngIf="image.isOpened" class="file-input">
               <input type="file" (change)="fileChangeEvent($event)" />
             </label>
             <button
