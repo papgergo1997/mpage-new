@@ -9,6 +9,7 @@ import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
 //for cropper
 import { CroppedEvent } from 'ngx-photo-editor';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-image-edit',
@@ -25,6 +26,11 @@ export class ImageEditComponent implements OnInit {
   @Input() newImage: boolean;
   isOpened: boolean;
   //
+
+  pictureId: string = '';
+  pictureName: string = '';
+
+
   selectedFiles: any;
   currentPhoto: Photo;
   percentage: number = 0;
@@ -40,6 +46,8 @@ export class ImageEditComponent implements OnInit {
     type: new FormControl('', Validators.required),
     picture: new FormControl('', Validators.required),
     fullPicture: new FormControl('', Validators.required),
+    pictureId: new FormControl(''),
+    pictureName: new FormControl(''),
   });
 
   constructor(
@@ -56,6 +64,8 @@ export class ImageEditComponent implements OnInit {
 
   onUpdate(): void {
     if (this.image.id == '') {
+      this.imageForm.get('pictureId').setValue(this.pictureId)
+      this.imageForm.get('pictureName').setValue(this.pictureName)
       this.iService
         .create(this.imageForm.value)
         .then(() => {
@@ -107,7 +117,7 @@ export class ImageEditComponent implements OnInit {
             .snapshotChanges()
             .pipe(
               map((changes) =>
-                changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
+                changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }), changes.map((c)=>this.pictureId = c.payload.key))
               )
             )
             .subscribe((photo) => {
@@ -115,6 +125,8 @@ export class ImageEditComponent implements OnInit {
                 picture: photo.map((photo) => photo.url).toString(),
               });
               this.image.picture = photo.map((photo) => photo.url).toString();
+              this.pictureName = photo.map((photo)=> photo.name).toString();
+              console.log(this.pictureId)
             });
         }
       },

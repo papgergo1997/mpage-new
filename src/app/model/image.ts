@@ -7,4 +7,6 @@ export class Image {
   fullPicture: string = '';
   type: string = '';
   isOpened: boolean = false;
+  pictureId: string = '';
+  pictureName: string = '';
 }
