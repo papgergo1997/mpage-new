@@ -5,6 +5,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
 import { MatPaginator } from '@angular/material/paginator';
+import { PhotoUploadService } from 'src/app/service/photo-upload.service';
 
 @Component({
   selector: 'app-image-list',
@@ -18,6 +19,7 @@ export class ImageListComponent implements OnInit, OnDestroy {
   //
   list$: Observable<Image[]> = new Observable<Image[]>();
   @Output() image: Image = new Image();
+  @Output() newImage: boolean = true;
   filterKey: string = '';
   //Material Table
   dataSource: MatTableDataSource<Image>;
@@ -30,7 +32,7 @@ export class ImageListComponent implements OnInit, OnDestroy {
     'edit',
   ];
   //
-  constructor(private iService: ImageService, private toaster: ToastrService) {}
+  constructor(private iService: ImageService, private toaster: ToastrService, private phUService: PhotoUploadService) {}
 
   ngOnInit(): void {
     this.list$ = this.iService.list$;
@@ -44,12 +46,13 @@ export class ImageListComponent implements OnInit, OnDestroy {
   filterTable(filterValue: string) {
     this.dataSource.filter = filterValue.toLowerCase();
   }
-
+  //
   onDelete(image: Image): void {
     if (!confirm('Are you sure you want to delete this item?')) {
       return;
     } else {
       this.iService.remove(image);
+      this.phUService.deleteFile(image.pictureName.split(',')[0], image.pictureName.split(',')[1], image.pictureId)
       this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
     }
   }

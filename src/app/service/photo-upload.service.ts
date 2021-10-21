@@ -45,10 +45,11 @@ export class PhotoUploadService {
       ref.limitToLast(numberItems));
   };
 
-  deleteFile(photo: Photo): void {
-    this.deleteFileDatabase(photo.key)
+  deleteFile(photoName: string, secondPhotoName: string, photoId: string): void {
+    this.deleteFileDatabase(photoId)
       .then(() => {
-        this.deleteFileStorage(photo.name)
+        this.deleteFileStorage(photoName),
+        this.deleteFileStorage(secondPhotoName)
       })
       .catch(error => console.log(error))
   };

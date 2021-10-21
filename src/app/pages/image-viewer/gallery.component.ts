@@ -4,49 +4,10 @@ import { Image } from 'src/app/model/image';
 import { switchMap } from 'rxjs/operators';
 import { ImageService } from 'src/app/service/image.service';
 import { Observable, of, Subscription } from 'rxjs';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-} from '@angular/animations';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  // animations: [
-  //   trigger('fade', [
-  //     state('slide1', style({
-  //       opacity: 1,
-  //     })),
-  //     state('slide2', style({
-  //       opacity: 0,
-  //     })),
-  //     transition('slide1 => slide2', [
-  //       animate('0.2s')
-  //     ]),
-  //     transition('slide2 => slide1', [
-  //       animate('0.5s')
-  //     ]),
-  //   ]),
-  //   trigger('slide', [
-  //     state('slide1', style({
-  //       opacity: 1,
-  //       transform: 'translateX(0%)'
-  //     })),
-  //     state('slide2', style({
-  //       opacity: 0,
-  //       transform: 'translateX(100%)'
-  //     })),
-  //     transition('slide1 => slide2', [
-  //       animate('0.2s ease-in', style({ transform: 'translateX(-100%)' }))
-  //     ]),
-  //     transition('slide2 => slide1', [
-  //       animate('0.5s ease-in', style({ transform: 'translateX(0%)' }))
-  //     ])
-  //   ])
-  // ],
   styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent implements OnInit, OnDestroy {
@@ -89,15 +50,6 @@ export class GalleryComponent implements OnInit, OnDestroy {
       }
     });
   }
-
-  // animation() {
-  //   this.slide1Or2 = false
-  //   console.log(this.slide1Or2)
-  //   setTimeout(() => {
-  //     this.slide1Or2 = true
-  //     console.log(this.slide1Or2)
-  //   }, 500);
-  // }
 
   left() {
     this.swappedImages$.subscribe((images) => {

@@ -9,6 +9,7 @@ import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
 //for cropper
 import { CroppedEvent } from 'ngx-photo-editor';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-image-edit',
@@ -21,14 +22,19 @@ export class ImageEditComponent implements OnInit {
   base64: any;
   //
   //For pop-up
-  @Input() image: Image;
+  @Input() image: Image = new Image();
+  @Input() newImage: boolean;
   isOpened: boolean;
   //
-  // image: Image;
+
+  pictureId: string = '';
+  pictureName: string = '';
+
+
   selectedFiles: any;
   currentPhoto: Photo;
   percentage: number = 0;
-  fullPercentage: number = 0;
+  fullPercentage: number = 100;
   selectedFullFiles: FileList;
   currentFullPhoto: Photo;
   submitted: boolean = false;
@@ -40,6 +46,8 @@ export class ImageEditComponent implements OnInit {
     type: new FormControl('', Validators.required),
     picture: new FormControl('', Validators.required),
     fullPicture: new FormControl('', Validators.required),
+    pictureId: new FormControl(''),
+    pictureName: new FormControl(''),
   });
 
   constructor(
@@ -51,17 +59,13 @@ export class ImageEditComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.activatedRoute.params
-    //   .pipe(switchMap((params) => this.iService.get(params.id)))
-    //   .subscribe((image) => {
-    //     this.image = image;
-    //     this.imageForm.patchValue(image);
-    //   });
     this.imageForm.patchValue(this.image);
   }
 
   onUpdate(): void {
     if (this.image.id == '') {
+      this.imageForm.get('pictureId').setValue(this.pictureId)
+      this.imageForm.get('pictureName').setValue(this.pictureName)
       this.iService
         .create(this.imageForm.value)
         .then(() => {
@@ -84,10 +88,6 @@ export class ImageEditComponent implements OnInit {
     }
     this.submitted = true;
   }
-
-  // selectFullFile(event): void {
-  //   this.selectedFullFiles = event.target.files;
-  // }
 
   uploadFunction(num: number, photo: Photo, full: boolean) {
     this.pUploadService.pushFileToStorage(photo).subscribe(
@@ -117,7 +117,7 @@ export class ImageEditComponent implements OnInit {
             .snapshotChanges()
             .pipe(
               map((changes) =>
-                changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
+                changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }), changes.map((c)=>this.pictureId = c.payload.key))
               )
             )
             .subscribe((photo) => {
@@ -125,6 +125,7 @@ export class ImageEditComponent implements OnInit {
                 picture: photo.map((photo) => photo.url).toString(),
               });
               this.image.picture = photo.map((photo) => photo.url).toString();
+              this.pictureName = photo.map((photo)=> photo.name).toString();
             });
         }
       },
@@ -135,6 +136,7 @@ export class ImageEditComponent implements OnInit {
   }
 
   upload(): void {
+    this.fullPercentage = 0;
     const file = this.selectedFiles;
     this.selectedFiles = undefined;
     this.currentPhoto = new Photo(file);
@@ -156,10 +158,15 @@ export class ImageEditComponent implements OnInit {
   imageCropped(event: CroppedEvent) {
     this.selectedFiles = event.file;
   }
+  //
 
   //For Modal
 
   close() {
     this.image.isOpened = false;
+    this.submitted = false;
+    if(this.newImage){
+      this.imageForm.reset('')
+    }
   }
 }
