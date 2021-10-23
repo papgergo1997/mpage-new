@@ -17,6 +17,7 @@ export class ArticlesListComponent implements OnInit, OnDestroy {
   @ViewChild('paginator') paginator: MatPaginator;
   //
   @Output() article: Article = new Article();
+  @Output() newArticle: boolean = true;
   list$: Observable<Article[]> = new Observable<Article[]>();
   filterKey: string = '';
   //Material Table

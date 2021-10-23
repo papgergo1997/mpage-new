@@ -15,9 +15,10 @@ import { PhotoUploadService } from 'src/app/service/photo-upload.service';
 })
 export class ArticleEditComponent implements OnInit {
   @Input() article: Article;
+  @Input() newArticle: boolean;
   selectedFiles: FileList;
   currentPhoto: Photo;
-  percentage: number = 0;
+  percentage: number = 100;
   submitted: boolean = false;
   //Reactive Forms START
   articleForm = new FormGroup({
@@ -50,17 +51,19 @@ export class ArticleEditComponent implements OnInit {
       this.articleService
         .create(this.articleForm.value)
         .then(() => {
-          this.router.navigate(['admin/articles']);
+          this.close();
+          this.articleForm.reset();
           this.toaster.success('Succesfully created!', 'Created', {
             timeOut: 3000,
           });
+
         })
         .catch((error) => console.log(error));
     } else {
       this.articleService
         .update(this.articleForm.value)
         .then(() => {
-          this.router.navigate(['admin/articles']);
+          this.close()
           this.toaster.info('Successfully updated!', 'Updated', {
             timeOut: 3000,
           });
@@ -75,6 +78,7 @@ export class ArticleEditComponent implements OnInit {
   }
 
   upload(): void {
+    this.percentage = 0;
     const file = this.selectedFiles.item(0);
     this.selectedFiles = undefined;
     this.currentPhoto = new Photo(file);
@@ -106,5 +110,6 @@ export class ArticleEditComponent implements OnInit {
 
   close() {
     this.article.isOpened = false;
+    this.submitted = false;
   }
 }

@@ -23,7 +23,9 @@ export class ImageEditComponent implements OnInit {
   //
   //For pop-up
   @Input() image: Image = new Image();
+  //It is not needed maybe
   @Input() newImage: boolean;
+  //
   isOpened: boolean;
   //
 
@@ -70,6 +72,7 @@ export class ImageEditComponent implements OnInit {
         .create(this.imageForm.value)
         .then(() => {
           this.close();
+          this.imageForm.reset();
           this.toaster.success('Successfully created!', 'Created', {
             timeOut: 3000,
           });
@@ -165,8 +168,5 @@ export class ImageEditComponent implements OnInit {
   close() {
     this.image.isOpened = false;
     this.submitted = false;
-    if(this.newImage){
-      this.imageForm.reset('')
-    }
   }
 }
