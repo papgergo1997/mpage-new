@@ -15,9 +15,14 @@ import { PhotoUploadService } from 'src/app/service/photo-upload.service';
 })
 export class ArticleEditComponent implements OnInit {
   @Input() article: Article;
+  @Input() newArticle: boolean;
   selectedFiles: FileList;
   currentPhoto: Photo;
-  percentage: number = 0;
+
+  photoId: string = '';
+  photoName: string = '';
+
+  percentage: number = 100;
   submitted: boolean = false;
   //Reactive Forms START
   articleForm = new FormGroup({
@@ -30,6 +35,8 @@ export class ArticleEditComponent implements OnInit {
     ]),
     link: new FormControl('', [Validators.required]),
     photo: new FormControl('', Validators.required),
+    photoId: new FormControl(''),
+    photoName: new FormControl(''),
   });
   //
 
@@ -47,20 +54,24 @@ export class ArticleEditComponent implements OnInit {
 
   onUpdate(): void {
     if (this.article.id == '') {
+      this.articleForm.get('photoId').setValue(this.photoId)
+      this.articleForm.get('photoName').setValue(this.photoName)
       this.articleService
         .create(this.articleForm.value)
         .then(() => {
-          this.router.navigate(['admin/articles']);
+          this.close();
+          this.articleForm.reset();
           this.toaster.success('Succesfully created!', 'Created', {
             timeOut: 3000,
           });
+
         })
         .catch((error) => console.log(error));
     } else {
       this.articleService
         .update(this.articleForm.value)
         .then(() => {
-          this.router.navigate(['admin/articles']);
+          this.close()
           this.toaster.info('Successfully updated!', 'Updated', {
             timeOut: 3000,
           });
@@ -75,6 +86,7 @@ export class ArticleEditComponent implements OnInit {
   }
 
   upload(): void {
+    this.percentage = 0;
     const file = this.selectedFiles.item(0);
     this.selectedFiles = undefined;
     this.currentPhoto = new Photo(file);
@@ -87,7 +99,7 @@ export class ArticleEditComponent implements OnInit {
           .snapshotChanges()
           .pipe(
             map((changes) =>
-              changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
+              changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }), changes.map((c)=>this.photoId = c.payload.key))
             )
           )
           .subscribe((photo) => {
@@ -95,6 +107,7 @@ export class ArticleEditComponent implements OnInit {
               photo: photo.map((photo) => photo.url).toString(),
             });
             this.article.photo = photo.map((photo) => photo.url).toString();
+            this.photoName = photo.map((photo)=> photo.name).toString();
           });
       },
       (error) => {
@@ -106,5 +119,6 @@ export class ArticleEditComponent implements OnInit {
 
   close() {
     this.article.isOpened = false;
+    this.submitted = false;
   }
 }

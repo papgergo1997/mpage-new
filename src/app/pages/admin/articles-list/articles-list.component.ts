@@ -5,6 +5,7 @@ import { Article } from 'src/app/model/article';
 import { ArticleService } from 'src/app/service/article.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { PhotoUploadService } from 'src/app/service/photo-upload.service';
 
 @Component({
   selector: 'app-articles-list',
@@ -17,6 +18,7 @@ export class ArticlesListComponent implements OnInit, OnDestroy {
   @ViewChild('paginator') paginator: MatPaginator;
   //
   @Output() article: Article = new Article();
+  @Output() newArticle: boolean = true;
   list$: Observable<Article[]> = new Observable<Article[]>();
   filterKey: string = '';
   //Material Table
@@ -26,6 +28,7 @@ export class ArticlesListComponent implements OnInit, OnDestroy {
 
   constructor(
     private articleService: ArticleService,
+    private phUService: PhotoUploadService,
     private toaster: ToastrService
   ) {}
 
@@ -47,6 +50,7 @@ export class ArticlesListComponent implements OnInit, OnDestroy {
       return;
     } else {
       this.articleService.remove(article);
+      this.phUService.deleteFile(article.photoName, article.photoId)
       this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
     }
   }

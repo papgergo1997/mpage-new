@@ -17,6 +17,7 @@
     class="pop-up"
     [class.popped]="article.isOpened == true"
     [article]="article"
+    [newArticle]="newArticle"
   ></app-article-edit>
   <table class="the-table" mat-table [dataSource]="dataSource">
     <ng-container
