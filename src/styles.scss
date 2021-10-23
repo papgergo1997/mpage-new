@@ -238,6 +238,7 @@ html {
   background-attachment: fixed;
   height: 100%;
   margin: 0 auto;
+  padding-bottom: 20px;
   box-shadow: $secondary-shadow;
   justify-content: center;
   align-items: center;
@@ -275,7 +276,7 @@ html {
   margin: 0 auto;
   z-index: 0;
   .article-cards {
-    margin: 0 auto;
+    margin: 10px auto;
   }
   .articles-title {
     display: flex;

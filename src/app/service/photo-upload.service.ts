@@ -66,7 +66,6 @@ export class PhotoUploadService {
   }
 
   private deleteFileDatabase(key: string): Promise<void> {
-    console.log(key);
     return this.db.list(this.basePath).remove(key);
   }
 
