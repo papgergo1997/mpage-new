@@ -6,15 +6,17 @@ import { finalize } from 'rxjs/operators';
 import { Photo } from '../model/photo';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PhotoUploadService {
-
   private basePath: string = '/uploads';
 
   photos: AngularFireList<Photo>;
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {
+  constructor(
+    private db: AngularFireDatabase,
+    private storage: AngularFireStorage
+  ) {
     this.photos = this.getFiles(100);
   }
 
@@ -23,44 +25,53 @@ export class PhotoUploadService {
     const storageRef = this.storage.ref(filePath);
     const uploadTask = this.storage.upload(filePath, photo.file);
 
-    uploadTask.snapshotChanges().pipe(
-      finalize(() => {
-        storageRef.getDownloadURL().subscribe(downloadURL => {
-          // photo.key = (Math.random() * 10000).toPrecision(4).toString();
-          photo.url = downloadURL;
-          photo.name = photo.file.name;
-          this.saveFileData(photo);
-        });
-      })
-    ).subscribe();
+    uploadTask
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          storageRef.getDownloadURL().subscribe((downloadURL) => {
+            // photo.key = (Math.random() * 10000).toPrecision(4).toString();
+            photo.url = downloadURL;
+            photo.name = photo.file.name;
+            this.saveFileData(photo);
+          });
+        })
+      )
+      .subscribe();
     return uploadTask.percentageChanges();
-  };
+  }
 
   private saveFileData(photo: Photo): void {
     this.db.list(this.basePath).push(photo);
-  };
+  }
 
   getFiles(numberItems: number): AngularFireList<Photo> {
-    return this.db.list(this.basePath, ref =>
-      ref.limitToLast(numberItems));
-  };
+    return this.db.list(this.basePath, (ref) => ref.limitToLast(numberItems));
+  }
 
-  deleteFile(photoName: string, secondPhotoName: string, photoId: string): void {
+  deleteFile(
+    photoName: string,
+    photoId: string,
+    secondPhotoName?: string
+  ): void {
     this.deleteFileDatabase(photoId)
       .then(() => {
-        this.deleteFileStorage(photoName),
-        this.deleteFileStorage(secondPhotoName)
+        if (secondPhotoName) {
+          this.deleteFileStorage(photoName);
+          this.deleteFileStorage(secondPhotoName);
+        }
+        this.deleteFileStorage(photoName);
       })
-      .catch(error => console.log(error))
-  };
+      .catch((error) => console.log(error));
+  }
 
   private deleteFileDatabase(key: string): Promise<void> {
-    console.log(key)
-    return this.db.list(this.basePath).remove(key)
-  };
+    console.log(key);
+    return this.db.list(this.basePath).remove(key);
+  }
 
   private deleteFileStorage(name: string): void {
     const storageRef = this.storage.ref(this.basePath);
     storageRef.child(name).delete();
-  };
+  }
 }

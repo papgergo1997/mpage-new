@@ -18,6 +18,10 @@ export class ArticleEditComponent implements OnInit {
   @Input() newArticle: boolean;
   selectedFiles: FileList;
   currentPhoto: Photo;
+
+  photoId: string = '';
+  photoName: string = '';
+
   percentage: number = 100;
   submitted: boolean = false;
   //Reactive Forms START
@@ -31,6 +35,8 @@ export class ArticleEditComponent implements OnInit {
     ]),
     link: new FormControl('', [Validators.required]),
     photo: new FormControl('', Validators.required),
+    photoId: new FormControl(''),
+    photoName: new FormControl(''),
   });
   //
 
@@ -48,6 +54,8 @@ export class ArticleEditComponent implements OnInit {
 
   onUpdate(): void {
     if (this.article.id == '') {
+      this.articleForm.get('photoId').setValue(this.photoId)
+      this.articleForm.get('photoName').setValue(this.photoName)
       this.articleService
         .create(this.articleForm.value)
         .then(() => {
@@ -91,7 +99,7 @@ export class ArticleEditComponent implements OnInit {
           .snapshotChanges()
           .pipe(
             map((changes) =>
-              changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }))
+              changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }), changes.map((c)=>this.photoId = c.payload.key))
             )
           )
           .subscribe((photo) => {
@@ -99,6 +107,7 @@ export class ArticleEditComponent implements OnInit {
               photo: photo.map((photo) => photo.url).toString(),
             });
             this.article.photo = photo.map((photo) => photo.url).toString();
+            this.photoName = photo.map((photo)=> photo.name).toString();
           });
       },
       (error) => {

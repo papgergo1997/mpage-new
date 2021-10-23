@@ -5,4 +5,6 @@ export class Article {
   photo: string = '';
   link: string = '';
   isOpened: boolean = false;
+  photoId: string = '';
+  photoName: string = '';
 }
