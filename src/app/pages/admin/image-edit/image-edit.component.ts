@@ -129,7 +129,6 @@ export class ImageEditComponent implements OnInit {
               });
               this.image.picture = photo.map((photo) => photo.url).toString();
               this.pictureName = photo.map((photo)=> photo.name).toString();
-              console.log(this.pictureId)
             });
         }
       },

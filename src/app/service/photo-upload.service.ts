@@ -49,21 +49,24 @@ export class PhotoUploadService {
     return this.db.list(this.basePath, (ref) => ref.limitToLast(numberItems));
   }
 
-  deleteFileFrDBAndSt(id: string, name: string){
-    this.deleteFileDatabase(id).then(()=> this.deleteFileStorage(name)).catch((error)=> console.log(error))
+  deleteFileFrDBAndSt(id: string, name: string) {
+    this.deleteFileDatabase(id)
+      .then(() => this.deleteFileStorage(name))
+      .catch((error) => console.log(error));
   }
 
   deleteFile(
     photoName: string,
     photoId: string,
     secondPhotoName?: string,
-    secondPhotoId?: string,
+    secondPhotoId?: string
   ): void {
-    if(secondPhotoName){
-      this.deleteFileFrDBAndSt(photoId, photoName)
-      this.deleteFileFrDBAndSt(secondPhotoId, secondPhotoName)
+    if (secondPhotoName) {
+      this.deleteFileFrDBAndSt(photoId, photoName);
+      this.deleteFileFrDBAndSt(secondPhotoId, secondPhotoName);
+    } else {
+      this.deleteFileFrDBAndSt(photoId, photoName);
     }
-    this.deleteFileFrDBAndSt(photoId, photoName)
   }
 
   private deleteFileDatabase(key: string): Promise<void> {

@@ -52,7 +52,7 @@ export class ImageListComponent implements OnInit, OnDestroy {
       return;
     } else {
       this.iService.remove(image);
-      this.phUService.deleteFile(image.pictureName.split(',')[0], image.pictureId[image.pictureId.length -2], image.pictureName.split(',')[1], image.pictureId[image.pictureId.length -1])
+      this.phUService.deleteFile(image.pictureName.split(',')[1], image.pictureId[image.pictureId.length -1], image.pictureName.split(',')[0], image.pictureId[image.pictureId.length -2])
       this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
     }
   }
