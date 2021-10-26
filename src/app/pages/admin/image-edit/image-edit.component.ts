@@ -29,7 +29,7 @@ export class ImageEditComponent implements OnInit {
   isOpened: boolean;
   //
 
-  pictureId: string = '';
+  pictureId: string[] = [];
   pictureName: string = '';
 
 
@@ -120,7 +120,7 @@ export class ImageEditComponent implements OnInit {
             .snapshotChanges()
             .pipe(
               map((changes) =>
-                changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }), changes.map((c)=>this.pictureId = c.payload.key))
+                changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }), changes.map((c)=>this.pictureId.push(c.payload.key)))
               )
             )
             .subscribe((photo) => {
