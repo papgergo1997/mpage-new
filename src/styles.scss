@@ -600,6 +600,7 @@ html {
         width: 100px;
         margin-left: 30px;
         border: none;
+
         [class^="btn"] {
           border: none;
           width: 50%;
@@ -612,6 +613,11 @@ html {
           background-color: $edit-blue;
         }
         .btn-delete {
+          border: none;
+          width: 50%;
+          height: 40px;
+          color: $text-white;
+          opacity: 80%;
           border-radius: 0px 5px 5px 0px;
           background-color: rgb(236, 47, 47);
         }
@@ -625,6 +631,9 @@ html {
     }
     // }
   }
+}
+.sure {
+  text-align: center !important;
 }
 .popped {
   display: block !important;
@@ -802,10 +811,10 @@ html {
     line-height: 90px;
   }
   //Styles for Image Viewer
-  .img-container{
+  .img-container {
     top: -220px;
   }
-  .control-group{
+  .control-group {
     top: -220px;
   }
   //Styles for Login
@@ -880,10 +889,10 @@ html {
     max-height: auto !important;
   }
   //Styles for Image Viewer
-  .img-container{
+  .img-container {
     top: 0;
   }
-  .control-group{
+  .control-group {
     top: 0;
   }
   //Styles for tables
