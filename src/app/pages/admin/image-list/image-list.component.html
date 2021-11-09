@@ -54,9 +54,14 @@
             </button>
             <!--For Pop-Up END-->
 
-            <button (click)="onDelete(image)" class="btn-delete">
+            <button [matMenuTriggerFor]="sure" class="btn-delete">
               <i class="fa fa-trash"></i>
             </button>
+            <mat-menu #sure="matMenu">
+              <p>Are you sure?</p>
+              <button mat-menu-item (click)="onDelete(image)">Yes</button>
+              <button mat-menu-item>No</button>
+            </mat-menu>
           </div>
         </td>
       </div>
