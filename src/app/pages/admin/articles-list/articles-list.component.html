@@ -50,9 +50,14 @@
             <button (click)="article.isOpened = true" class="btn-edit">
               <i class="fa fa-pencil"></i>
             </button>
-            <button (click)="onDelete(article)" class="btn-delete">
+            <button [matMenuTriggerFor]="sure" class="btn-delete">
               <i class="fa fa-trash"></i>
             </button>
+            <mat-menu #sure=matMenu>
+              <p class="sure">Are you sure?</p>
+              <button mat-menu-item (click)="onDelete(article)">Yes</button>
+              <button mat-menu-item>No</button>
+            </mat-menu>
           </div>
         </td>
       </div>

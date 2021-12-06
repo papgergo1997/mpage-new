@@ -32,7 +32,11 @@ export class ImageListComponent implements OnInit, OnDestroy {
     'edit',
   ];
   //
-  constructor(private iService: ImageService, private toaster: ToastrService, private phUService: PhotoUploadService) {}
+  constructor(
+    private iService: ImageService,
+    private toaster: ToastrService,
+    private phUService: PhotoUploadService
+  ) {}
 
   ngOnInit(): void {
     this.list$ = this.iService.list$;
@@ -48,13 +52,14 @@ export class ImageListComponent implements OnInit, OnDestroy {
   }
   //
   onDelete(image: Image): void {
-    if (!confirm('Are you sure you want to delete this item?')) {
-      return;
-    } else {
-      this.iService.remove(image);
-      this.phUService.deleteFile(image.pictureName.split(',')[1], image.pictureId[image.pictureId.length -1], image.pictureName.split(',')[0], image.pictureId[image.pictureId.length -2])
-      this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
-    }
+    this.iService.remove(image);
+    this.phUService.deleteFile(
+      image.pictureName.split(',')[1],
+      image.pictureId[image.pictureId.length - 1],
+      image.pictureName.split(',')[0],
+      image.pictureId[image.pictureId.length - 2]
+    );
+    this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();

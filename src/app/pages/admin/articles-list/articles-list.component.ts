@@ -46,13 +46,9 @@ export class ArticlesListComponent implements OnInit, OnDestroy {
   }
 
   onDelete(article: Article): void {
-    if (!confirm('Are you sure you want to delete this item?')) {
-      return;
-    } else {
-      this.articleService.remove(article);
-      this.phUService.deleteFile(article.photoName, article.photoId)
-      this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
-    }
+    this.articleService.remove(article);
+    this.phUService.deleteFile(article.photoName, article.photoId);
+    this.toaster.warning('Successfull delete!', 'Deleted', { timeOut: 3000 });
   }
 
   ngOnDestroy() {
