@@ -106,7 +106,7 @@
             >
             <div>
               <img
-                *ngIf="fullPercentage == 100 && image.picture != ''"
+                *ngIf="fullPercentage == 100 && imageForm.get('picture') != ''"
                 src="{{ imageForm.get('picture').value }}"
                 alt="{{ imageForm.get('name').value }}"
                 style="width: 100px"
