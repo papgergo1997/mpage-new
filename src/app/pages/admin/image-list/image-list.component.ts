@@ -20,7 +20,7 @@ export class ImageListComponent implements OnInit, OnDestroy {
   list$: Observable<Image[]> = new Observable<Image[]>();
   @Output() image: Image = new Image();
   @Output() newImage: boolean = true;
-  filterKey: string = '';
+
   //Material Table
   dataSource: MatTableDataSource<Image>;
   displayedColumns: string[] = [
