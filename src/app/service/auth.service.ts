@@ -2,10 +2,7 @@ import { Injectable, NgZone, OnDestroy } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { User } from '../model/user';
-import * as firebase from 'firebase/app';
 import { ToastrService } from 'ngx-toastr';
-import { runInThisContext } from 'vm';
 import { Subscription } from 'rxjs';
 
 @Injectable({
