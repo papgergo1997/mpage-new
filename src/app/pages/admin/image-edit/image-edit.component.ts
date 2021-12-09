@@ -9,7 +9,6 @@ import { ImageService } from 'src/app/service/image.service';
 //for cropper
 import { CroppedEvent } from 'ngx-photo-editor';
 
-
 @Component({
   selector: 'app-image-edit',
   templateUrl: './image-edit.component.html',
@@ -22,13 +21,9 @@ export class ImageEditComponent implements OnInit {
   //
   //For pop-up
   @Input() image: Image = new Image();
-  //It is not needed maybe
-  @Input() newImage: boolean;
-
 
   pictureId: string[] = [];
   pictureName: string = '';
-
 
   selectedFiles: any;
   currentPhoto: Photo;
@@ -61,8 +56,8 @@ export class ImageEditComponent implements OnInit {
 
   onUpdate(): void {
     if (this.image.id == '') {
-      this.imageForm.get('pictureId').setValue(this.pictureId)
-      this.imageForm.get('pictureName').setValue(this.pictureName)
+      this.imageForm.get('pictureId').setValue(this.pictureId);
+      this.imageForm.get('pictureName').setValue(this.pictureName);
       this.iService
         .create(this.imageForm.value)
         .then(() => {
@@ -112,14 +107,17 @@ export class ImageEditComponent implements OnInit {
             .snapshotChanges()
             .pipe(
               map((changes) =>
-                changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }), changes.map((c)=>this.pictureId.push(c.payload.key)))
+                changes.map(
+                  (c) => ({ key: c.payload.key, ...c.payload.val() }),
+                  changes.map((c) => this.pictureId.push(c.payload.key))
+                )
               )
             )
             .subscribe((photo) => {
               this.imageForm.patchValue({
                 picture: photo.map((photo) => photo.url).toString(),
               });
-              this.pictureName = photo.map((photo)=> photo.name).toString();
+              this.pictureName = photo.map((photo) => photo.name).toString();
             });
         }
       },

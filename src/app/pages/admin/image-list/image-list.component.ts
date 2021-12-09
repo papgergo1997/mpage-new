@@ -19,7 +19,6 @@ export class ImageListComponent implements OnInit, OnDestroy {
   //
   list$: Observable<Image[]> = new Observable<Image[]>();
   @Output() image: Image = new Image();
-  @Output() newImage: boolean = true;
 
   //Material Table
   dataSource: MatTableDataSource<Image>;

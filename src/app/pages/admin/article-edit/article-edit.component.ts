@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgForm, Validators, FormGroup, FormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { switchMap, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Article } from 'src/app/model/article';
 import { Photo } from 'src/app/model/photo';
 import { ArticleService } from 'src/app/service/article.service';
@@ -15,7 +14,7 @@ import { PhotoUploadService } from 'src/app/service/photo-upload.service';
 })
 export class ArticleEditComponent implements OnInit {
   @Input() article: Article;
-  @Input() newArticle: boolean;
+
   selectedFiles: FileList;
   currentPhoto: Photo;
 
@@ -42,9 +41,7 @@ export class ArticleEditComponent implements OnInit {
 
   constructor(
     private articleService: ArticleService,
-    private activatedRoute: ActivatedRoute,
     private pUploadService: PhotoUploadService,
-    private router: Router,
     private toaster: ToastrService
   ) {}
 
@@ -54,8 +51,8 @@ export class ArticleEditComponent implements OnInit {
 
   onUpdate(): void {
     if (this.article.id == '') {
-      this.articleForm.get('photoId').setValue(this.photoId)
-      this.articleForm.get('photoName').setValue(this.photoName)
+      this.articleForm.get('photoId').setValue(this.photoId);
+      this.articleForm.get('photoName').setValue(this.photoName);
       this.articleService
         .create(this.articleForm.value)
         .then(() => {
@@ -64,14 +61,13 @@ export class ArticleEditComponent implements OnInit {
           this.toaster.success('Succesfully created!', 'Created', {
             timeOut: 3000,
           });
-
         })
         .catch((error) => console.log(error));
     } else {
       this.articleService
         .update(this.articleForm.value)
         .then(() => {
-          this.close()
+          this.close();
           this.toaster.info('Successfully updated!', 'Updated', {
             timeOut: 3000,
           });
@@ -99,7 +95,10 @@ export class ArticleEditComponent implements OnInit {
           .snapshotChanges()
           .pipe(
             map((changes) =>
-              changes.map((c) => ({ key: c.payload.key, ...c.payload.val() }), changes.map((c)=>this.photoId = c.payload.key))
+              changes.map(
+                (c) => ({ key: c.payload.key, ...c.payload.val() }),
+                changes.map((c) => (this.photoId = c.payload.key))
+              )
             )
           )
           .subscribe((photo) => {
@@ -107,7 +106,7 @@ export class ArticleEditComponent implements OnInit {
               photo: photo.map((photo) => photo.url).toString(),
             });
             this.article.photo = photo.map((photo) => photo.url).toString();
-            this.photoName = photo.map((photo)=> photo.name).toString();
+            this.photoName = photo.map((photo) => photo.name).toString();
           });
       },
       (error) => {

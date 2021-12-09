@@ -17,7 +17,6 @@
     class="pop-up"
     [class.popped]="article.isOpened == true"
     [article]="article"
-    [newArticle]="newArticle"
   ></app-article-edit>
   <table class="the-table" mat-table [dataSource]="dataSource">
     <ng-container
@@ -53,7 +52,7 @@
             <button [matMenuTriggerFor]="sure" class="btn-delete">
               <i class="fa fa-trash"></i>
             </button>
-            <mat-menu #sure=matMenu>
+            <mat-menu #sure="matMenu">
               <p class="sure">Are you sure?</p>
               <button mat-menu-item (click)="onDelete(article)">Yes</button>
               <button mat-menu-item>No</button>
