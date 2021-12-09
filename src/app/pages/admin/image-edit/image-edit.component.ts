@@ -1,15 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgForm, Validators, FormGroup, FormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { switchMap, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Photo } from 'src/app/model/photo';
 import { PhotoUploadService } from 'src/app/service/photo-upload.service';
 import { Image } from 'src/app/model/image';
 import { ImageService } from 'src/app/service/image.service';
 //for cropper
 import { CroppedEvent } from 'ngx-photo-editor';
-import { ThrowStmt } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-image-edit',
@@ -25,9 +24,7 @@ export class ImageEditComponent implements OnInit {
   @Input() image: Image = new Image();
   //It is not needed maybe
   @Input() newImage: boolean;
-  //
-  isOpened: boolean;
-  //
+
 
   pictureId: string[] = [];
   pictureName: string = '';
@@ -53,10 +50,8 @@ export class ImageEditComponent implements OnInit {
   });
 
   constructor(
-    private activatedRoute: ActivatedRoute,
     private iService: ImageService,
     private pUploadService: PhotoUploadService,
-    private router: Router,
     private toaster: ToastrService
   ) {}
 
@@ -109,9 +104,6 @@ export class ImageEditComponent implements OnInit {
               this.imageForm.patchValue({
                 fullPicture: photo.map((photo) => photo.url).toString(),
               });
-              this.image.fullPicture = photo
-                .map((photo) => photo.url)
-                .toString();
             });
         } else if (full == false) {
           this.percentage = Math.round(percentage);
@@ -127,7 +119,6 @@ export class ImageEditComponent implements OnInit {
               this.imageForm.patchValue({
                 picture: photo.map((photo) => photo.url).toString(),
               });
-              this.image.picture = photo.map((photo) => photo.url).toString();
               this.pictureName = photo.map((photo)=> photo.name).toString();
             });
         }
