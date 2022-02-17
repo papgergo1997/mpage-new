@@ -253,6 +253,21 @@ html {
   }
 }
 //Styles for Image Card
+.image{
+  width: 380px;
+  height: 380px;
+  opacity: 90%;
+  background-size: 100%;
+  background-position: center;
+  transition: background opacity 300ms;
+  transition:  300ms;
+  box-shadow: $secondary-shadow;
+}
+.image:hover{
+  background-size: 105%;
+  opacity: 100%;
+  cursor: pointer;
+}
 .card-img {
   width: 100%;
   box-shadow: $secondary-shadow;
@@ -792,6 +807,10 @@ html {
     width: 150px;
     height: 150px;
     right: 50px;
+  }
+  .image{
+    width: 270px;
+    height: 270px;
   }
   .about {
     height: 340px;

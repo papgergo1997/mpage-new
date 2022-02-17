@@ -4,10 +4,13 @@
   *ngIf="image"
   class="cards"
 >
-  <div class="image">
-    <a [routerLink]="[image.id]"
-      ><img class="card-img" src="{{ image.picture }}" alt="{{ image.name }}"
-    /></a>
+<!-- <div class="image">
+  <a [routerLink]="[image.id]"
+    ><img class="card-img" src="{{ image.picture }}" alt="{{ image.name }}"
+  /></a>
+</div> -->
+  <div [routerLink]="[image.id]" class="image" style="background-image: url({{image.picture}});">
+
   </div>
   <div class="image-title">
     <h5>{{ image.name }}</h5>
